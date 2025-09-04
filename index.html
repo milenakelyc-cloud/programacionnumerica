@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio – Programación Numérica | FINESI – UNA Puno</title>
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#121935; --ink:#e8ecff; --muted:#b7c0ff;
+      --acc:#7aa2ff; --accent-2:#8ef0d9; --ring:#2a3a7a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:linear-gradient(180deg,#0a0f21 0%,#0b132b 100%);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--acc);text-decoration:none}
+    header{position:sticky;top:0;backdrop-filter:saturate(130%) blur(8px);background:#0b1020cc;border-bottom:1px solid #1f2759;z-index:10}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 18px}
+    .hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+    .brand h1{margin:0;font-size:clamp(20px,3vw,28px);letter-spacing:.3px}
+    .brand p{margin:4px 0 0;color:var(--muted);font-size:14px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{padding:6px 10px;border:1px solid #2a356d;border-radius:999px;color:#dbe3ff;background:#0e1632}
+
+    main{padding:26px 0}
+    .grid{display:grid;gap:16px}
+    .panel{background:var(--panel);border:1px solid #1d2555;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
+    .about{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+    .about h2,.activities h2,.resources h2{margin:0 0 10px;font-size:20px}
+    .muted{color:var(--muted)}
+
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .kpi{background:#0e1640;border:1px solid #29316a;border-radius:14px;padding:12px;text-align:center}
+    .kpi .big{display:block;font-size:22px;font-weight:700}
+    .kpi small{color:var(--muted)}
+
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0}
+    .chip{padding:6px 10px;border:1px dashed #2b3470;border-radius:999px;color:#cfe0ff;cursor:default}
+
+    .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{background:#0f173c;border:1px solid #27306d;border-radius:16px;padding:14px;display:grid;gap:8px}
+    .card h3{margin:0;font-size:16px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag{background:#0d1536;border:1px solid #2a356d;padding:4px 8px;border-radius:999px;font-size:12px}
+    .card a.btn{margin-top:6px;display:inline-block;padding:8px 10px;border-radius:10px;border:1px solid #2a3a7a;background:linear-gradient(180deg,#0f1a48,#0b1538);}
+
+    .resources ul{margin:8px 0 0;padding:0 0 0 18px}
+    footer{margin:24px 0 30px;color:#9fb0ff80;text-align:center}
+
+    @media (max-width:860px){.about{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="brand">
+        <h1>Portafolio – Programación Numérica</h1>
+        <p>FINESI · Universidad Nacional del Altiplano – Puno · Semestre 2025</p>
+      </div>
+      <div class="badges">
+        <span class="badge">Estudiante: Tu Nombre</span>
+        <span class="badge">Docente: Nombre Docente</span>
+        <span class="badge">Sección: PN-01</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="about panel">
+      <div>
+        <h2>Sobre este portafolio</h2>
+        <p class="muted">Espacio para documentar mis actividades, tareas y proyectos del curso <strong>Programación Numérica</strong>. Cada entrada incluye resumen, evidencias y enlaces a código o informes.</p>
+        <div class="filters">
+          <span class="chip">2025-I</span>
+          <span class="chip">Métodos Numéricos</span>
+          <span class="chip">C/C++ · Python · Excel</span>
+        </div>
+      </div>
+      <div>
+        <div class="kpis">
+          <div class="kpi"><span class="big" id="kpi-acts">0</span><small>Actividades registradas</small></div>
+          <div class="kpi"><span class="big">100%</span><small>Entregables propios</small></div>
+          <div class="kpi"><span class="big">FINESI</span><small>UNA Puno</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="activities panel">
+      <h2>Actividades del curso</h2>
+      <div class="list" id="activities">
+        <!-- DUPLICA Y EDITA LAS TARJETAS SEGÚN AVANCES -->
+        <article class="card">
+          <h3>Actividad 01 · Error y Aritmética de Punto Flotante</h3>
+          <div class="meta"><span>Fecha: 10/03/2025</span><span>Semana 1</span></div>
+          <p>Ejercicios de redondeo, error absoluto/relativo y estabilidad numérica. Informe con ejemplos en Python.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Teoría</span><span class="tag">Informe</span></div>
+          <a class="btn" href="#" target="_blank">Ver repositorio / archivo</a>
+        </article>
+        <article class="card">
+          <h3>Actividad 02 · Raíces: Bisección y Newton-Raphson</h3>
+          <div class="meta"><span>Fecha: 17/03/2025</span><span>Semana 2</span></div>
+          <p>Implementación comparativa, criterios de paro y gráficas de convergencia. Casos de prueba.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Métodos de raíces</span></div>
+          <a class="btn" href="#" target="_blank">Código fuente</a>
+        </article>
+        <article class="card">
+          <h3>Proyecto · Interpolación y Ajuste</h3>
+          <div class="meta"><span>Fecha: 07/04/2025</span><span>Semana 5</span></div>
+          <p>Interpolación de Newton y spline cúbico; ajuste por mínimos cuadrados a datos experimentales.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Excel</span><span class="tag">Reporte</span></div>
+          <a class="btn" href="#" target="_blank">Informe final</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="resources panel">
+      <h2>Recursos</h2>
+      <ul>
+        <li>Programa del curso y calendario.</li>
+        <li>Guías de laboratorio y rúbricas.</li>
+        <li>Enlaces a bibliografía y datasets.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <small>© 2025 FINESI – UNA Puno · Portafolio académico de Programación Numérica · Contacto: tu.email@unap.edu.pe</small>
+  </footer>
+
+  <script>
+    // Contador automático de actividades
+    const total = document.querySelectorAll('#activities .card').length;
+    document.getElementById('kpi-acts').textContent = total;
+  </script>
+</body>
+</html>
