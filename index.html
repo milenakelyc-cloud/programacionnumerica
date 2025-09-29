@@ -3,134 +3,185 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio – Programación Numérica | FINESI – UNA Puno</title>
+  <title>Portafolio · Programación Numérica · Milena Kely</title>
   <style>
-    :root{
-      --bg:#0b1020; --panel:#121935; --ink:#e8ecff; --muted:#b7c0ff;
-      --acc:#7aa2ff; --accent-2:#8ef0d9; --ring:#2a3a7a;
-    }
+    :root{--primary:#0b3d91;--accent:#ffd166;--cyan:#06b6d4;--muted:#94b8d8;--card:#ffffff;--text:#05223a}
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;background:linear-gradient(180deg,#0a0f21 0%,#0b132b 100%);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--acc);text-decoration:none}
-    header{position:sticky;top:0;backdrop-filter:saturate(130%) blur(8px);background:#0b1020cc;border-bottom:1px solid #1f2759;z-index:10}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 18px}
-    .hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
-    .brand h1{margin:0;font-size:clamp(20px,3vw,28px);letter-spacing:.3px}
-    .brand p{margin:4px 0 0;color:var(--muted);font-size:14px}
-    .badges{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{padding:6px 10px;border:1px solid #2a356d;border-radius:999px;color:#dbe3ff;background:#0e1632}
-
-    main{padding:26px 0}
-    .grid{display:grid;gap:16px}
-    .panel{background:var(--panel);border:1px solid #1d2555;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-
-    .about{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
-    .about h2,.activities h2,.resources h2{margin:0 0 10px;font-size:20px}
-    .muted{color:var(--muted)}
-
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .kpi{background:#0e1640;border:1px solid #29316a;border-radius:14px;padding:12px;text-align:center}
-    .kpi .big{display:block;font-size:22px;font-weight:700}
-    .kpi small{color:var(--muted)}
-
-    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0}
-    .chip{padding:6px 10px;border:1px dashed #2b3470;border-radius:999px;color:#cfe0ff;cursor:default}
-
-    .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{background:#0f173c;border:1px solid #27306d;border-radius:16px;padding:14px;display:grid;gap:8px}
-    .card h3{margin:0;font-size:16px}
-    .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px}
-    .tags{display:flex;gap:6px;flex-wrap:wrap}
-    .tag{background:#0d1536;border:1px solid #2a356d;padding:4px 8px;border-radius:999px;font-size:12px}
-    .card a.btn{margin-top:6px;display:inline-block;padding:8px 10px;border-radius:10px;border:1px solid #2a3a7a;background:linear-gradient(180deg,#0f1a48,#0b1538);}
-
-    .resources ul{margin:8px 0 0;padding:0 0 0 18px}
-    footer{margin:24px 0 30px;color:#9fb0ff80;text-align:center}
-
-    @media (max-width:860px){.about{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
+    html,body{height:100%;margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--text)}
+    body{background-image:linear-gradient(180deg,rgba(3,14,35,0.74),rgba(3,14,35,0.6)),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80');background-size:cover;background-position:center;padding:28px}
+    .wrap{max-width:1100px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:16px;padding:18px;backdrop-filter: blur(6px);box-shadow:0 20px 60px rgba(2,8,23,0.6);overflow:hidden}
+    header{display:flex;gap:18px;align-items:center}
+    .logos{display:flex;gap:12px;align-items:center}
+    .logos img{height:72px;border-radius:10px;border:2px solid rgba(255,255,255,0.12);background:#fff;padding:6px}
+    .head-info{flex:1;color:#eaf6ff}
+    .ribbon{background:linear-gradient(90deg,var(--accent),#ffb84d);color:var(--text);padding:6px 10px;border-radius:999px;font-weight:800}
+    nav{display:flex;gap:10px;align-items:center;margin-top:14px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:18px}
+    .card{background:linear-gradient(180deg,#ffffff,#f7fbff);padding:16px;border-radius:12px;color:var(--text);box-shadow:0 12px 30px rgba(2,8,23,0.22);border:1px solid rgba(6,30,72,0.06)}
+    .unit{border-radius:10px;padding:14px;min-height:120px;display:flex;flex-direction:column;gap:12px}
+    .u-controls{display:flex;gap:8px;align-items:center}
+    .file-input{display:flex;gap:8px;align-items:center}
+    input[type=file]{background:transparent}
+    .list{margin-top:8px;display:grid;gap:10px}
+    .file-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(90deg,#fff,#f3f8ff);border:1px solid rgba(6,30,72,0.04)}
+    .btn{background:linear-gradient(90deg,var(--cyan),var(--accent));color:#04223a;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:20px;text-align:center;color:rgba(234,247,255,0.65)}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}.logos img{height:64px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap hero">
-      <div class="brand">
-        <h1>Portafolio – Programación Numérica</h1>
-        <p>FINESI · Universidad Nacional del Altiplano – Puno · Semestre 2025</p>
+  <div class="wrap">
+    <header>
+      <div class="logos">
+        <img src="/mnt/data/2681db72-d762-4736-bb77-17d73a65804b.png" alt="UNA Puno">
+        <img src="/mnt/data/e1f590fa-9139-44cf-afb3-ce04b73da929.png" alt="Ingeniería Estadística">
       </div>
-      <div class="badges">
-        <span class="badge">Estudiante: Tu Nombre</span>
-        <span class="badge">Docente: Nombre Docente</span>
-        <span class="badge">Sección: PN-01</span>
+      <div class="head-info">
+        <div style="display:flex;align-items:center;gap:12px">
+          <h1 style="margin:0;font-size:20px">Portafolio · Programación Numérica</h1>
+          <div class="ribbon">FINESI · UNA Puno</div>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-weight:700">Milena Kely Churata Mamani · Código: <strong>227897</strong> · 4° semestre · Grupo A</div>
+        <div style="margin-top:6px;color:#dfefff;font-size:13px">Profesor: <strong>TORRES CRUZ FRED</strong> · <a href="mailto:milenakelyc@gmail.com" style="color:var(--accent);text-decoration:underline">milenakelyc@gmail.com</a></div>
       </div>
+    </header>
+
+    <nav>
+      <a href="#unidad1">Primera Unidad</a>
+      <a href="#unidad2">Segunda Unidad</a>
+      <a href="#recursos">Recursos</a>
+      <div style="margin-left:auto;color:var(--muted)">Portafolio profesional</div>
+    </nav>
+
+    <div class="grid">
+      <main>
+        <section class="card" id="unidad1">
+          <h2>Primera Unidad</h2>
+          <p class="small">Sube tus documentos PDF (informes, códigos, evidencias). Los archivos quedan guardados en tu navegador para esta página.</p>
+          <div class="unit">
+            <div class="u-controls">
+              <label class="btn" for="fileU1">Subir PDF</label>
+              <input id="fileU1" type="file" accept="application/pdf" style="display:none" multiple />
+              <button id="clearU1" class="btn" style="background:#ff8a8a">Eliminar todo</button>
+            </div>
+            <div id="listU1" class="list"></div>
+          </div>
+        </section>
+
+        <section class="card" id="unidad2" style="margin-top:18px">
+          <h2>Segunda Unidad</h2>
+          <p class="small">Sube tus documentos PDF de la segunda unidad. Puedes descargar o eliminar cada archivo individualmente.</p>
+          <div class="unit">
+            <div class="u-controls">
+              <label class="btn" for="fileU2">Subir PDF</label>
+              <input id="fileU2" type="file" accept="application/pdf" style="display:none" multiple />
+              <button id="clearU2" class="btn" style="background:#ff8a8a">Eliminar todo</button>
+            </div>
+            <div id="listU2" class="list"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section class="card">
+          <h3>Mi información</h3>
+          <p><strong>Milena Kely Churata Mamani</strong></p>
+          <p class="small">Código: 227897 · 4° semestre · Grupo A</p>
+          <p class="small">Profesor: TORRES CRUZ FRED</p>
+          <p class="small">Correo: <a href="mailto:milenakelyc@gmail.com">milenakelyc@gmail.com</a></p>
+          <div style="margin-top:12px"><a class="btn" href="mailto:milenakelyc@gmail.com">Contactar</a></div>
+        </section>
+
+        <section class="card" style="margin-top:18px">
+          <h3>Recursos</h3>
+          <ul style="margin-top:8px;color:#456b92">
+            <li>Programa del curso</li>
+            <li>Guías de laboratorio</li>
+            <li>Repositorio de código (GitHub)</li>
+          </ul>
+        </section>
+      </aside>
     </div>
-  </header>
 
-  <main class="wrap grid">
-    <section class="about panel">
-      <div>
-        <h2>Sobre este portafolio</h2>
-        <p class="muted">Espacio para documentar mis actividades, tareas y proyectos del curso <strong>Programación Numérica</strong>. Cada entrada incluye resumen, evidencias y enlaces a código o informes.</p>
-        <div class="filters">
-          <span class="chip">2025-I</span>
-          <span class="chip">Métodos Numéricos</span>
-          <span class="chip">C/C++ · Python · Excel</span>
-        </div>
-      </div>
-      <div>
-        <div class="kpis">
-          <div class="kpi"><span class="big" id="kpi-acts">0</span><small>Actividades registradas</small></div>
-          <div class="kpi"><span class="big">100%</span><small>Entregables propios</small></div>
-          <div class="kpi"><span class="big">FINESI</span><small>UNA Puno</small></div>
-        </div>
-      </div>
-    </section>
+    <footer id="recursos">
+      <small>© 2025 Milena Kely Churata Mamani · Portafolio de Programación Numérica · FINESI - UNA Puno</small>
+    </footer>
+  </div>
 
-    <section class="activities panel">
-      <h2>Actividades del curso</h2>
-      <div class="list" id="activities">
-        <!-- DUPLICA Y EDITA LAS TARJETAS SEGÚN AVANCES -->
-        <article class="card">
-          <h3>Actividad 01 · Error y Aritmética de Punto Flotante</h3>
-          <div class="meta"><span>Fecha: 10/03/2025</span><span>Semana 1</span></div>
-          <p>Ejercicios de redondeo, error absoluto/relativo y estabilidad numérica. Informe con ejemplos en Python.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Teoría</span><span class="tag">Informe</span></div>
-          <a class="btn" href="#" target="_blank">Ver repositorio / archivo</a>
-        </article>
-        <article class="card">
-          <h3>Actividad 02 · Raíces: Bisección y Newton-Raphson</h3>
-          <div class="meta"><span>Fecha: 17/03/2025</span><span>Semana 2</span></div>
-          <p>Implementación comparativa, criterios de paro y gráficas de convergencia. Casos de prueba.</p>
-          <div class="tags"><span class="tag">C++</span><span class="tag">Métodos de raíces</span></div>
-          <a class="btn" href="#" target="_blank">Código fuente</a>
-        </article>
-        <article class="card">
-          <h3>Proyecto · Interpolación y Ajuste</h3>
-          <div class="meta"><span>Fecha: 07/04/2025</span><span>Semana 5</span></div>
-          <p>Interpolación de Newton y spline cúbico; ajuste por mínimos cuadrados a datos experimentales.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Excel</span><span class="tag">Reporte</span></div>
-          <a class="btn" href="#" target="_blank">Informe final</a>
-        </article>
-      </div>
-    </section>
+<script>
+// JS: guarda PDFs en localStorage (base64) por unidad, permite descargar y eliminar
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB por archivo (seguridad)
 
-    <section class="resources panel">
-      <h2>Recursos</h2>
-      <ul>
-        <li>Programa del curso y calendario.</li>
-        <li>Guías de laboratorio y rúbricas.</li>
-        <li>Enlaces a bibliografía y datasets.</li>
-      </ul>
-    </section>
-  </main>
+function readFileAsDataURL(file){
+  return new Promise((res, rej)=>{
+    const fr = new FileReader();
+    fr.onload = e => res(e.target.result);
+    fr.onerror = e => rej(e);
+    fr.readAsDataURL(file);
+  });
+}
 
-  <footer class="wrap">
-    <small>© 2025 FINESI – UNA Puno · Portafolio académico de Programación Numérica · Contacto: tu.email@unap.edu.pe</small>
-  </footer>
+function getStorage(key){
+  try{const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : []}catch(e){return []}
+}
+function setStorage(key, arr){
+  localStorage.setItem(key, JSON.stringify(arr));
+}
 
-  <script>
-    // Contador automático de actividades
-    const total = document.querySelectorAll('#activities .card').length;
-    document.getElementById('kpi-acts').textContent = total;
-  </script>
+async function handleFiles(unitKey, files, listEl){
+  const arr = getStorage(unitKey);
+  for(const f of files){
+    if(f.type !== 'application/pdf') { alert('Solo se permiten PDF. Archivo ignorado: '+f.name); continue; }
+    if(f.size > MAX_FILE_SIZE){ alert('Archivo demasiado grande (max 10MB): '+f.name); continue; }
+    const data = await readFileAsDataURL(f); // base64 data url
+    arr.push({name:f.name,size:f.size,ts:Date.now(),data});
+  }
+  setStorage(unitKey, arr);
+  renderList(unitKey,listEl);
+}
+
+function renderList(unitKey, listEl){
+  const arr = getStorage(unitKey);
+  listEl.innerHTML='';
+  if(arr.length===0){
+    const empty = document.createElement('div'); empty.className='file-item'; empty.textContent='No hay archivos cargados'; listEl.appendChild(empty); return;
+  }
+  arr.forEach((it,idx)=>{
+    const r = document.createElement('div'); r.className='file-item';
+    const a = document.createElement('div'); a.style.display='flex'; a.style.flexDirection='column';
+    const name = document.createElement('strong'); name.textContent = it.name; a.appendChild(name);
+    const meta = document.createElement('span'); meta.className='small'; meta.textContent = `${(it.size/1024).toFixed(1)} KB · ${new Date(it.ts).toLocaleString()}`; a.appendChild(meta);
+    const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='8px';
+
+    const dl = document.createElement('a'); dl.href = it.data; dl.download = it.name; dl.className='btn'; dl.textContent='Descargar';
+    const rem = document.createElement('button'); rem.className='btn'; rem.style.background='#ff8a8a'; rem.textContent='Eliminar';
+    rem.addEventListener('click', ()=>{
+      const arr2 = getStorage(unitKey); arr2.splice(idx,1); setStorage(unitKey,arr2); renderList(unitKey,listEl);
+    });
+    actions.appendChild(dl); actions.appendChild(rem);
+    r.appendChild(a); r.appendChild(actions);
+    listEl.appendChild(r);
+  })
+}
+
+// init
+const fileU1 = document.getElementById('fileU1');
+const fileU2 = document.getElementById('fileU2');
+const listU1 = document.getElementById('listU1');
+const listU2 = document.getElementById('listU2');
+const clearU1 = document.getElementById('clearU1');
+const clearU2 = document.getElementById('clearU2');
+
+fileU1.addEventListener('change', async (e)=>{ await handleFiles('unit1', e.target.files, listU1); fileU1.value=''; });
+fileU2.addEventListener('change', async (e)=>{ await handleFiles('unit2', e.target.files, listU2); fileU2.value=''; });
+clearU1.addEventListener('click', ()=>{ if(confirm('Eliminar todos los archivos de la Unidad 1?')){ localStorage.removeItem('unit1'); renderList('unit1',listU1); } });
+clearU2.addEventListener('click', ()=>{ if(confirm('Eliminar todos los archivos de la Unidad 2?')){ localStorage.removeItem('unit2'); renderList('unit2',listU2); } });
+
+// render at load
+renderList('unit1', listU1);
+renderList('unit2', listU2);
+</script>
 </body>
 </html>
