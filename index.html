@@ -4,135 +4,733 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Portafolio · Programación Numérica · Milena Kely</title>
-  <meta name="description" content="Portafolio - subir y compartir documentos públicos - Milena Kely" />
+  <meta name="description" content="Portafolio de Programación Numérica - Milena Kely - Documentos y trabajos académicos" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{
-      --bg:#0f1113;
-      --card:rgba(20,20,20,0.85);
-      --accent:#FF6B35;
-      --accent2:#00D4FF;
-      --muted:#9aa4b2;
-      --success:#4CAF50;
-      --danger:#F44336;
-      --glass:rgba(255,255,255,0.04);
-      --radius:14px;
-      --text:#eef6ff;
+    :root {
+      --bg: #0a0e17;
+      --card: rgba(18, 25, 40, 0.85);
+      --accent: #FF6B35;
+      --accent2: #00D4FF;
+      --accent3: #9C27B0;
+      --accent4: #4CAF50;
+      --muted: #94a3b8;
+      --success: #10b981;
+      --danger: #ef4444;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 16px;
+      --text: #f1f5f9;
+      --shadow: 0 20px 40px rgba(2,6,23,0.5);
+      --gradient: linear-gradient(135deg, #FF6B35 0%, #00D4FF 100%);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial; background:linear-gradient(180deg,#071014 0%, #0e1220 100%); color:var(--text); -webkit-font-smoothing:antialiased}
-    .wrap{max-width:1200px;margin:28px auto;padding:22px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(2,6,23,0.7)}
-    header{display:flex;gap:18px;align-items:center}
-    .logo{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#061018;border:4px solid rgba(255,255,255,0.06)}
-    .head-info h1{margin:0;font-size:1.4rem;letter-spacing:0.6px}
-    .meta{color:var(--muted);font-weight:600;margin-top:6px;font-size:0.95rem}
-    main{display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:18px}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
-    .drop{border:2px dashed rgba(255,255,255,0.04);padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-    .drop.dragover{border-color:var(--accent);box-shadow:0 6px 30px rgba(255,107,53,0.06)}
-    .btn{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 14px;border-radius:10px;border:none;color:#04121a;font-weight:800;cursor:pointer}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:9px 12px;border-radius:10px;color:var(--text);cursor:pointer}
-    .btn-danger{background:linear-gradient(90deg,var(--danger),#ff6b6b);color:#fff}
-    .flex{display:flex;gap:12px;align-items:center}
-    .list{margin-top:12px;display:grid;gap:10px}
-    .file-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
-    .file-left{display:flex;gap:12px;align-items:center}
-    .thumb{width:56px;height:56px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);font-size:12px}
-    .file-meta{display:flex;flex-direction:column}
-    .file-meta strong{font-size:0.98rem}
-    .small{font-size:0.86rem;color:var(--muted)}
-    .search{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-    aside .card .small{margin-bottom:8px}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem}
-    @media(max-width:980px){main{grid-template-columns:1fr} aside{order:2}}
-    /* simple paginator */
-    .pager{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:12px}
-    .pager button{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);cursor:pointer}
-    .hint{font-size:0.88rem;color:var(--muted)}
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #071014 0%, #0e1220 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 107, 53, 0.1);
+      animation: float 15s infinite linear;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(10px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+    
+    .wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+      z-index: 1;
+    }
+    
+    header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 36px;
+      background: var(--gradient);
+      color: #061018;
+      border: 4px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    .head-info h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.6px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    
+    .meta {
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .highlight {
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 24px;
+    }
+    
+    .card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .section-title .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient);
+      color: #061018;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    .unit-selector {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .unit-tab {
+      flex: 1;
+      padding: 16px;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .unit-tab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    .unit-tab.active {
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    }
+    
+    .unit-tab.active::before {
+      opacity: 1;
+    }
+    
+    .unit-tab:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+    
+    .drop {
+      border: 2px dashed rgba(255, 255, 255, 0.08);
+      padding: 32px 24px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    
+    .drop.dragover {
+      border-color: var(--accent);
+      background: rgba(255, 107, 53, 0.05);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.1);
+    }
+    
+    .drop-content {
+      text-align: center;
+    }
+    
+    .btn {
+      background: var(--gradient);
+      padding: 14px 22px;
+      border-radius: 12px;
+      border: none;
+      color: #04121a;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(255, 107, 53, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 18px;
+      border-radius: 10px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .flex {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .search-container {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .search {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .search:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    }
+    
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: all 0.3s ease;
+    }
+    
+    .file-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .file-left {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex: 1;
+    }
+    
+    .thumb {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .file-meta {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .file-meta strong {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    .file-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      margin-left: 10px;
+    }
+    
+    .badge.unit1 {
+      background: var(--accent3);
+    }
+    
+    .badge.unit2 {
+      background: var(--accent4);
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--muted);
+    }
+    
+    .empty-state .icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+    
+    .pager {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .pager button {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .pager button:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+    
+    .pager button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .hint {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    .about-card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 24px;
+    }
+    
+    .about-card h3 {
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .about-card p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .wrap {
+        padding: 20px;
+        margin: 20px;
+      }
+      
+      .head-info h1 {
+        font-size: 1.8rem;
+      }
+      
+      .flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .file-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+    
+    .code-block {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: var(--gradient);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap" role="application" aria-label="Portafolio Milena Kely">
+  <div class="background-animation" id="particles"></div>
+  
+  <div class="wrap" role="main" aria-label="Portafolio Milena Kely">
     <header>
-      <div class="logo" aria-hidden="true">MK</div>
+      <div class="logo" aria-hidden="true">
+        <i class="fas fa-laptop-code"></i>
+      </div>
       <div class="head-info">
         <h1>Portafolio · Programación Numérica</h1>
-        <div class="meta">Milena Kely Churata Mamani · Código: <strong style="color:#fff">227897</strong> · Profesor: TORRES CRUZ FRED</div>
+        <div class="meta">Milena Kely Churata Mamani · <span class="highlight">Código: 227897</span> · Profesor: TORRES CRUZ FRED</div>
       </div>
     </header>
 
     <main>
       <section class="card" aria-labelledby="uploaderTitle">
-        <h2 id="uploaderTitle">📤 Subir archivos públicos (carpeta <code>public/</code>)</h2>
+        <div class="section-title">
+          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <h2 id="uploaderTitle">Subir Archivos</h2>
+        </div>
+        
+        <div class="unit-selector">
+          <div class="unit-tab active" data-unit="unit1">
+            <i class="fas fa-cube"></i> Unidad 1
+          </div>
+          <div class="unit-tab" data-unit="unit2">
+            <i class="fas fa-cubes"></i> Unidad 2
+          </div>
+        </div>
 
         <div class="drop" id="dropArea" tabindex="0" aria-label="Área de arrastrar y soltar archivos">
-          <div style="text-align:center">
-            <strong>Arrastra y suelta aquí</strong>
+          <div class="drop-content">
+            <i class="fas fa-file-upload" style="font-size: 3rem; margin-bottom: 16px; color: var(--accent);"></i>
+            <h3>Arrastra y suelta tus archivos aquí</h3>
             <div class="small">o</div>
           </div>
           <div class="flex">
-            <label class="btn" for="fileInput">Seleccionar archivos</label>
+            <label class="btn" for="fileInput">
+              <i class="fas fa-folder-open"></i> Seleccionar archivos
+            </label>
             <input id="fileInput" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple style="display:none" />
-            <button id="uploadBtn" class="btn-ghost">Subir seleccionados</button>
-            <button id="clearBtn" class="btn-ghost">Limpiar</button>
+            <button id="uploadBtn" class="btn-ghost">
+              <i class="fas fa-upload"></i> Subir seleccionados
+            </button>
+            <button id="clearBtn" class="btn-ghost">
+              <i class="fas fa-trash"></i> Limpiar
+            </button>
           </div>
-          <div class="hint">Máx. 10 MB por archivo. Extensiones permitidas: PDF, DOC, DOCX. Los archivos se guardan en <code>public/</code> de Firebase Storage.</div>
+          <div class="hint">Máx. 10 MB por archivo. Formatos: PDF, DOC, DOCX</div>
         </div>
 
-        <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
-          <input id="search" class="search" placeholder="Buscar archivos públicos..." aria-label="Buscar archivos" />
-          <select id="perPage" class="search" style="width:120px">
-            <option value="6">6 / página</option>
-            <option value="12" selected>12 / página</option>
-            <option value="24">24 / página</option>
+        <div class="search-container">
+          <input id="search" class="search" placeholder="Buscar archivos..." aria-label="Buscar archivos" />
+          <select id="perPage" class="search" style="width:160px">
+            <option value="6">6 por página</option>
+            <option value="12" selected>12 por página</option>
+            <option value="24">24 por página</option>
           </select>
         </div>
 
-        <div class="list" id="publicList" aria-live="polite" style="margin-top:12px">
-          <!-- archivos públicos aparecerán aquí -->
+        <div class="list" id="publicList" aria-live="polite">
+          <!-- Los archivos públicos aparecerán aquí -->
         </div>
 
         <div class="pager" id="pager" aria-hidden="false" style="display:none">
-          <button id="prevPage">« Anterior</button>
-          <div id="pageInfo" style="min-width:120px;text-align:center"></div>
-          <button id="nextPage">Siguiente »</button>
+          <button id="prevPage"><i class="fas fa-chevron-left"></i> Anterior</button>
+          <div id="pageInfo" style="min-width:140px;text-align:center"></div>
+          <button id="nextPage">Siguiente <i class="fas fa-chevron-right"></i></button>
         </div>
       </section>
 
-      <aside>
-        <section class="card" aria-labelledby="infoTitle">
-          <h3 id="infoTitle">ℹ️ Instrucciones rápidas</h3>
-          <p class="small">1) Reemplaza <code>firebaseConfig</code> más abajo con tu configuración de Firebase.</p>
-          <p class="small">2) Asegúrate de aplicar las reglas de Storage para permitir lectura pública en <code>public/</code> (ejemplo abajo).</p>
-          <p class="small">3) Para eliminar archivos desde la UI necesitas reglas que permitan write (mejor: elimina desde Firebase Console o con cuenta autenticada).</p>
-          <p class="small">4) Para publicar el sitio como Portafolio recomiendo Firebase Hosting o GitHub Pages.</p>
-        </section>
-
-        <section class="card" style="margin-top:12px">
-          <h3>⚠️ Seguridad</h3>
-          <p class="small">Evita permitir escritura pública (write) en la carpeta <code>public/</code>. El snippet recomendado permite lectura pública y escritura solo si el usuario está autenticado.</p>
-        </section>
-
-        <section class="card" style="margin-top:12px">
-          <h3>Reglas Storage (ejemplo)</h3>
-          <pre class="small" style="white-space:pre-wrap">
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /public/{allPaths=**} {
-      // lectura pública para archivos en public/
-      allow read: if true;
-      // escritura solo para usuarios autenticados (o reemplaza por tu criterio)
-      allow write: if request.auth != null;
-    }
-    // otras reglas...
-  }
-}
-          </pre>
-        </section>
-      </aside>
+      <section>
+        <div class="about-card">
+          <h3><i class="fas fa-user-graduate"></i> Sobre el Portafolio</h3>
+          <p>Este portafolio contiene todos mis trabajos y documentos del curso de Programación Numérica. Los archivos están organizados por unidades y disponibles para su visualización y descarga.</p>
+          <p>Puedes navegar entre las unidades usando los botones de arriba y utilizar la barra de búsqueda para encontrar documentos específicos.</p>
+        </div>
+        
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value" id="totalFiles">0</div>
+            <div class="stat-label">Total de Archivos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="unit1Files">0</div>
+            <div class="stat-label">Unidad 1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="unit2Files">0</div>
+            <div class="stat-label">Unidad 2</div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="section-title">
+            <div class="icon"><i class="fas fa-code"></i></div>
+            <h2>Elementos de Programación</h2>
+          </div>
+          <p>Este portafolio está desarrollado con tecnologías modernas:</p>
+          <div class="code-block">
+            // Tecnologías utilizadas<br>
+            - HTML5, CSS3, JavaScript ES6+<br>
+            - Firebase para almacenamiento<br>
+            - Diseño responsivo<br>
+            - Interfaz de usuario moderna
+          </div>
+          <p>Los algoritmos de búsqueda y paginación están optimizados para un rendimiento eficiente incluso con grandes volúmenes de documentos.</p>
+        </div>
+      </section>
     </main>
 
-    <footer>© 2025 Milena Kely · Portafolio · FINESI - UNA Puno</footer>
+    <footer>
+      <p>© 2025 Milena Kely · Portafolio de Programación Numérica · FINESI - UNA Puno</p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">
+        <i class="fas fa-globe-americas"></i> Todos los documentos son públicos y accesibles
+      </p>
+    </footer>
   </div>
 
   <!-- Firebase SDK (modular) -->
@@ -168,18 +766,60 @@ service firebase.storage {
     const prevPageBtn = el('prevPage');
     const nextPageBtn = el('nextPage');
     const pageInfo = el('pageInfo');
+    const unitTabs = document.querySelectorAll('.unit-tab');
+    const totalFilesEl = el('totalFiles');
+    const unit1FilesEl = el('unit1Files');
+    const unit2FilesEl = el('unit2Files');
 
     // state
     let selectedFiles = [];
+    let currentUnit = 'unit1';
     const ALLOWED = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const MAX_SIZE = 10 * 1024 * 1024;
-    let publicFilesCache = []; // {name,url,metadata}
+    let publicFilesCache = [];
     let filtered = [];
     let currentPage = 1;
 
     // util
     const bytesToKB = b => (b/1024).toFixed(1) + ' KB';
-    const fmtDate = ts => new Date(ts).toLocaleString('es-PE');
+    const fmtDate = ts => new Date(ts).toLocaleDateString('es-PE');
+
+    // Crear partículas de fondo
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 100 + 50;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 15}s`;
+        container.appendChild(particle);
+      }
+    }
+
+    // Actualizar estadísticas
+    function updateStats() {
+      const total = publicFilesCache.length;
+      const unit1 = publicFilesCache.filter(f => f.unit === 'unit1').length;
+      const unit2 = publicFilesCache.filter(f => f.unit === 'unit2').length;
+      
+      totalFilesEl.textContent = total;
+      unit1FilesEl.textContent = unit1;
+      unit2FilesEl.textContent = unit2;
+    }
+
+    // --- Unit selector
+    unitTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        unitTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentUnit = tab.dataset.unit;
+        renderSelected();
+      });
+    });
 
     // --- drag & drop
     ['dragenter','dragover'].forEach(ev => {
@@ -199,33 +839,44 @@ service firebase.storage {
       for(const f of files){
         if(!ALLOWED.includes(f.type)){ alert('Solo PDF y Word permitidos. Ignorado: '+f.name); continue; }
         if(f.size > MAX_SIZE){ alert('Archivo demasiado grande (max 10MB): '+f.name); continue; }
+        f.unit = currentUnit;
         selectedFiles.push(f);
       }
       renderSelected();
     }
 
     function renderSelected(){
-      // muestra hasta 6 seleccionados en UI
       const sel = selectedFiles.slice(0,6);
       const container = publicList;
       if(sel.length === 0 && publicFilesCache.length === 0){
-        container.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)">No hay archivos. Selecciona para subir o usa "Refrescar".</div>';
+        container.innerHTML = '<div class="empty-state"><div class="icon"><i class="far fa-folder-open"></i></div><div>No hay archivos. Selecciona archivos para subir.</div></div>';
         return;
       }
-      // Si hay archivos seleccionados, los mostramos en la parte superior (no confundir con los públicos)
-      // But we keep publicList for public files; so we add a small section for selected
+      
       let html = '';
       if(selectedFiles.length){
-        html += '<div style="margin-bottom:6px;font-weight:800">Seleccionados para subir ('+selectedFiles.length+')</div>';
+        html += '<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">Archivos seleccionados ('+selectedFiles.length+')</div>';
         selectedFiles.forEach((f,i) => {
-          html += `<div class="file-item" style="justify-content:space-between">
-            <div class="file-left"><div class="thumb">DOC</div><div class="file-meta"><strong>${escapeHtml(f.name)}</strong><span class="small">${bytesToKB(f.size)} · ${f.type}</span></div></div>
-            <div style="display:flex;gap:8px"><button class="btn-ghost" data-remove="${i}">Eliminar</button></div>
+          html += `<div class="file-item">
+            <div class="file-left">
+              <div class="thumb">${f.unit === 'unit1' ? '<i class="fas fa-cube"></i>' : '<i class="fas fa-cubes"></i>'}</div>
+              <div class="file-meta">
+                <strong title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</strong>
+                <span class="small">${bytesToKB(f.size)} · ${f.type.split('/')[1].toUpperCase()} · <span class="badge ${f.unit}">${f.unit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}</span></span>
+              </div>
+            </div>
+            <div class="file-actions">
+              <button class="btn-ghost" data-remove="${i}"><i class="fas fa-times"></i> Eliminar</button>
+            </div>
           </div>`;
         });
-        html += `<div style="margin-top:8px"><button id="startUpload" class="btn">⬆️ Subir ${selectedFiles.length} archivos</button> <button id="clearSelected" class="btn-ghost">Limpiar seleccionados</button></div>`;
+        html += `<div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+          <button id="startUpload" class="btn"><i class="fas fa-cloud-upload-alt"></i> Subir ${selectedFiles.length} archivos</button>
+          <button id="clearSelected" class="btn-ghost"><i class="fas fa-trash"></i> Limpiar seleccionados</button>
+        </div>`;
       }
-      container.innerHTML = html + '<div id="publicFilesHolder" style="margin-top:12px"></div>';
+      container.innerHTML = html + '<div id="publicFilesHolder" style="margin-top:20px"></div>';
+      
       // bind remove buttons
       document.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', (ev)=> {
         const idx = Number(ev.target.dataset.remove);
@@ -235,8 +886,8 @@ service firebase.storage {
       const up = document.getElementById('startUpload');
       if(up) up.addEventListener('click', ()=> uploadSelected());
       const cl = document.getElementById('clearSelected');
-      if(cl) cl.addEventListener('click', ()=> { if(confirm('Limpiar seleccionados?')){ selectedFiles=[]; renderSelected(); }});
-      // After rendering selected, render cached public list
+      if(cl) cl.addEventListener('click', ()=> { if(confirm('¿Limpiar archivos seleccionados?')){ selectedFiles=[]; renderSelected(); }});
+      
       renderPublicList();
     }
 
@@ -249,22 +900,20 @@ service firebase.storage {
       uploadBtn.disabled = true;
       try {
         for(const f of [...selectedFiles]){
-          const safeName = `unit_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
+          const safeName = `${f.unit}_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
           const storageRef = ref(storage, `${PUBLIC_FOLDER}/${safeName}`);
           const task = uploadBytesResumable(storageRef, f);
           await new Promise((resolve,reject)=>{
             task.on('state_changed',
               snapshot => {
-                // could implement small per-file progress UI
+                // Podríamos implementar una barra de progreso aquí
               },
               err => { console.error(err); alert('Error subiendo: '+f.name); reject(err); },
               async ()=> {
                 try {
                   const url = await getDownloadURL(task.snapshot.ref);
-                  // optionally get metadata
                   const meta = await getMetadata(task.snapshot.ref).catch(()=>({}));
-                  // update cache instantly
-                  publicFilesCache.unshift({ name: safeName, url, metadata: meta });
+                  publicFilesCache.unshift({ name: safeName, url, metadata: meta, unit: f.unit });
                   resolve();
                 } catch(e){ reject(e); }
               }
@@ -272,17 +921,18 @@ service firebase.storage {
           });
         }
         selectedFiles = [];
+        updateStats();
         renderSelected();
-        alert('Subida completada.');
+        alert('Subida completada correctamente.');
       } catch(e){
         console.error(e);
-        alert('Ocurrió un error durante la subida. Revisa consola.');
+        alert('Ocurrió un error durante la subida. Revisa la consola para más detalles.');
       } finally { uploadBtn.disabled = false; }
     }
 
     // list public files
     async function fetchPublicFiles(){
-      publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)">Cargando archivos públicos…</div>';
+      publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)"><i class="fas fa-spinner fa-spin"></i> Cargando archivos públicos…</div>';
       try{
         const listRef = ref(storage, PUBLIC_FOLDER);
         const res = await listAll(listRef);
@@ -290,20 +940,23 @@ service firebase.storage {
         const promises = items.map(async it => {
           const url = await getDownloadURL(it).catch(()=>null);
           const meta = await getMetadata(it).catch(()=>({}));
-          return { name: it.name, url, metadata: meta, ref: it };
+          let unit = 'unit1';
+          if(it.name.startsWith('unit1_')) unit = 'unit1';
+          else if(it.name.startsWith('unit2_')) unit = 'unit2';
+          return { name: it.name, url, metadata: meta, ref: it, unit };
         });
         const results = await Promise.all(promises);
-        // sort newest first by metadata.timeCreated if available, otherwise by name
         results.sort((a,b) => {
           const ta = a.metadata.timeCreated? new Date(a.metadata.timeCreated).getTime() : 0;
           const tb = b.metadata.timeCreated? new Date(b.metadata.timeCreated).getTime() : 0;
           return tb - ta || b.name.localeCompare(a.name);
         });
         publicFilesCache = results;
-        renderSelected(); // this will call renderPublicList internally
+        updateStats();
+        renderSelected();
       }catch(err){
         console.error(err);
-        publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:#ffb4b4">Error al listar archivos públicos. Revisa configuración de Firebase.</div>';
+        publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:#ffb4b4"><i class="fas fa-exclamation-triangle"></i> Error al cargar archivos. Revisa la configuración.</div>';
       }
     }
 
@@ -315,62 +968,62 @@ service firebase.storage {
       filtered = publicFilesCache.filter(f => {
         if(!f) return false;
         const display = (f.name || '').toLowerCase();
-        return display.includes(q);
+        return display.includes(q) && f.unit === currentUnit;
       });
-      // pagination
+      
       const perPage = Number(perPageSelect.value);
       const total = filtered.length;
       const totalPages = Math.max(1, Math.ceil(total / perPage));
       if(currentPage > totalPages) currentPage = 1;
       const start = (currentPage - 1) * perPage;
       const pageItems = filtered.slice(start, start + perPage);
-      // build html
+      
       let html = '';
       if(pageItems.length === 0){
-        html += '<div class="file-item" style="justify-content:center;color:var(--muted)">No se encontraron archivos públicos.</div>';
+        html += `<div class="empty-state">
+          <div class="icon"><i class="far fa-file-alt"></i></div>
+          <div>No se encontraron archivos para la ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}.</div>
+        </div>`;
       } else {
+        html += `<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">
+          Archivos de ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'} (${filtered.length})
+        </div>`;
         pageItems.forEach(f => {
           const displayName = decodeURIComponent((f.name || '').split('_').slice(2).join('_') || f.name);
           const size = f.metadata.size ? bytesToKB(Number(f.metadata.size)) : '';
           const created = f.metadata.timeCreated ? fmtDate(f.metadata.timeCreated) : '';
           const url = f.url || '#';
+          const fileType = f.name.split('.').pop().toUpperCase();
+          
           html += `<div class="file-item">
             <div class="file-left">
-              <div class="thumb" aria-hidden="true">PDF</div>
+              <div class="thumb">${fileType}</div>
               <div class="file-meta">
-                <strong title="${escapeHtml(displayName)}">${escapeHtml(truncate(displayName, 60))}</strong>
-                <span class="small">${escapeHtml(f.name)} ${size? ' · '+size : ''} ${created? ' · '+created : ''}</span>
+                <strong title="${escapeHtml(displayName)}">${escapeHtml(truncate(displayName, 50))}</strong>
+                <span class="small">${size ? size + ' · ' : ''}${created ? 'Subido: ' + created : ''}</span>
               </div>
             </div>
-            <div style="display:flex;gap:8px">
-              <a class="btn" href="${url}" target="_blank" rel="noreferrer">Ver / Descargar</a>
-              <button class="btn-ghost" data-delete="${escapeAttr(f.name)}">Eliminar</button>
+            <div class="file-actions">
+              <a class="btn" href="${url}" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Ver</a>
+              <a class="btn-ghost" href="${url}" download="${displayName}"><i class="fas fa-download"></i> Descargar</a>
             </div>
           </div>`;
         });
       }
       holder.innerHTML = html;
-      // pager
+      
       if(total > perPage){
         pager.style.display = 'flex';
-        pageInfo.textContent = `Página ${currentPage} / ${totalPages} · ${total} archivos`;
-      } else { pager.style.display = 'none'; }
-      // bind delete handlers
-      holder.querySelectorAll('[data-delete]').forEach(btn => btn.addEventListener('click', async (ev) => {
-        const name = ev.target.dataset.delete;
-        if(!confirm('Eliminar archivo del Storage? Esto requiere permisos en Storage rules.')) return;
-        try{
-          const refToDel = ref(storage, `${PUBLIC_FOLDER}/${name}`);
-          await deleteObject(refToDel);
-          alert('Archivo eliminado (si las reglas lo permiten).');
-          await fetchPublicFiles();
-        }catch(e){ console.error(e); alert('No se pudo eliminar: revisa permisos/reglas en Firebase.'); }
-      }));
+        pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+        prevPageBtn.disabled = currentPage === 1;
+        nextPageBtn.disabled = currentPage === totalPages;
+      } else { 
+        pager.style.display = 'none'; 
+      }
     }
 
     // helpers
     function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…' : s; }
-    function escapeAttr(s){ return s.replace(/"/g,'&quot;'); }
 
     // events
     uploadBtn.addEventListener('click', ()=> {
@@ -378,14 +1031,19 @@ service firebase.storage {
       uploadSelected();
     });
     clearBtn.addEventListener('click', ()=> {
-      if(confirm('Limpiar seleccionados?')){ selectedFiles=[]; renderSelected(); }
+      if(confirm('¿Limpiar archivos seleccionados?')){ selectedFiles=[]; renderSelected(); }
     });
     searchInput.addEventListener('input', ()=> { currentPage = 1; renderPublicList(); });
     perPageSelect.addEventListener('change', ()=> { currentPage = 1; renderPublicList(); });
     prevPageBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; renderPublicList(); }});
-    nextPageBtn.addEventListener('click', ()=> { const perPage = Number(perPageSelect.value); const totalPages = Math.max(1, Math.ceil(filtered.length / perPage)); if(currentPage < totalPages){ currentPage++; renderPublicList(); }});
+    nextPageBtn.addEventListener('click', ()=> { 
+      const perPage = Number(perPageSelect.value); 
+      const totalPages = Math.max(1, Math.ceil(filtered.length / perPage)); 
+      if(currentPage < totalPages){ currentPage++; renderPublicList(); }
+    });
 
     // initial load
+    createParticles();
     fetchPublicFiles();
 
     // small accessibility helpers: allow keyboard drop focus
