@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio · Programación Numérica · Milena Kely</title>
   <style>
+    /* === (Tu CSS original, no modificado salvo muy pequeños ajustes para botones nuevos) === */
     :root {
       --primary: #000000;
       --primary-light: #1a1a1a;
@@ -25,579 +26,100 @@
       --warning: #FF9800;
       --danger: #F44336;
     }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.9) 0%, rgba(30, 30, 30, 0.9) 90%),
+      background:
+        radial-gradient(circle at 10% 20%, rgba(0,0,0,0.9) 0%, rgba(30,30,30,0.9) 90%),
         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><path d="M0 0L100 100M100 0L0 100" stroke="%23111" stroke-width="1"/></svg>');
       background-size: cover, 100px 100px;
       background-position: center, center;
       background-attachment: fixed, fixed;
       overflow-x: hidden;
     }
-    
     .wrap {
       max-width: 1300px;
       margin: 0 auto;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.7);
       border-radius: 25px;
       padding: 30px;
       backdrop-filter: blur(20px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
       overflow: hidden;
       position: relative;
-      border: 2px solid rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255,255,255,0.1);
       margin-top: 30px;
       margin-bottom: 30px;
     }
-    
-    /* Elementos decorativos en las esquinas */
-    .corner-decoration {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      opacity: 0.4;
-      z-index: 0;
-      filter: blur(40px);
-    }
-    
-    .corner-tl {
-      top: -100px;
-      left: -100px;
-      background: radial-gradient(circle, var(--neon-blue), transparent 70%);
-    }
-    
-    .corner-tr {
-      top: -100px;
-      right: -100px;
-      background: radial-gradient(circle, var(--accent-light), transparent 70%);
-    }
-    
-    .corner-bl {
-      bottom: -100px;
-      left: -100px;
-      background: radial-gradient(circle, var(--cyan), transparent 70%);
-    }
-    
-    .corner-br {
-      bottom: -100px;
-      right: -100px;
-      background: radial-gradient(circle, var(--purple-light), transparent 70%);
-    }
-    
-    /* Partículas animadas */
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-    }
-    
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      animation: float 20s infinite linear;
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.7; }
-      25% { transform: translateY(-30px) translateX(30px) rotate(90deg); opacity: 1; }
-      50% { transform: translateY(0) translateX(60px) rotate(180deg); opacity: 0.7; }
-      75% { transform: translateY(30px) translateX(30px) rotate(270deg); opacity: 1; }
-      100% { transform: translateY(0) translateX(0) rotate(360deg); opacity: 0.7; }
-    }
-    
-    header {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      padding: 25px;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(30, 30, 30, 0.6));
-      border-radius: 20px;
-      margin-bottom: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    }
-    
-    .unap-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      position: relative;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      flex: 0 0 auto;
-    }
-    
-    .logo-img {
-      height: 140px;
-      width: 140px;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      background: linear-gradient(135deg, var(--accent), var(--cyan));
-      padding: 10px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-      transition: all 0.4s ease;
-      z-index: 2;
-      object-fit: contain;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    
-    .logo-img:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
-      border-color: var(--neon-blue);
-    }
-    
-    .logo-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 160px;
-      height: 160px;
-      background: radial-gradient(circle, var(--neon-blue), transparent 70%);
-      opacity: 0.3;
-      border-radius: 50%;
-      transition: opacity 0.4s ease;
-      z-index: 1;
-    }
-    
-    .unap-logo:hover .logo-glow {
-      opacity: 0.6;
-    }
-    
-    .logo-text {
-      font-size: 16px;
-      color: white;
-      text-align: center;
-      font-weight: 700;
-      max-width: 200px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(30, 30, 30, 0.7));
-      padding: 8px 15px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .head-info {
-      flex: 1;
-      color: white;
-      padding-left: 30px;
-      border-left: 3px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .main-title {
-      text-align: center;
-      margin: 40px 0;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .main-title h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-      background: linear-gradient(to right, white, var(--accent-light), var(--neon-blue), var(--cyan-light));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 40px rgba(0, 229, 255, 0.6);
-      margin-bottom: 20px;
-      letter-spacing: 3px;
-      animation: titleGlow 4s ease-in-out infinite alternate;
-    }
-    
-    @keyframes titleGlow {
-      0% { text-shadow: 0 0 30px rgba(0, 229, 255, 0.6); }
-      100% { text-shadow: 0 0 50px rgba(255, 107, 53, 0.8), 0 0 60px rgba(0, 229, 255, 0.6); }
-    }
-    
-    .main-title .subtitle {
-      font-size: 1.6rem;
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 400;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-      background: rgba(0, 0, 0, 0.4);
-      padding: 15px 30px;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .ribbon {
-      background: linear-gradient(90deg, var(--primary), var(--accent), var(--purple));
-      color: white;
-      padding: 15px 30px;
-      border-radius: 999px;
-      font-weight: 900;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin: 35px 0;
-      position: relative;
-      z-index: 2;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(30, 30, 30, 0.4));
-      transition: all 0.4s ease;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      font-weight: 700;
-      position: relative;
-      overflow: hidden;
-      font-size: 1.1rem;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-    }
-    
-    nav a.active {
-      background: linear-gradient(135deg, var(--accent), var(--purple));
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.7);
-    }
-    
-    nav a:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.7s;
-    }
-    
-    nav a:hover {
-      background: linear-gradient(135deg, var(--accent), var(--purple));
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-    }
-    
-    nav a:hover:before {
-      left: 100%;
-    }
-    
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 35px;
-      margin-top: 35px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .card {
-      background: var(--card);
-      padding: 35px;
-      border-radius: 20px;
-      color: var(--text);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .card:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(90deg, var(--accent), var(--cyan), var(--purple));
-    }
-    
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.7);
-    }
-    
-    .unit {
-      border-radius: 18px;
-      padding: 30px;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      background: rgba(40, 40, 40, 0.9);
-      border: 3px dashed var(--accent);
-      position: relative;
-    }
-    
-    .unit:before {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      background: linear-gradient(45deg, var(--accent), var(--cyan), var(--purple), var(--accent));
-      border-radius: 21px;
-      z-index: -1;
-      opacity: 0.7;
-    }
-    
-    .u-controls {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    
-    .list {
-      margin-top: 25px;
-      display: grid;
-      gap: 18px;
-    }
-    
-    .file-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(50, 50, 50, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .file-item:hover {
-      transform: translateX(8px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      border-color: var(--accent);
-    }
-    
-    .btn {
-      background: linear-gradient(90deg, var(--accent), var(--purple));
-      color: white;
-      padding: 16px 25px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.1rem;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
-      background: linear-gradient(90deg, var(--purple), var(--accent));
-    }
-    
-    .btn-danger {
-      background: linear-gradient(90deg, #F44336, #FF5252);
-    }
-    
-    .small {
-      font-size: 16px;
-      color: #CCCCCC;
-    }
-    
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-top: 2px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-      z-index: 2;
-      font-size: 16px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 15px;
-    }
-    
-    .file-icon {
-      font-size: 20px;
-    }
-    
-    h2 {
-      color: var(--text);
-      margin-bottom: 25px;
-      border-bottom: 4px solid var(--accent);
-      padding-bottom: 12px;
-      font-size: 2.2rem;
-    }
-    
-    h3 {
-      color: var(--text);
-      margin-bottom: 25px;
-      font-size: 1.8rem;
-    }
-    
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(90deg, var(--accent), var(--purple));
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 24px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-      transition: all 0.4s ease;
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
-    }
-    
-    @media (max-width: 1200px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .head-info {
-        padding-left: 0;
-        border-left: none;
-        border-top: 3px solid rgba(255, 255, 255, 0.2);
-        padding-top: 30px;
-        margin-top: 30px;
-      }
-      
-      .main-title h1 {
-        font-size: 3.5rem;
-      }
-      
-      .logo-img {
-        height: 120px;
-        width: 120px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .main-title h1 {
-        font-size: 2.8rem;
-      }
-      
-      .u-controls {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .file-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-      }
-      
-      .file-item > div:last-child {
-        align-self: flex-end;
-      }
-      
-      .logo-img {
-        height: 100px;
-        width: 100px;
-      }
-      
-      nav a {
-        padding: 14px 25px;
-        font-size: 1rem;
-      }
-      
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .main-title h1 {
-        font-size: 2.2rem;
-      }
-      
-      .logo-img {
-        height: 80px;
-        width: 80px;
-      }
-      
-      .wrap {
-        padding: 20px;
-      }
-    }
+    .corner-decoration { position:absolute; width:250px; height:250px; opacity:0.4; z-index:0; filter:blur(40px); }
+    .corner-tl { top:-100px; left:-100px; background: radial-gradient(circle, var(--neon-blue), transparent 70%); }
+    .corner-tr { top:-100px; right:-100px; background: radial-gradient(circle, var(--accent-light), transparent 70%); }
+    .corner-bl { bottom:-100px; left:-100px; background: radial-gradient(circle, var(--cyan), transparent 70%); }
+    .corner-br { bottom:-100px; right:-100px; background: radial-gradient(circle, var(--purple-light), transparent 70%); }
+    .particles { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden; }
+    .particle { position:absolute; background:rgba(255,255,255,0.8); border-radius:50%; animation:float 20s infinite linear; }
+    @keyframes float { 0%{transform:translateY(0) translateX(0) rotate(0deg); opacity:.7;} 25%{transform:translateY(-30px) translateX(30px) rotate(90deg); opacity:1;} 50%{transform:translateY(0) translateX(60px) rotate(180deg); opacity:.7;} 75%{transform:translateY(30px) translateX(30px) rotate(270deg); opacity:1;} 100%{transform:translateY(0) translateX(0) rotate(360deg); opacity:.7;} }
+    header { display:flex; gap:30px; align-items:center; position:relative; z-index:2; padding:25px; background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(30,30,30,0.6)); border-radius:20px; margin-bottom:30px; border:2px solid rgba(255,255,255,0.1); box-shadow:0 15px 40px rgba(0,0,0,0.5); }
+    .unap-logo { display:flex; flex-direction:column; align-items:center; gap:15px; position:relative; padding:20px; background:rgba(255,255,255,0.05); border-radius:20px; border:2px solid rgba(255,255,255,0.1); flex:0 0 auto; }
+    .logo-img { height:140px; width:140px; border-radius:50%; border:3px solid rgba(255,255,255,0.3); background:linear-gradient(135deg, var(--accent), var(--cyan)); padding:10px; box-shadow:0 15px 35px rgba(0,0,0,0.7); transition:all .4s ease; z-index:2; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem; font-weight:bold; }
+    .logo-img:hover { transform:scale(1.1) rotate(5deg); box-shadow:0 20px 45px rgba(0,0,0,0.8); border-color:var(--neon-blue); }
+    .logo-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:160px; height:160px; background:radial-gradient(circle, var(--neon-blue), transparent 70%); opacity:0.3; border-radius:50%; transition:opacity .4s ease; z-index:1; }
+    .unap-logo:hover .logo-glow { opacity:0.6; }
+    .logo-text { font-size:16px; color:white; text-align:center; font-weight:700; max-width:200px; text-shadow:0 2px 8px rgba(0,0,0,0.6); background:linear-gradient(135deg, rgba(0,0,0,0.7), rgba(30,30,30,0.7)); padding:8px 15px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); }
+    .head-info { flex:1; color:white; padding-left:30px; border-left:3px solid rgba(255,255,255,0.2); }
+    .main-title { text-align:center; margin:40px 0; position:relative; z-index:2; }
+    .main-title h1 { font-size:4.5rem; font-weight:900; background:linear-gradient(to right, white, var(--accent-light), var(--neon-blue), var(--cyan-light)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 0 40px rgba(0,229,255,0.6); margin-bottom:20px; letter-spacing:3px; animation:titleGlow 4s ease-in-out infinite alternate; }
+    @keyframes titleGlow { 0%{text-shadow:0 0 30px rgba(0,229,255,0.6);} 100%{text-shadow:0 0 50px rgba(255,107,53,0.8),0 0 60px rgba(0,229,255,0.6);} }
+    .main-title .subtitle { font-size:1.6rem; color:rgba(255,255,255,0.95); font-weight:400; max-width:800px; margin:0 auto; line-height:1.6; text-shadow:0 2px 12px rgba(0,0,0,0.6); background:rgba(0,0,0,0.4); padding:15px 30px; border-radius:15px; border:1px solid rgba(255,255,255,0.1); }
+    .ribbon { background:linear-gradient(90deg, var(--primary), var(--accent), var(--purple)); color:white; padding:15px 30px; border-radius:999px; font-weight:900; box-shadow:0 10px 25px rgba(0,0,0,0.6); display:inline-block; margin-top:20px; font-size:1.2rem; text-transform:uppercase; letter-spacing:1.5px; border:2px solid rgba(255,255,255,0.2); }
+    nav { display:flex; gap:20px; align-items:center; margin:35px 0; position:relative; z-index:2; flex-wrap:wrap; justify-content:center; }
+    nav a { color:white; text-decoration:none; padding:16px 32px; border-radius:15px; background:linear-gradient(135deg, rgba(0,0,0,0.4), rgba(30,30,30,0.4)); transition:all .4s ease; border:2px solid rgba(255,255,255,0.2); font-weight:700; position:relative; overflow:hidden; font-size:1.1rem; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+    nav a.active { background:linear-gradient(135deg, var(--accent), var(--purple)); box-shadow:0 0 20px rgba(255,107,53,0.7); }
+    nav a:before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition:left .7s; }
+    nav a:hover { background:linear-gradient(135deg, var(--accent), var(--purple)); transform:translateY(-5px) scale(1.05); box-shadow:0 15px 30px rgba(0,0,0,0.6); }
+    nav a:hover:before { left:100%; }
+    .grid { display:grid; grid-template-columns:1fr 400px; gap:35px; margin-top:35px; position:relative; z-index:2; }
+    .card { background:var(--card); padding:35px; border-radius:20px; color:var(--text); box-shadow:0 20px 45px rgba(0,0,0,0.5); border:2px solid rgba(255,255,255,0.1); transition:transform .4s ease, box-shadow .4s ease; position:relative; overflow:hidden; }
+    .card:before { content:''; position:absolute; top:0; left:0; width:100%; height:6px; background:linear-gradient(90deg, var(--accent), var(--cyan), var(--purple)); }
+    .card:hover { transform:translateY(-8px); box-shadow:0 25px 55px rgba(0,0,0,0.7); }
+    .unit { border-radius:18px; padding:30px; min-height:220px; display:flex; flex-direction:column; gap:25px; background:rgba(40,40,40,0.9); border:3px dashed var(--accent); position:relative; }
+    .unit:before { content:''; position:absolute; top:-3px; left:-3px; right:-3px; bottom:-3px; background:linear-gradient(45deg, var(--accent), var(--cyan), var(--purple), var(--accent)); border-radius:21px; z-index:-1; opacity:0.7; }
+    .u-controls { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+    .list { margin-top:25px; display:grid; gap:18px; }
+    .file-item { display:flex; justify-content:space-between; align-items:center; padding:20px; border-radius:15px; background:rgba(50,50,50,0.9); border:2px solid rgba(255,255,255,0.1); box-shadow:0 6px 20px rgba(0,0,0,0.3); transition: transform .3s ease, box-shadow .3s ease; }
+    .file-item:hover { transform:translateX(8px); box-shadow:0 10px 25px rgba(0,0,0,0.5); border-color:var(--accent); }
+    .btn { background:linear-gradient(90deg, var(--accent), var(--purple)); color:white; padding:16px 25px; border-radius:12px; text-decoration:none; font-weight:700; border:none; cursor:pointer; transition:all .4s ease; box-shadow:0 8px 20px rgba(0,0,0,0.5); display:inline-flex; align-items:center; gap:12px; font-size:1.1rem; text-shadow:0 1px 4px rgba(0,0,0,0.5); }
+    .btn:hover { transform:translateY(-4px) scale(1.05); box-shadow:0 12px 25px rgba(0,0,0,0.7); background:linear-gradient(90deg, var(--purple), var(--accent)); }
+    .btn-danger { background:linear-gradient(90deg, #F44336, #FF5252); }
+    .small { font-size:16px; color:#CCCCCC; }
+    footer { margin-top:50px; text-align:center; color:rgba(255,255,255,0.9); padding:30px; border-top:2px solid rgba(255,255,255,0.2); position:relative; z-index:2; font-size:16px; text-shadow:0 2px 8px rgba(0,0,0,0.6); background:rgba(0,0,0,0.4); border-radius:15px; }
+    .file-icon { font-size:20px; }
+    h2 { color:var(--text); margin-bottom:25px; border-bottom:4px solid var(--accent); padding-bottom:12px; font-size:2.2rem; }
+    h3 { color:var(--text); margin-bottom:25px; font-size:1.8rem; }
+    .back-to-top { position:fixed; bottom:30px; right:30px; background:linear-gradient(90deg, var(--accent), var(--purple)); color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:24px; box-shadow:0 10px 25px rgba(0,0,0,0.7); z-index:1000; transition:all .4s ease; opacity:0; visibility:hidden; }
+    .back-to-top.visible { opacity:1; visibility:visible; }
+    .back-to-top:hover { transform:translateY(-5px) scale(1.1); box-shadow:0 15px 30px rgba(0,0,0,0.8); }
+    @media (max-width:1200px) { .grid{grid-template-columns:1fr;} header{flex-direction:column;text-align:center;} .head-info{padding-left:0;border-left:none;border-top:3px solid rgba(255,255,255,0.2);padding-top:30px;margin-top:30px;} .main-title h1{font-size:3.5rem;} .logo-img{height:120px;width:120px;} }
+    @media (max-width:768px) { .main-title h1{font-size:2.8rem;} .u-controls{flex-direction:column;align-items:flex-start;} .file-item{flex-direction:column;align-items:flex-start;gap:18px;} .file-item > div:last-child{align-self:flex-end;} .logo-img{height:100px;width:100px;} nav a{padding:14px 25px;font-size:1rem;} .back-to-top{bottom:20px;right:20px;width:50px;height:50px;font-size:20px;} }
+    @media (max-width:480px) { .main-title h1{font-size:2.2rem;} .logo-img{height:80px;width:80px;} .wrap{padding:20px;} }
+    /* === pequeño estilo para barra de progreso debajo del upload === */
+    .upload-progress { margin-top:8px; height:10px; background: rgba(255,255,255,0.08); border-radius:6px; overflow:hidden; }
+    .upload-progress > div { height:100%; width:0%; transition: width .2s linear; background: linear-gradient(90deg, var(--accent), var(--cyan)); }
   </style>
 </head>
 <body>
   <div class="wrap">
     <!-- Partículas animadas -->
     <div class="particles" id="particles"></div>
-    
+
     <!-- Decoraciones de esquina -->
     <div class="corner-decoration corner-tl"></div>
     <div class="corner-decoration corner-tr"></div>
     <div class="corner-decoration corner-bl"></div>
     <div class="corner-decoration corner-br"></div>
-    
+
     <header>
       <div class="unap-logo">
         <div class="logo-glow"></div>
@@ -613,7 +135,7 @@
         <div style="margin-top:18px;color:#E3F2FD;font-size:17px">Profesor: <strong>TORRES CRUZ FRED</strong> · <a href="mailto:milenakelyc@gmail.com" style="color:var(--neon-blue);text-decoration:underline;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.6)">milenakelyc@gmail.com</a></div>
       </div>
     </header>
-    
+
     <div class="main-title">
       <h1>PROGRAMACIÓN NUMÉRICA</h1>
       <div class="subtitle">Métodos computacionales avanzados para la resolución de problemas matemáticos complejos</div>
@@ -630,7 +152,7 @@
       <main>
         <section class="card" id="unidad1">
           <h2>📊 Primera Unidad</h2>
-          <p class="small">Sube tus documentos PDF o Word (informes, códigos, evidencias). Los archivos quedan guardados en tu navegador para esta página.</p>
+          <p class="small">Sube tus documentos PDF o Word (informes, códigos, evidencias). Los archivos se guardan en Firebase Storage y pueden ser vistos por todos (si las reglas lo permiten).</p>
           <div class="unit">
             <div class="u-controls">
               <label class="btn" for="fileU1">
@@ -638,16 +160,30 @@
               </label>
               <input id="fileU1" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none" multiple />
               <button id="clearU1" class="btn btn-danger">
-                <span class="file-icon">🗑️</span>Eliminar todo
+                <span class="file-icon">🗑️</span>Eliminar todo (local)
               </button>
+              <button id="uploadPublicU1" class="btn" title="Subir seleccionados a la carpeta pública de Firebase">⬆️ Subir a público</button>
+              <button id="refreshPublicU1" class="btn" style="background:linear-gradient(90deg,var(--success),var(--cyan))">🔄 Actualizar lista pública</button>
             </div>
+
+            <div style="margin-top:10px">
+              <div class="small">Progreso global de subida:</div>
+              <div class="upload-progress"><div id="globalProgress"></div></div>
+            </div>
+
+            <div style="margin-top:12px;color:#ddd;font-size:14px">Selecciona archivos (aparecerán en la lista "Seleccionados" para subir a Firebase).</div>
+
+            <h3 style="margin-top:12px;color:var(--text)">Seleccionados</h3>
+            <div id="selectedU1" class="list"></div>
+
+            <h3 style="margin-top:12px;color:var(--text)">Archivos públicos (Unidad 1)</h3>
             <div id="listU1" class="list"></div>
           </div>
         </section>
 
         <section class="card" id="unidad2" style="margin-top:35px">
           <h2>🔢 Segunda Unidad</h2>
-          <p class="small">Sube tus documentos PDF o Word de la segunda unidad. Puedes descargar o eliminar cada archivo individualmente.</p>
+          <p class="small">Sube tus documentos PDF o Word de la segunda unidad. Los archivos publicados son accesibles públicamente (si las reglas lo permiten).</p>
           <div class="unit">
             <div class="u-controls">
               <label class="btn" for="fileU2">
@@ -655,9 +191,18 @@
               </label>
               <input id="fileU2" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none" multiple />
               <button id="clearU2" class="btn btn-danger">
-                <span class="file-icon">🗑️</span>Eliminar todo
+                <span class="file-icon">🗑️</span>Eliminar todo (local)
               </button>
+              <button id="uploadPublicU2" class="btn">⬆️ Subir a público</button>
+              <button id="refreshPublicU2" class="btn" style="background:linear-gradient(90deg,var(--success),var(--cyan))">🔄 Actualizar lista pública</button>
             </div>
+
+            <div style="margin-top:12px">
+              <div class="small">Seleccionados</div>
+              <div id="selectedU2" class="list"></div>
+            </div>
+
+            <h3 style="margin-top:12px;color:var(--text)">Archivos públicos (Unidad 2)</h3>
             <div id="listU2" class="list"></div>
           </div>
         </section>
@@ -687,7 +232,7 @@
             <li style="margin-bottom:15px;padding:12px;background:rgba(255,255,255,0.05);border-radius:10px;border-left:5px solid var(--success);">🎥 Videos tutoriales</li>
           </ul>
         </section>
-        
+
         <section class="card" style="margin-top:35px">
           <h3>📈 Progreso del curso</h3>
           <div style="margin-top:25px">
@@ -716,269 +261,317 @@
       <small>© 2025 Milena Kely Churata Mamani · Portafolio de Programación Numérica · FINESI - UNA Puno</small>
     </footer>
   </div>
-  
-  <!-- Botón para volver al inicio -->
+
   <a href="#" class="back-to-top" id="backToTop">↑</a>
 
-<script>
-// Crear partículas animadas
-function createParticles() {
-  const particlesContainer = document.getElementById('particles');
-  const particleCount = 25;
-  
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    
-    // Tamaño aleatorio
-    const size = Math.random() * 12 + 6;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    
-    // Posición aleatoria
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    
-    // Color aleatorio en tonos azules
-    const colors = ['#FF6B35', '#00D4FF', '#9C27B0', '#4A90E2', '#00E5FF', '#E040FB'];
-    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-    
-    // Animación con delay aleatorio
-    particle.style.animationDelay = `${Math.random() * 20}s`;
-    
-    particlesContainer.appendChild(particle);
-  }
-}
+  <!-- Firebase SDK (modular) -->
+  <!-- Nota: necesitas conexión a internet para estos imports -->
+  <script type="module">
+    // ================================================================
+    // RECUERDA: reemplaza firebaseConfig con tu configuración real.
+    // Además, en Firebase Console -> Storage -> Rules configura lectura pública
+    // para la carpeta `public/` si quieres que cualquier persona pueda ver los archivos:
+    //
+    // Ejemplo de regla simple (NO recomendable a largo plazo sin control):
+    // service firebase.storage {
+    //   match /b/{bucket}/o {
+    //     match /public/{allPaths=**} {
+    //       allow read, write: if true;
+    //     }
+    //   }
+    // }
+    //
+    // Lo ideal: permitir write sólo a usuarios autenticados y read público:
+    // match /public/{allPaths=**} { allow read: if true; allow write: if request.auth != null; }
+    // ================================================================
 
-// JS: guarda archivos en localStorage (base64) por unidad, permite descargar y eliminar
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB por archivo (seguridad)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import {
+      getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject
+    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
-// Tipos de archivo permitidos
-const ALLOWED_TYPES = {
-  'application/pdf': 'pdf',
-  'application/msword': 'doc',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx'
-};
+    // ======== REEMPLAZA con tu configuración ========
+    const firebaseConfig = {
+      apiKey: "TU_APIKEY",
+      authDomain: "TU_AUTHDOMAIN",
+      projectId: "TU_PROJECTID",
+      storageBucket: "TU_STORAGEBUCKET",
+      messagingSenderId: "TU_MESSAGING_SENDER_ID",
+      appId: "TU_APPID"
+    };
+    // ===============================================
 
-function readFileAsDataURL(file){
-  return new Promise((res, rej)=>{
-    const fr = new FileReader();
-    fr.onload = e => res(e.target.result);
-    fr.onerror = e => rej(e);
-    fr.readAsDataURL(file);
-  });
-}
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
 
-function getStorage(key){
-  try{const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : []}catch(e){return []}
-}
-function setStorage(key, arr){
-  localStorage.setItem(key, JSON.stringify(arr));
-  updateProgress(key);
-}
+    // carpeta pública donde guardaremos los archivos
+    const PUBLIC_FOLDER = 'public';
 
-function updateProgress(unitKey) {
-  const arr = getStorage(unitKey);
-  const progress = Math.min(arr.length * 20, 100); // 5 archivos = 100%
-  
-  if (unitKey === 'unit1') {
-    document.getElementById('progressU1').textContent = `${progress}%`;
-    document.getElementById('progressBarU1').style.width = `${progress}%`;
-  } else if (unitKey === 'unit2') {
-    document.getElementById('progressU2').textContent = `${progress}%`;
-    document.getElementById('progressBarU2').style.width = `${progress}%`;
-  }
-}
+    // ==== utilidades UI ====
+    function el(id){ return document.getElementById(id); }
+    function bytesToKB(b){ return (b/1024).toFixed(1) + ' KB'; }
 
-async function handleFiles(unitKey, files, listEl){
-  const arr = getStorage(unitKey);
-  for(const f of files){
-    if(!ALLOWED_TYPES[f.type]) { 
-      alert('Solo se permiten PDF y documentos Word. Archivo ignorado: '+f.name); 
-      continue; 
-    }
-    if(f.size > MAX_FILE_SIZE){ 
-      alert('Archivo demasiado grande (max 10MB): '+f.name); 
-      continue; 
-    }
-    const data = await readFileAsDataURL(f); // base64 data url
-    arr.push({
-      name: f.name,
-      size: f.size,
-      type: f.type,
-      ts: Date.now(),
-      data
-    });
-  }
-  setStorage(unitKey, arr);
-  renderList(unitKey,listEl);
-}
-
-function renderList(unitKey, listEl){
-  const arr = getStorage(unitKey);
-  listEl.innerHTML='';
-  if(arr.length===0){
-    const empty = document.createElement('div'); 
-    empty.className='file-item'; 
-    empty.textContent='No hay archivos cargados'; 
-    empty.style.textAlign = 'center';
-    empty.style.color = '#CCCCCC';
-    empty.style.fontStyle = 'italic';
-    listEl.appendChild(empty); 
-    return;
-  }
-  arr.forEach((it,idx)=>{
-    const r = document.createElement('div'); 
-    r.className='file-item';
-    
-    const a = document.createElement('div'); 
-    a.style.display='flex'; 
-    a.style.flexDirection='column';
-    
-    const name = document.createElement('strong'); 
-    name.textContent = it.name; 
-    a.appendChild(name);
-    
-    const meta = document.createElement('span'); 
-    meta.className='small'; 
-    meta.textContent = `${(it.size/1024).toFixed(1)} KB · ${new Date(it.ts).toLocaleString()}`; 
-    a.appendChild(meta);
-    
-    const actions = document.createElement('div'); 
-    actions.style.display='flex'; 
-    actions.style.gap='15px';
-
-    const dl = document.createElement('a'); 
-    dl.href = it.data; 
-    dl.download = it.name; 
-    dl.className='btn'; 
-    dl.innerHTML = '<span class="file-icon">⬇️</span>Descargar';
-    
-    const rem = document.createElement('button'); 
-    rem.className='btn btn-danger'; 
-    rem.innerHTML = '<span class="file-icon">🗑️</span>Eliminar';
-    rem.addEventListener('click', ()=>{
-      const arr2 = getStorage(unitKey); 
-      arr2.splice(idx,1); 
-      setStorage(unitKey,arr2); 
-      renderList(unitKey,listEl);
-    });
-    
-    actions.appendChild(dl); 
-    actions.appendChild(rem);
-    r.appendChild(a); 
-    r.appendChild(actions);
-    listEl.appendChild(r);
-  });
-}
-
-// Navegación con cambio de color activo
-function setupNavigation() {
-  const navLinks = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('section.card');
-  
-  // Función para actualizar el enlace activo
-  function updateActiveLink() {
-    let currentSection = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentSection = section.id;
+    // partículas
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 25;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 12 + 6;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        const colors = ['#FF6B35', '#00D4FF', '#9C27B0', '#4A90E2', '#00E5FF', '#E040FB'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+        particlesContainer.appendChild(particle);
       }
-    });
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSection}`) {
-        link.classList.add('active');
-      }
-    });
-  }
-  
-  // Actualizar enlace activo al hacer scroll
-  window.addEventListener('scroll', updateActiveLink);
-  
-  // Actualizar enlace activo al hacer clic
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-}
-
-// Botón para volver al inicio
-function setupBackToTop() {
-  const backToTop = document.getElementById('backToTop');
-  
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
     }
-  });
-  
-  backToTop.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+
+    // estados locales de selección (no persistentes)
+    const selected = { unit1: [], unit2: [] };
+
+    // elementos principales
+    const fileU1 = el('fileU1'), fileU2 = el('fileU2');
+    const selectedU1 = el('selectedU1'), selectedU2 = el('selectedU2');
+    const listU1 = el('listU1'), listU2 = el('listU2');
+    const uploadPublicU1 = el('uploadPublicU1'), uploadPublicU2 = el('uploadPublicU2');
+    const refreshPublicU1 = el('refreshPublicU1'), refreshPublicU2 = el('refreshPublicU2');
+    const clearU1 = el('clearU1'), clearU2 = el('clearU2');
+
+    // Validaciones
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+    const ALLOWED_TYPES = {
+      'application/pdf': 'pdf',
+      'application/msword': 'doc',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx'
+    };
+
+    // mostrar lista de archivos seleccionados (antes de subir)
+    function renderSelected(unitKey) {
+      const container = unitKey === 'unit1' ? selectedU1 : selectedU2;
+      container.innerHTML = '';
+      const arr = selected[unitKey];
+      if (!arr.length) {
+        const n = document.createElement('div'); n.className='file-item'; n.style.textAlign='center'; n.style.color='#CCCCCC'; n.style.fontStyle='italic'; n.textContent='No hay archivos seleccionados';
+        container.appendChild(n); return;
+      }
+      arr.forEach((f, i) => {
+        const r = document.createElement('div'); r.className='file-item';
+        const info = document.createElement('div'); info.style.display='flex'; info.style.flexDirection='column';
+        const name = document.createElement('strong'); name.textContent = f.name; info.appendChild(name);
+        const meta = document.createElement('span'); meta.className='small'; meta.textContent = `${bytesToKB(f.size)} · ${f.type}`; info.appendChild(meta);
+        const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='12px';
+        const removeBtn = document.createElement('button'); removeBtn.className='btn btn-danger'; removeBtn.innerHTML='Eliminar'; removeBtn.addEventListener('click', ()=>{ selected[unitKey].splice(i,1); renderSelected(unitKey); });
+        actions.appendChild(removeBtn);
+        r.appendChild(info); r.appendChild(actions); container.appendChild(r);
+      });
+    }
+
+    // agregar archivos seleccionados al estado
+    function addSelectedFiles(unitKey, files) {
+      for (const f of files) {
+        if (!ALLOWED_TYPES[f.type]) { alert('Solo PDF y Word permitidos. Archivo ignorado: ' + f.name); continue; }
+        if (f.size > MAX_FILE_SIZE) { alert('Archivo demasiado grande (max 10MB): ' + f.name); continue; }
+        selected[unitKey].push(f);
+      }
+      renderSelected(unitKey);
+      updateProgressFromSelected(); // actualizar barra de progreso simulada
+    }
+
+    // actualizar barra de progreso global en UI (inicialmente 0)
+    function setGlobalProgress(pct) { el('globalProgress').style.width = `${pct}%`; }
+
+    // función para subir array de archivos a Firebase Storage en PUBLIC_FOLDER/<unidad>/
+    async function uploadSelectedToPublic(unitKey) {
+      const arr = selected[unitKey];
+      if (!arr.length) { alert('No hay archivos seleccionados para subir.'); return; }
+
+      let completed = 0;
+      setGlobalProgress(0);
+      for (const f of arr) {
+        // generar nombre único: unidad_timestamp_originalname
+        const safeName = `${unitKey}_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
+        const storageRef = ref(storage, `${PUBLIC_FOLDER}/${safeName}`);
+        const uploadTask = uploadBytesResumable(storageRef, f);
+        await new Promise((resolve, reject) => {
+          uploadTask.on('state_changed',
+            (snapshot) => {
+              const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              // estimación global basada en archivos restantes
+              const unitProgress = ((completed + pct/100) / arr.length) * 100;
+              setGlobalProgress(unitProgress.toFixed(0));
+            },
+            (error) => {
+              console.error('Error upload', error);
+              alert('Error al subir: ' + f.name);
+              reject(error);
+            },
+            async () => {
+              try {
+                const url = await getDownloadURL(uploadTask.snapshot.ref);
+                console.log('Subido:', f.name, url);
+                completed++;
+                setGlobalProgress(((completed) / arr.length) * 100);
+                resolve();
+              } catch (err) { console.error(err); reject(err); }
+            }
+          );
+        });
+      }
+
+      // limpiar seleccionados y refrescar lista pública
+      selected[unitKey] = [];
+      renderSelected(unitKey);
+      setTimeout(()=>{ listPublicFiles(unitKey); setGlobalProgress(0); }, 800);
+      alert('Subida finalizada.');
+    }
+
+    // listar archivos en PUBLIC_FOLDER/<unidadKey prefix> (se filtra por unidad: unit1_ o unit2_)
+    async function listPublicFiles(unitKey) {
+      const container = unitKey === 'unit1' ? listU1 : listU2;
+      container.innerHTML = 'Cargando...';
+      try {
+        const listRef = ref(storage, PUBLIC_FOLDER);
+        const res = await listAll(listRef);
+        // filter items by unitKey prefix in filename (we included unitKey_ in name)
+        const items = res.items.filter(it => it.name.startsWith(unitKey + '_') || it.name.includes(unitKey + '_'));
+        if (!items.length) {
+          container.innerHTML = '';
+          const e = document.createElement('div'); e.className='file-item'; e.style.textAlign='center'; e.style.color='#CCCCCC'; e.style.fontStyle='italic'; e.textContent='No hay archivos públicos';
+          container.appendChild(e);
+          updateProgress(unitKey, 0);
+          return;
+        }
+        // obtener urls (en paralelo)
+        const promises = items.map(async (itemRef) => {
+          const url = await getDownloadURL(itemRef);
+          return { name: itemRef.name, url, fullRef: itemRef };
+        });
+        const files = await Promise.all(promises);
+        // ordenar por nombre (podrías parsear timestamp para ordenar si quieres)
+        files.sort((a,b)=> b.name.localeCompare(a.name));
+        container.innerHTML = '';
+        files.forEach((it, idx) => {
+          const r = document.createElement('div'); r.className='file-item';
+          const info = document.createElement('div'); info.style.display='flex'; info.style.flexDirection='column';
+          // recuperar nombre original si usamos pattern unitX_timestamp_originalName
+          let displayName = it.name.split('_').slice(2).join('_') || it.name;
+          displayName = decodeURIComponent(displayName);
+          const title = document.createElement('strong'); title.textContent = displayName; info.appendChild(title);
+          const meta = document.createElement('span'); meta.className='small'; meta.textContent = it.name; info.appendChild(meta);
+
+          const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='12px';
+          const a = document.createElement('a'); a.href = it.url; a.target = '_blank'; a.rel = 'noreferrer'; a.className='btn'; a.innerHTML = '⬇️ Ver / Descargar';
+          actions.appendChild(a);
+
+          // botón eliminar: requiere que las reglas permitan borrar (normalmente write)
+          const del = document.createElement('button'); del.className='btn btn-danger'; del.innerHTML='🗑️';
+          del.title = 'Eliminar (requiere permisos en reglas de Firebase)';
+          del.addEventListener('click', async ()=>{
+            if (!confirm('¿Eliminar este archivo del Storage público? Esto requiere permisos (quizá falle si las reglas no lo permiten).')) return;
+            try {
+              await deleteObject(it.fullRef);
+              alert('Archivo eliminado (si tus reglas lo permiten).');
+              listPublicFiles(unitKey);
+            } catch (err) {
+              console.error('Error al eliminar', err);
+              alert('No se pudo eliminar: revisa reglas o permisos. ' + (err.message || ''));
+            }
+          });
+
+          actions.appendChild(del);
+          r.appendChild(info); r.appendChild(actions); container.appendChild(r);
+        });
+
+        // actualizar progreso (simple): % basado en cantidad de archivos (máx 5 => 100%)
+        updateProgress(unitKey, Math.min(files.length * 20, 100));
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = '';
+        const e = document.createElement('div'); e.className='file-item'; e.style.textAlign='center'; e.style.color='#FFB4B4'; e.textContent = 'Error al listar archivos públicos. Revisa configuración de Firebase.';
+        container.appendChild(e);
+      }
+    }
+
+    // actualizar barras de progreso por unidad según número de archivos públicos (misma lógica que antes)
+    function updateProgress(unitKey, percent) {
+      if (unitKey === 'unit1') {
+        el('progressU1').textContent = `${percent}%`;
+        el('progressBarU1').style.width = `${percent}%`;
+      } else {
+        el('progressU2').textContent = `${percent}%`;
+        el('progressBarU2').style.width = `${percent}%`;
+      }
+    }
+
+    // eliminar "local" (no afecta Storage) -> aquí solo limpia la lista seleccionada
+    clearU1.addEventListener('click', ()=>{ if(confirm('¿Eliminar todos los archivos seleccionados (Unidad 1)?')){ selected.unit1=[]; renderSelected('unit1'); } });
+    clearU2.addEventListener('click', ()=>{ if(confirm('¿Eliminar todos los archivos seleccionados (Unidad 2)?')){ selected.unit2=[]; renderSelected('unit2'); } });
+
+    // gestión de input file para seleccionar
+    fileU1.addEventListener('change', (e)=>{ addSelectedFiles('unit1', Array.from(e.target.files)); fileU1.value=''; });
+    fileU2.addEventListener('change', (e)=>{ addSelectedFiles('unit2', Array.from(e.target.files)); fileU2.value=''; });
+
+    // subir seleccionados a Firebase
+    uploadPublicU1.addEventListener('click', ()=> uploadSelectedToPublic('unit1'));
+    uploadPublicU2.addEventListener('click', ()=> uploadSelectedToPublic('unit2'));
+
+    // refrescar listas públicas
+    refreshPublicU1.addEventListener('click', ()=> listPublicFiles('unit1'));
+    refreshPublicU2.addEventListener('click', ()=> listPublicFiles('unit2'));
+
+    // helper: muestra progreso estimado en sidebar basado en seleccionados (no relacionado con Storage)
+    function updateProgressFromSelected(){
+      const p1 = Math.min(selected.unit1.length * 20, 100);
+      const p2 = Math.min(selected.unit2.length * 20, 100);
+      updateProgress('unit1', p1);
+      updateProgress('unit2', p2);
+    }
+
+    // navegación activa y back-to-top (reaplico tu código)
+    function setupNavigation() {
+      const navLinks = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('section.card');
+      function updateActiveLink() {
+        let currentSection = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.id;
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
+        });
+      }
+      window.addEventListener('scroll', updateActiveLink);
+      navLinks.forEach(link => link.addEventListener('click', function(){ navLinks.forEach(l=>l.classList.remove('active')); this.classList.add('active'); }));
+    }
+
+    // back to top
+    function setupBackToTop() {
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) backToTop.classList.add('visible'); else backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' }); });
+    }
+
+    // init
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+      renderSelected('unit1'); renderSelected('unit2');
+      listPublicFiles('unit1'); listPublicFiles('unit2');
+      setupNavigation(); setupBackToTop();
     });
-  });
-}
 
-// Inicialización
-document.addEventListener('DOMContentLoaded', function() {
-  createParticles();
-  
-  const fileU1 = document.getElementById('fileU1');
-  const fileU2 = document.getElementById('fileU2');
-  const listU1 = document.getElementById('listU1');
-  const listU2 = document.getElementById('listU2');
-  const clearU1 = document.getElementById('clearU1');
-  const clearU2 = document.getElementById('clearU2');
+  </script>
 
-  fileU1.addEventListener('change', async (e)=>{ 
-    await handleFiles('unit1', e.target.files, listU1); 
-    fileU1.value=''; 
-  });
-
-  fileU2.addEventListener('change', async (e)=>{ 
-    await handleFiles('unit2', e.target.files, listU2); 
-    fileU2.value=''; 
-  });
-
-  clearU1.addEventListener('click', ()=>{ 
-    if(confirm('¿Eliminar todos los archivos de la Unidad 1?')){ 
-      localStorage.removeItem('unit1'); 
-      renderList('unit1',listU1); 
-      updateProgress('unit1');
-    } 
-  });
-
-  clearU2.addEventListener('click', ()=>{ 
-    if(confirm('¿Eliminar todos los archivos de la Unidad 2?')){ 
-      localStorage.removeItem('unit2'); 
-      renderList('unit2',listU2); 
-      updateProgress('unit2');
-    } 
-  });
-
-  // Configurar navegación
-  setupNavigation();
-  
-  // Configurar botón de volver al inicio
-  setupBackToTop();
-
-  // render at load
-  renderList('unit1', listU1);
-  renderList('unit2', listU2);
-  updateProgress('unit1');
-  updateProgress('unit2');
-});
-</script>
+  <!-- FIN script module -->
 </body>
 </html>
