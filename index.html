@@ -25,6 +25,7 @@
       --text: #f1f5f9;
       --shadow: 0 20px 40px rgba(2,6,23,0.5);
       --gradient: linear-gradient(135deg, #FF6B35 0%, #00D4FF 100%);
+      --gradient2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
     * {
@@ -247,28 +248,37 @@
       transform: translateY(-2px);
     }
     
-    .drop {
-      border: 2px dashed rgba(255, 255, 255, 0.08);
-      padding: 32px 24px;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.02);
-      transition: all 0.3s ease;
+    .form-group {
       margin-bottom: 20px;
     }
     
-    .drop.dragover {
-      border-color: var(--accent);
-      background: rgba(255, 107, 53, 0.05);
-      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.1);
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text);
     }
     
-    .drop-content {
-      text-align: center;
+    .form-input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    }
+    
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
     }
     
     .btn {
@@ -285,6 +295,7 @@
       align-items: center;
       gap: 8px;
       font-size: 1rem;
+      text-decoration: none;
     }
     
     .btn:hover {
@@ -303,12 +314,22 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
     
     .btn-ghost:hover {
       background: rgba(255, 255, 255, 0.05);
       border-color: rgba(255, 255, 255, 0.15);
       transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: var(--gradient2);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
     }
     
     .flex {
@@ -612,6 +633,97 @@
       width: 0%;
       transition: width 0.3s ease;
     }
+    
+    .document-preview {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .document-preview iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .preview-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .preview-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .upload-form {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+    
+    .success-message {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .success-message i {
+      color: var(--success);
+    }
+    
+    .floating-action {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+    }
+    
+    .floating-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #04121a;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .floating-btn:hover {
+      transform: scale(1.1) rotate(90deg);
+      box-shadow: 0 12px 25px rgba(255, 107, 53, 0.5);
+    }
   </style>
 </head>
 <body>
@@ -629,53 +741,63 @@
     </header>
 
     <main>
-      <section class="card" aria-labelledby="uploaderTitle">
+      <section class="card" aria-labelledby="documentsTitle">
         <div class="section-title">
-          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-          <h2 id="uploaderTitle">Subir Archivos</h2>
+          <div class="icon"><i class="fas fa-file-alt"></i></div>
+          <h2 id="documentsTitle">Documentos de la Unidad 1</h2>
         </div>
         
-        <div class="unit-selector">
-          <div class="unit-tab active" data-unit="unit1">
-            <i class="fas fa-cube"></i> Unidad 1
+        <!-- Formulario para agregar documentos -->
+        <div class="upload-form" id="uploadForm">
+          <div class="section-title">
+            <div class="icon"><i class="fas fa-plus"></i></div>
+            <h3>Agregar Nuevo Documento</h3>
           </div>
-          <div class="unit-tab" data-unit="unit2">
-            <i class="fas fa-cubes"></i> Unidad 2
+          
+          <div class="form-group">
+            <label class="form-label" for="documentName">Nombre del Documento</label>
+            <input type="text" id="documentName" class="form-input" placeholder="Ej: Analizador de Funciones">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="documentDescription">Descripción</label>
+            <textarea id="documentDescription" class="form-input form-textarea" placeholder="Breve descripción del contenido del documento"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="documentUrl">Enlace del Documento</label>
+            <input type="url" id="documentUrl" class="form-input" placeholder="https://drive.google.com/...">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="documentUnit">Unidad</label>
+            <select id="documentUnit" class="form-input">
+              <option value="unit1">Unidad 1</option>
+              <option value="unit2">Unidad 2</option>
+            </select>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn-ghost" id="clearForm">
+              <i class="fas fa-times"></i> Limpiar
+            </button>
+            <button type="button" class="btn" id="addDocument">
+              <i class="fas fa-plus"></i> Agregar Documento
+            </button>
           </div>
         </div>
-
-        <div class="drop" id="dropArea" tabindex="0" aria-label="Área de arrastrar y soltar archivos">
-          <div class="drop-content">
-            <i class="fas fa-file-upload" style="font-size: 3rem; margin-bottom: 16px; color: var(--accent);"></i>
-            <h3>Arrastra y suelta tus archivos aquí</h3>
-            <div class="small">o</div>
-          </div>
-          <div class="flex">
-            <label class="btn" for="fileInput">
-              <i class="fas fa-folder-open"></i> Seleccionar archivos
-            </label>
-            <input id="fileInput" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple style="display:none" />
-            <button id="uploadBtn" class="btn-ghost">
-              <i class="fas fa-upload"></i> Subir seleccionados
-            </button>
-            <button id="clearBtn" class="btn-ghost">
-              <i class="fas fa-trash"></i> Limpiar
-            </button>
-          </div>
-          <div class="hint">Máx. 10 MB por archivo. Formatos: PDF, DOC, DOCX</div>
-        </div>
-
+        
         <div class="search-container">
-          <input id="search" class="search" placeholder="Buscar archivos..." aria-label="Buscar archivos" />
+          <input id="search" class="search" placeholder="Buscar documentos..." aria-label="Buscar documentos" />
           <select id="perPage" class="search" style="width:160px">
-            <option value="6">6 por página</option>
-            <option value="12" selected>12 por página</option>
-            <option value="24">24 por página</option>
+            <option value="4" selected>4 por página</option>
+            <option value="8">8 por página</option>
+            <option value="12">12 por página</option>
           </select>
         </div>
 
         <div class="list" id="publicList" aria-live="polite">
-          <!-- Los archivos públicos aparecerán aquí -->
+          <!-- Los documentos de la Unidad 1 aparecerán aquí -->
         </div>
 
         <div class="pager" id="pager" aria-hidden="false" style="display:none">
@@ -683,13 +805,25 @@
           <div id="pageInfo" style="min-width:140px;text-align:center"></div>
           <button id="nextPage">Siguiente <i class="fas fa-chevron-right"></i></button>
         </div>
+
+        <!-- Vista previa del documento -->
+        <div class="document-preview" id="documentPreview" style="display: none;">
+          <div class="preview-header">
+            <div class="preview-title" id="previewTitle">Vista previa del documento</div>
+            <div class="preview-actions">
+              <a href="#" class="btn-ghost" id="closePreview"><i class="fas fa-times"></i> Cerrar</a>
+              <a href="#" class="btn" id="downloadPreview" target="_blank"><i class="fas fa-external-link-alt"></i> Abrir enlace</a>
+            </div>
+          </div>
+          <iframe id="previewFrame" title="Vista previa del documento"></iframe>
+        </div>
       </section>
 
       <section>
         <div class="about-card">
           <h3><i class="fas fa-user-graduate"></i> Sobre el Portafolio</h3>
           <p>Este portafolio contiene todos mis trabajos y documentos del curso de Programación Numérica. Los archivos están organizados por unidades y disponibles para su visualización y descarga.</p>
-          <p>Puedes navegar entre las unidades usando los botones de arriba y utilizar la barra de búsqueda para encontrar documentos específicos.</p>
+          <p>Puedes agregar nuevos documentos usando el formulario y utilizar la barra de búsqueda para encontrar documentos específicos.</p>
         </div>
         
         <div class="stats">
@@ -716,11 +850,11 @@
           <div class="code-block">
             // Tecnologías utilizadas<br>
             - HTML5, CSS3, JavaScript ES6+<br>
-            - Firebase para almacenamiento<br>
+            - Almacenamiento local del navegador<br>
             - Diseño responsivo<br>
             - Interfaz de usuario moderna
           </div>
-          <p>Los algoritmos de búsqueda y paginación están optimizados para un rendimiento eficiente incluso con grandes volúmenes de documentos.</p>
+          <p>Los documentos se almacenan localmente en tu navegador para que puedas acceder a ellos en cualquier momento.</p>
         </div>
       </section>
     </main>
@@ -733,32 +867,34 @@
     </footer>
   </div>
 
-  <!-- Firebase SDK (modular) -->
-  <script type="module">
-    // -------------------- CONFIG: reemplaza con tu firebaseConfig --------------------
-    const firebaseConfig = {
-      apiKey: "TU_APIKEY",
-      authDomain: "TU_AUTHDOMAIN",
-      projectId: "TU_PROJECTID",
-      storageBucket: "TU_STORAGEBUCKET",
-      messagingSenderId: "TU_MESSAGING_SENDER_ID",
-      appId: "TU_APPID"
-    };
-    // ------------------------------------------------------------------------------
+  <!-- Botón flotante para agregar documentos -->
+  <div class="floating-action">
+    <button class="floating-btn" id="floatingAddBtn" title="Agregar documento">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject, getMetadata } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+  <script>
+    // Datos de los documentos (inicialmente vacío)
+    let unit1Documents = [];
 
-    const app = initializeApp(firebaseConfig);
-    const storage = getStorage(app);
-    const PUBLIC_FOLDER = 'public';
+    // Cargar documentos del localStorage si existen
+    function loadDocumentsFromStorage() {
+      const savedDocuments = localStorage.getItem('portfolioDocuments');
+      if (savedDocuments) {
+        unit1Documents = JSON.parse(savedDocuments);
+      }
+      updateStats();
+    }
+
+    // Guardar documentos en localStorage
+    function saveDocumentsToStorage() {
+      localStorage.setItem('portfolioDocuments', JSON.stringify(unit1Documents));
+      updateStats();
+    }
 
     // DOM
     const el = id => document.getElementById(id);
-    const drop = el('dropArea');
-    const fileInput = el('fileInput');
-    const uploadBtn = el('uploadBtn');
-    const clearBtn = el('clearBtn');
     const publicList = el('publicList');
     const searchInput = el('search');
     const perPageSelect = el('perPage');
@@ -766,23 +902,29 @@
     const prevPageBtn = el('prevPage');
     const nextPageBtn = el('nextPage');
     const pageInfo = el('pageInfo');
-    const unitTabs = document.querySelectorAll('.unit-tab');
-    const totalFilesEl = el('totalFiles');
-    const unit1FilesEl = el('unit1Files');
-    const unit2FilesEl = el('unit2Files');
+    const documentPreview = el('documentPreview');
+    const previewFrame = el('previewFrame');
+    const previewTitle = el('previewTitle');
+    const closePreview = el('closePreview');
+    const downloadPreview = el('downloadPreview');
+    const uploadForm = el('uploadForm');
+    const documentName = el('documentName');
+    const documentDescription = el('documentDescription');
+    const documentUrl = el('documentUrl');
+    const documentUnit = el('documentUnit');
+    const addDocumentBtn = el('addDocument');
+    const clearFormBtn = el('clearForm');
+    const floatingAddBtn = el('floatingAddBtn');
 
     // state
-    let selectedFiles = [];
     let currentUnit = 'unit1';
-    const ALLOWED = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-    const MAX_SIZE = 10 * 1024 * 1024;
-    let publicFilesCache = [];
     let filtered = [];
     let currentPage = 1;
+    let currentDocument = null;
 
     // util
-    const bytesToKB = b => (b/1024).toFixed(1) + ' KB';
-    const fmtDate = ts => new Date(ts).toLocaleDateString('es-PE');
+    const truncate = (s, n) => s.length > n ? s.slice(0, n-1) + '…' : s;
+    const escapeHtml = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
     // Crear partículas de fondo
     function createParticles() {
@@ -802,217 +944,167 @@
 
     // Actualizar estadísticas
     function updateStats() {
-      const total = publicFilesCache.length;
-      const unit1 = publicFilesCache.filter(f => f.unit === 'unit1').length;
-      const unit2 = publicFilesCache.filter(f => f.unit === 'unit2').length;
+      const total = unit1Documents.length;
+      const unit1 = unit1Documents.filter(f => f.unit === 'unit1').length;
+      const unit2 = unit1Documents.filter(f => f.unit === 'unit2').length;
       
-      totalFilesEl.textContent = total;
-      unit1FilesEl.textContent = unit1;
-      unit2FilesEl.textContent = unit2;
+      el('totalFiles').textContent = total;
+      el('unit1Files').textContent = unit1;
+      el('unit2Files').textContent = unit2;
     }
 
-    // --- Unit selector
-    unitTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        unitTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        currentUnit = tab.dataset.unit;
-        renderSelected();
-      });
-    });
-
-    // --- drag & drop
-    ['dragenter','dragover'].forEach(ev => {
-      drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.add('dragover'); });
-    });
-    ['dragleave','drop'].forEach(ev => {
-      drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.remove('dragover'); });
-    });
-    drop.addEventListener('drop', e => {
-      const dt = e.dataTransfer;
-      if(!dt) return;
-      addFiles(Array.from(dt.files));
-    });
-
-    fileInput.addEventListener('change', e => addFiles(Array.from(e.target.files)));
-    function addFiles(files){
-      for(const f of files){
-        if(!ALLOWED.includes(f.type)){ alert('Solo PDF y Word permitidos. Ignorado: '+f.name); continue; }
-        if(f.size > MAX_SIZE){ alert('Archivo demasiado grande (max 10MB): '+f.name); continue; }
-        f.unit = currentUnit;
-        selectedFiles.push(f);
-      }
-      renderSelected();
+    // Mostrar vista previa del documento
+    function showDocumentPreview(document) {
+      currentDocument = document;
+      previewTitle.textContent = document.displayName;
+      previewFrame.src = document.url;
+      downloadPreview.href = document.url;
+      documentPreview.style.display = 'block';
+      
+      // Desplazar hacia la vista previa
+      documentPreview.scrollIntoView({ behavior: 'smooth' });
     }
 
-    function renderSelected(){
-      const sel = selectedFiles.slice(0,6);
-      const container = publicList;
-      if(sel.length === 0 && publicFilesCache.length === 0){
-        container.innerHTML = '<div class="empty-state"><div class="icon"><i class="far fa-folder-open"></i></div><div>No hay archivos. Selecciona archivos para subir.</div></div>';
+    // Ocultar vista previa del documento
+    function hideDocumentPreview() {
+      documentPreview.style.display = 'none';
+      previewFrame.src = '';
+      currentDocument = null;
+    }
+
+    // Agregar nuevo documento
+    function addNewDocument() {
+      const name = documentName.value.trim();
+      const description = documentDescription.value.trim();
+      const url = documentUrl.value.trim();
+      const unit = documentUnit.value;
+      
+      if (!name || !url) {
+        alert('Por favor, completa al menos el nombre y el enlace del documento.');
         return;
       }
       
-      let html = '';
-      if(selectedFiles.length){
-        html += '<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">Archivos seleccionados ('+selectedFiles.length+')</div>';
-        selectedFiles.forEach((f,i) => {
-          html += `<div class="file-item">
-            <div class="file-left">
-              <div class="thumb">${f.unit === 'unit1' ? '<i class="fas fa-cube"></i>' : '<i class="fas fa-cubes"></i>'}</div>
-              <div class="file-meta">
-                <strong title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</strong>
-                <span class="small">${bytesToKB(f.size)} · ${f.type.split('/')[1].toUpperCase()} · <span class="badge ${f.unit}">${f.unit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}</span></span>
-              </div>
-            </div>
-            <div class="file-actions">
-              <button class="btn-ghost" data-remove="${i}"><i class="fas fa-times"></i> Eliminar</button>
-            </div>
-          </div>`;
-        });
-        html += `<div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
-          <button id="startUpload" class="btn"><i class="fas fa-cloud-upload-alt"></i> Subir ${selectedFiles.length} archivos</button>
-          <button id="clearSelected" class="btn-ghost"><i class="fas fa-trash"></i> Limpiar seleccionados</button>
-        </div>`;
-      }
-      container.innerHTML = html + '<div id="publicFilesHolder" style="margin-top:20px"></div>';
-      
-      // bind remove buttons
-      document.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', (ev)=> {
-        const idx = Number(ev.target.dataset.remove);
-        selectedFiles.splice(idx,1);
-        renderSelected();
-      }));
-      const up = document.getElementById('startUpload');
-      if(up) up.addEventListener('click', ()=> uploadSelected());
-      const cl = document.getElementById('clearSelected');
-      if(cl) cl.addEventListener('click', ()=> { if(confirm('¿Limpiar archivos seleccionados?')){ selectedFiles=[]; renderSelected(); }});
-      
-      renderPublicList();
-    }
-
-    // escape helper
-    function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-    // upload
-    async function uploadSelected(){
-      if(selectedFiles.length === 0){ alert('No hay archivos seleccionados'); return; }
-      uploadBtn.disabled = true;
+      // Validar URL
       try {
-        for(const f of [...selectedFiles]){
-          const safeName = `${f.unit}_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
-          const storageRef = ref(storage, `${PUBLIC_FOLDER}/${safeName}`);
-          const task = uploadBytesResumable(storageRef, f);
-          await new Promise((resolve,reject)=>{
-            task.on('state_changed',
-              snapshot => {
-                // Podríamos implementar una barra de progreso aquí
-              },
-              err => { console.error(err); alert('Error subiendo: '+f.name); reject(err); },
-              async ()=> {
-                try {
-                  const url = await getDownloadURL(task.snapshot.ref);
-                  const meta = await getMetadata(task.snapshot.ref).catch(()=>({}));
-                  publicFilesCache.unshift({ name: safeName, url, metadata: meta, unit: f.unit });
-                  resolve();
-                } catch(e){ reject(e); }
-              }
-            );
-          });
-        }
-        selectedFiles = [];
-        updateStats();
-        renderSelected();
-        alert('Subida completada correctamente.');
-      } catch(e){
-        console.error(e);
-        alert('Ocurrió un error durante la subida. Revisa la consola para más detalles.');
-      } finally { uploadBtn.disabled = false; }
-    }
-
-    // list public files
-    async function fetchPublicFiles(){
-      publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)"><i class="fas fa-spinner fa-spin"></i> Cargando archivos públicos…</div>';
-      try{
-        const listRef = ref(storage, PUBLIC_FOLDER);
-        const res = await listAll(listRef);
-        const items = res.items || [];
-        const promises = items.map(async it => {
-          const url = await getDownloadURL(it).catch(()=>null);
-          const meta = await getMetadata(it).catch(()=>({}));
-          let unit = 'unit1';
-          if(it.name.startsWith('unit1_')) unit = 'unit1';
-          else if(it.name.startsWith('unit2_')) unit = 'unit2';
-          return { name: it.name, url, metadata: meta, ref: it, unit };
-        });
-        const results = await Promise.all(promises);
-        results.sort((a,b) => {
-          const ta = a.metadata.timeCreated? new Date(a.metadata.timeCreated).getTime() : 0;
-          const tb = b.metadata.timeCreated? new Date(b.metadata.timeCreated).getTime() : 0;
-          return tb - ta || b.name.localeCompare(a.name);
-        });
-        publicFilesCache = results;
-        updateStats();
-        renderSelected();
-      }catch(err){
-        console.error(err);
-        publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:#ffb4b4"><i class="fas fa-exclamation-triangle"></i> Error al cargar archivos. Revisa la configuración.</div>';
+        new URL(url);
+      } catch (e) {
+        alert('Por favor, ingresa una URL válida.');
+        return;
       }
+      
+      const newDocument = {
+        name: `${name}.pdf`,
+        displayName: name,
+        description: description || 'Sin descripción',
+        size: 'N/A',
+        date: new Date().toLocaleDateString('es-PE'),
+        url: url,
+        unit: unit
+      };
+      
+      unit1Documents.unshift(newDocument);
+      saveDocumentsToStorage();
+      renderDocuments();
+      clearForm();
+      
+      // Mostrar mensaje de éxito
+      const successMessage = document.createElement('div');
+      successMessage.className = 'success-message';
+      successMessage.innerHTML = `<i class="fas fa-check-circle"></i> Documento "${name}" agregado correctamente.`;
+      uploadForm.parentNode.insertBefore(successMessage, uploadForm);
+      
+      // Eliminar mensaje después de 3 segundos
+      setTimeout(() => {
+        successMessage.remove();
+      }, 3000);
     }
 
-    // render public files with filter & pagination
-    function renderPublicList(){
-      const holder = document.getElementById('publicFilesHolder');
-      if(!holder) return;
+    // Limpiar formulario
+    function clearForm() {
+      documentName.value = '';
+      documentDescription.value = '';
+      documentUrl.value = '';
+      documentUnit.value = 'unit1';
+    }
+
+    // Render documents
+    function renderDocuments() {
       const q = searchInput.value.trim().toLowerCase();
-      filtered = publicFilesCache.filter(f => {
-        if(!f) return false;
-        const display = (f.name || '').toLowerCase();
-        return display.includes(q) && f.unit === currentUnit;
+      filtered = unit1Documents.filter(f => {
+        if (!f) return false;
+        const display = (f.displayName || '').toLowerCase();
+        const desc = (f.description || '').toLowerCase();
+        return display.includes(q) || desc.includes(q);
       });
       
       const perPage = Number(perPageSelect.value);
       const total = filtered.length;
       const totalPages = Math.max(1, Math.ceil(total / perPage));
-      if(currentPage > totalPages) currentPage = 1;
+      if (currentPage > totalPages) currentPage = 1;
       const start = (currentPage - 1) * perPage;
       const pageItems = filtered.slice(start, start + perPage);
       
       let html = '';
-      if(pageItems.length === 0){
+      if (pageItems.length === 0) {
         html += `<div class="empty-state">
           <div class="icon"><i class="far fa-file-alt"></i></div>
-          <div>No se encontraron archivos para la ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}.</div>
+          <div>No hay documentos disponibles.</div>
+          <div class="small" style="margin-top: 10px;">Usa el formulario de arriba para agregar documentos.</div>
         </div>`;
       } else {
         html += `<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">
-          Archivos de ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'} (${filtered.length})
+          Documentos (${filtered.length})
         </div>`;
-        pageItems.forEach(f => {
-          const displayName = decodeURIComponent((f.name || '').split('_').slice(2).join('_') || f.name);
-          const size = f.metadata.size ? bytesToKB(Number(f.metadata.size)) : '';
-          const created = f.metadata.timeCreated ? fmtDate(f.metadata.timeCreated) : '';
-          const url = f.url || '#';
+        pageItems.forEach((f, index) => {
           const fileType = f.name.split('.').pop().toUpperCase();
+          const actualIndex = unit1Documents.findIndex(doc => doc.name === f.name && doc.url === f.url);
           
           html += `<div class="file-item">
             <div class="file-left">
               <div class="thumb">${fileType}</div>
               <div class="file-meta">
-                <strong title="${escapeHtml(displayName)}">${escapeHtml(truncate(displayName, 50))}</strong>
-                <span class="small">${size ? size + ' · ' : ''}${created ? 'Subido: ' + created : ''}</span>
+                <strong title="${escapeHtml(f.displayName)}">${escapeHtml(truncate(f.displayName, 50))}</strong>
+                <span class="small">${escapeHtml(truncate(f.description, 70))}</span>
+                <span class="small">${f.size} · Subido: ${f.date} · <span class="badge ${f.unit}">${f.unit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}</span></span>
               </div>
             </div>
             <div class="file-actions">
-              <a class="btn" href="${url}" target="_blank" rel="noreferrer"><i class="fas fa-eye"></i> Ver</a>
-              <a class="btn-ghost" href="${url}" download="${displayName}"><i class="fas fa-download"></i> Descargar</a>
+              <button class="btn view-document" data-index="${actualIndex}">
+                <i class="fas fa-eye"></i> Ver
+              </button>
+              <a class="btn-ghost" href="${f.url}" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Abrir
+              </a>
+              <button class="btn-ghost delete-document" data-index="${actualIndex}" style="color: var(--danger);">
+                <i class="fas fa-trash"></i>
+              </button>
             </div>
           </div>`;
         });
       }
-      holder.innerHTML = html;
+      publicList.innerHTML = html;
       
-      if(total > perPage){
+      // Agregar event listeners a los botones de vista
+      document.querySelectorAll('.view-document').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = parseInt(button.dataset.index);
+          showDocumentPreview(unit1Documents[index]);
+        });
+      });
+      
+      // Agregar event listeners a los botones de eliminar
+      document.querySelectorAll('.delete-document').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = parseInt(button.dataset.index);
+          if (confirm('¿Estás seguro de que quieres eliminar este documento?')) {
+            unit1Documents.splice(index, 1);
+            saveDocumentsToStorage();
+            renderDocuments();
+          }
+        });
+      });
+      
+      if (total > perPage) {
         pager.style.display = 'flex';
         pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
         prevPageBtn.disabled = currentPage === 1;
@@ -1022,33 +1114,50 @@
       }
     }
 
-    // helpers
-    function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…' : s; }
-
-    // events
-    uploadBtn.addEventListener('click', ()=> {
-      if(selectedFiles.length === 0) return alert('No hay archivos seleccionados');
-      uploadSelected();
+    // Event listeners
+    searchInput.addEventListener('input', () => { 
+      currentPage = 1; 
+      renderDocuments(); 
     });
-    clearBtn.addEventListener('click', ()=> {
-      if(confirm('¿Limpiar archivos seleccionados?')){ selectedFiles=[]; renderSelected(); }
+    
+    perPageSelect.addEventListener('change', () => { 
+      currentPage = 1; 
+      renderDocuments(); 
     });
-    searchInput.addEventListener('input', ()=> { currentPage = 1; renderPublicList(); });
-    perPageSelect.addEventListener('change', ()=> { currentPage = 1; renderPublicList(); });
-    prevPageBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; renderPublicList(); }});
-    nextPageBtn.addEventListener('click', ()=> { 
+    
+    prevPageBtn.addEventListener('click', () => { 
+      if (currentPage > 1) { 
+        currentPage--; 
+        renderDocuments(); 
+      }
+    });
+    
+    nextPageBtn.addEventListener('click', () => { 
       const perPage = Number(perPageSelect.value); 
       const totalPages = Math.max(1, Math.ceil(filtered.length / perPage)); 
-      if(currentPage < totalPages){ currentPage++; renderPublicList(); }
+      if (currentPage < totalPages) { 
+        currentPage++; 
+        renderDocuments(); 
+      }
     });
 
-    // initial load
+    closePreview.addEventListener('click', (e) => {
+      e.preventDefault();
+      hideDocumentPreview();
+    });
+
+    addDocumentBtn.addEventListener('click', addNewDocument);
+    clearFormBtn.addEventListener('click', clearForm);
+
+    floatingAddBtn.addEventListener('click', () => {
+      uploadForm.scrollIntoView({ behavior: 'smooth' });
+      documentName.focus();
+    });
+
+    // Initial load
     createParticles();
-    fetchPublicFiles();
-
-    // small accessibility helpers: allow keyboard drop focus
-    drop.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') fileInput.click(); });
-
+    loadDocumentsFromStorage();
+    renderDocuments();
   </script>
 </body>
 </html>
