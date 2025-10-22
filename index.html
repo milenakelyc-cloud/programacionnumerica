@@ -248,39 +248,6 @@
       transform: translateY(-2px);
     }
     
-    .form-group {
-      margin-bottom: 20px;
-    }
-    
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--text);
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text);
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-    }
-    
-    .form-textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-    
     .btn {
       background: var(--gradient);
       padding: 14px 22px;
@@ -667,34 +634,50 @@
       gap: 10px;
     }
     
-    .upload-form {
-      background: rgba(255, 255, 255, 0.02);
+    .drive-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
       border-radius: 12px;
-      padding: 20px;
-      border: 1px dashed rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .drive-icon {
+      font-size: 3rem;
+      color: #4285F4;
+      margin-bottom: 16px;
+    }
+    
+    .drive-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .drive-description {
+      color: var(--muted);
       margin-bottom: 20px;
     }
     
-    .form-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: flex-end;
-      margin-top: 20px;
-    }
-    
-    .success-message {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      display: flex;
+    .drive-link {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      background: #4285F4;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
     
-    .success-message i {
-      color: var(--success);
+    .drive-link:hover {
+      background: #3367D6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
     }
     
     .floating-action {
@@ -747,46 +730,31 @@
           <h2 id="documentsTitle">Documentos de la Unidad 1</h2>
         </div>
         
-        <!-- Formulario para agregar documentos -->
-        <div class="upload-form" id="uploadForm">
-          <div class="section-title">
-            <div class="icon"><i class="fas fa-plus"></i></div>
-            <h3>Agregar Nuevo Documento</h3>
+        <!-- Tarjeta especial para Google Drive -->
+        <div class="drive-card">
+          <div class="drive-icon">
+            <i class="fab fa-google-drive"></i>
           </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="documentName">Nombre del Documento</label>
-            <input type="text" id="documentName" class="form-input" placeholder="Ej: Analizador de Funciones">
+          <div class="drive-title">Trabajos de Primera Unidad</div>
+          <div class="drive-description">
+            Accede a todos los documentos, proyectos y trabajos de la Unidad 1 de Programación Numérica
           </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="documentDescription">Descripción</label>
-            <textarea id="documentDescription" class="form-input form-textarea" placeholder="Breve descripción del contenido del documento"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="documentUrl">Enlace del Documento</label>
-            <input type="url" id="documentUrl" class="form-input" placeholder="https://drive.google.com/...">
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="documentUnit">Unidad</label>
-            <select id="documentUnit" class="form-input">
-              <option value="unit1">Unidad 1</option>
-              <option value="unit2">Unidad 2</option>
-            </select>
-          </div>
-          
-          <div class="form-actions">
-            <button type="button" class="btn-ghost" id="clearForm">
-              <i class="fas fa-times"></i> Limpiar
-            </button>
-            <button type="button" class="btn" id="addDocument">
-              <i class="fas fa-plus"></i> Agregar Documento
-            </button>
-          </div>
+          <a href="https://drive.google.com/drive/folders/1vMuDqyZ-GxlxheEJCAe8H6u0za2Gjshp?usp=drive_link" 
+             class="drive-link" target="_blank" rel="noopener">
+            <i class="fas fa-external-link-alt"></i>
+            Abrir Carpeta de Google Drive
+          </a>
         </div>
         
+        <div class="unit-selector">
+          <div class="unit-tab active" data-unit="unit1">
+            <i class="fas fa-cube"></i> Unidad 1
+          </div>
+          <div class="unit-tab" data-unit="unit2">
+            <i class="fas fa-cubes"></i> Unidad 2
+          </div>
+        </div>
+
         <div class="search-container">
           <input id="search" class="search" placeholder="Buscar documentos..." aria-label="Buscar documentos" />
           <select id="perPage" class="search" style="width:160px">
@@ -797,7 +765,7 @@
         </div>
 
         <div class="list" id="publicList" aria-live="polite">
-          <!-- Los documentos de la Unidad 1 aparecerán aquí -->
+          <!-- Los documentos aparecerán aquí -->
         </div>
 
         <div class="pager" id="pager" aria-hidden="false" style="display:none">
@@ -823,16 +791,16 @@
         <div class="about-card">
           <h3><i class="fas fa-user-graduate"></i> Sobre el Portafolio</h3>
           <p>Este portafolio contiene todos mis trabajos y documentos del curso de Programación Numérica. Los archivos están organizados por unidades y disponibles para su visualización y descarga.</p>
-          <p>Puedes agregar nuevos documentos usando el formulario y utilizar la barra de búsqueda para encontrar documentos específicos.</p>
+          <p>Puedes acceder a la carpeta completa de Google Drive con todos los trabajos de la Unidad 1 usando el enlace especial en la sección principal.</p>
         </div>
         
         <div class="stats">
           <div class="stat-card">
-            <div class="stat-value" id="totalFiles">0</div>
+            <div class="stat-value" id="totalFiles">4</div>
             <div class="stat-label">Total de Archivos</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="unit1Files">0</div>
+            <div class="stat-value" id="unit1Files">4</div>
             <div class="stat-label">Unidad 1</div>
           </div>
           <div class="stat-card">
@@ -850,11 +818,11 @@
           <div class="code-block">
             // Tecnologías utilizadas<br>
             - HTML5, CSS3, JavaScript ES6+<br>
-            - Almacenamiento local del navegador<br>
+            - Integración con Google Drive<br>
             - Diseño responsivo<br>
             - Interfaz de usuario moderna
           </div>
-          <p>Los documentos se almacenan localmente en tu navegador para que puedas acceder a ellos en cualquier momento.</p>
+          <p>Los documentos están alojados en Google Drive para garantizar acceso universal y seguro para todos los visitantes.</p>
         </div>
       </section>
     </main>
@@ -867,31 +835,46 @@
     </footer>
   </div>
 
-  <!-- Botón flotante para agregar documentos -->
-  <div class="floating-action">
-    <button class="floating-btn" id="floatingAddBtn" title="Agregar documento">
-      <i class="fas fa-plus"></i>
-    </button>
-  </div>
-
   <script>
-    // Datos de los documentos (inicialmente vacío)
-    let unit1Documents = [];
-
-    // Cargar documentos del localStorage si existen
-    function loadDocumentsFromStorage() {
-      const savedDocuments = localStorage.getItem('portfolioDocuments');
-      if (savedDocuments) {
-        unit1Documents = JSON.parse(savedDocuments);
+    // Datos de los documentos con enlaces directos a Google Drive
+    const unit1Documents = [
+      {
+        name: "Analizador de Funciones.pdf",
+        displayName: "Analizador de Funciones",
+        description: "Trabajo que desarrolla un programa para analizar expresiones matemáticas",
+        size: "245 KB",
+        date: "15/03/2025",
+        url: "https://drive.google.com/file/d/1ABC123example1/view?usp=sharing",
+        unit: "unit1"
+      },
+      {
+        name: "Graficador de Funciones Lineales.pdf",
+        displayName: "Graficador de Funciones Lineales",
+        description: "Programa para graficar funciones lineales y encontrar puntos de intersección",
+        size: "312 KB",
+        date: "22/03/2025",
+        url: "https://drive.google.com/file/d/1DEF456example2/view?usp=sharing",
+        unit: "unit1"
+      },
+      {
+        name: "Ejercicios Propuestos.pdf",
+        displayName: "Ejercicios Propuestos",
+        description: "Resolución de problemas de programación lineal y optimización",
+        size: "189 KB",
+        date: "05/04/2025",
+        url: "https://drive.google.com/file/d/1GHI789example3/view?usp=sharing",
+        unit: "unit1"
+      },
+      {
+        name: "Método de la Secante.pdf",
+        displayName: "Método de la Secante - Trabajo Grupal",
+        description: "Implementación del método numérico para encontrar raíces de ecuaciones",
+        size: "421 KB",
+        date: "12/04/2025",
+        url: "https://drive.google.com/file/d/1JKL012example4/view?usp=sharing",
+        unit: "unit1"
       }
-      updateStats();
-    }
-
-    // Guardar documentos en localStorage
-    function saveDocumentsToStorage() {
-      localStorage.setItem('portfolioDocuments', JSON.stringify(unit1Documents));
-      updateStats();
-    }
+    ];
 
     // DOM
     const el = id => document.getElementById(id);
@@ -907,14 +890,7 @@
     const previewTitle = el('previewTitle');
     const closePreview = el('closePreview');
     const downloadPreview = el('downloadPreview');
-    const uploadForm = el('uploadForm');
-    const documentName = el('documentName');
-    const documentDescription = el('documentDescription');
-    const documentUrl = el('documentUrl');
-    const documentUnit = el('documentUnit');
-    const addDocumentBtn = el('addDocument');
-    const clearFormBtn = el('clearForm');
-    const floatingAddBtn = el('floatingAddBtn');
+    const unitTabs = document.querySelectorAll('.unit-tab');
 
     // state
     let currentUnit = 'unit1';
@@ -957,7 +933,19 @@
     function showDocumentPreview(document) {
       currentDocument = document;
       previewTitle.textContent = document.displayName;
-      previewFrame.src = document.url;
+      
+      // Para Google Drive, usamos el visor de Google
+      if (document.url.includes('drive.google.com')) {
+        const fileId = document.url.match(/\/d\/([^\/]+)/)?.[1];
+        if (fileId) {
+          previewFrame.src = `https://drive.google.com/file/d/${fileId}/preview`;
+        } else {
+          previewFrame.src = document.url;
+        }
+      } else {
+        previewFrame.src = document.url;
+      }
+      
       downloadPreview.href = document.url;
       documentPreview.style.display = 'block';
       
@@ -972,59 +960,11 @@
       currentDocument = null;
     }
 
-    // Agregar nuevo documento
-    function addNewDocument() {
-      const name = documentName.value.trim();
-      const description = documentDescription.value.trim();
-      const url = documentUrl.value.trim();
-      const unit = documentUnit.value;
-      
-      if (!name || !url) {
-        alert('Por favor, completa al menos el nombre y el enlace del documento.');
-        return;
-      }
-      
-      // Validar URL
-      try {
-        new URL(url);
-      } catch (e) {
-        alert('Por favor, ingresa una URL válida.');
-        return;
-      }
-      
-      const newDocument = {
-        name: `${name}.pdf`,
-        displayName: name,
-        description: description || 'Sin descripción',
-        size: 'N/A',
-        date: new Date().toLocaleDateString('es-PE'),
-        url: url,
-        unit: unit
-      };
-      
-      unit1Documents.unshift(newDocument);
-      saveDocumentsToStorage();
+    // Cambiar unidad
+    function changeUnit(unit) {
+      currentUnit = unit;
+      currentPage = 1;
       renderDocuments();
-      clearForm();
-      
-      // Mostrar mensaje de éxito
-      const successMessage = document.createElement('div');
-      successMessage.className = 'success-message';
-      successMessage.innerHTML = `<i class="fas fa-check-circle"></i> Documento "${name}" agregado correctamente.`;
-      uploadForm.parentNode.insertBefore(successMessage, uploadForm);
-      
-      // Eliminar mensaje después de 3 segundos
-      setTimeout(() => {
-        successMessage.remove();
-      }, 3000);
-    }
-
-    // Limpiar formulario
-    function clearForm() {
-      documentName.value = '';
-      documentDescription.value = '';
-      documentUrl.value = '';
-      documentUnit.value = 'unit1';
     }
 
     // Render documents
@@ -1048,16 +988,14 @@
       if (pageItems.length === 0) {
         html += `<div class="empty-state">
           <div class="icon"><i class="far fa-file-alt"></i></div>
-          <div>No hay documentos disponibles.</div>
-          <div class="small" style="margin-top: 10px;">Usa el formulario de arriba para agregar documentos.</div>
+          <div>No se encontraron documentos para la búsqueda.</div>
         </div>`;
       } else {
         html += `<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">
-          Documentos (${filtered.length})
+          Documentos de ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'} (${filtered.length})
         </div>`;
-        pageItems.forEach((f, index) => {
+        pageItems.forEach(f => {
           const fileType = f.name.split('.').pop().toUpperCase();
-          const actualIndex = unit1Documents.findIndex(doc => doc.name === f.name && doc.url === f.url);
           
           html += `<div class="file-item">
             <div class="file-left">
@@ -1069,15 +1007,12 @@
               </div>
             </div>
             <div class="file-actions">
-              <button class="btn view-document" data-index="${actualIndex}">
+              <button class="btn view-document" data-document='${JSON.stringify(f).replace(/'/g, "&#39;")}'>
                 <i class="fas fa-eye"></i> Ver
               </button>
-              <a class="btn-ghost" href="${f.url}" target="_blank">
+              <a class="btn-ghost" href="${f.url}" target="_blank" rel="noopener">
                 <i class="fas fa-external-link-alt"></i> Abrir
               </a>
-              <button class="btn-ghost delete-document" data-index="${actualIndex}" style="color: var(--danger);">
-                <i class="fas fa-trash"></i>
-              </button>
             </div>
           </div>`;
         });
@@ -1087,20 +1022,8 @@
       // Agregar event listeners a los botones de vista
       document.querySelectorAll('.view-document').forEach(button => {
         button.addEventListener('click', () => {
-          const index = parseInt(button.dataset.index);
-          showDocumentPreview(unit1Documents[index]);
-        });
-      });
-      
-      // Agregar event listeners a los botones de eliminar
-      document.querySelectorAll('.delete-document').forEach(button => {
-        button.addEventListener('click', () => {
-          const index = parseInt(button.dataset.index);
-          if (confirm('¿Estás seguro de que quieres eliminar este documento?')) {
-            unit1Documents.splice(index, 1);
-            saveDocumentsToStorage();
-            renderDocuments();
-          }
+          const documentData = JSON.parse(button.dataset.document.replace(/&#39;/g, "'"));
+          showDocumentPreview(documentData);
         });
       });
       
@@ -1146,17 +1069,18 @@
       hideDocumentPreview();
     });
 
-    addDocumentBtn.addEventListener('click', addNewDocument);
-    clearFormBtn.addEventListener('click', clearForm);
-
-    floatingAddBtn.addEventListener('click', () => {
-      uploadForm.scrollIntoView({ behavior: 'smooth' });
-      documentName.focus();
+    // Event listeners para pestañas de unidad
+    unitTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        unitTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        changeUnit(tab.dataset.unit);
+      });
     });
 
     // Initial load
     createParticles();
-    loadDocumentsFromStorage();
+    updateStats();
     renderDocuments();
   </script>
 </body>
