@@ -1,144 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Portafolio · Programación Numérica · Milena Kely</title>
+  <meta name="description" content="Portafolio - subir y compartir documentos públicos - Milena Kely" />
   <style>
-    /* === CSS (basado en tu diseño original con pequeñas mejoras) === */
-    :root {
-      --primary:#000;
+    :root{
+      --bg:#0f1113;
+      --card:rgba(20,20,20,0.85);
       --accent:#FF6B35;
-      --cyan:#00D4FF;
-      --purple:#9C27B0;
-      --muted:#666;
-      --card:rgba(30,30,30,0.95);
-      --text:#fff;
-      --neon-blue:#00E5FF;
+      --accent2:#00D4FF;
+      --muted:#9aa4b2;
       --success:#4CAF50;
+      --danger:#F44336;
+      --glass:rgba(255,255,255,0.04);
+      --radius:14px;
+      --text:#eef6ff;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;color:#fff;background:
-      radial-gradient(circle at 10% 20%, rgba(0,0,0,.9) 0%, rgba(30,30,30,.9) 90%),
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23000"/><path d="M0 0L100 100M100 0L0 100" stroke="%23111" stroke-width="1"/></svg>');
-      background-size:cover,100px 100px;background-attachment:fixed,fixed;overflow-x:hidden}
-    .wrap{max-width:1300px;margin:30px auto;background:rgba(0,0,0,.7);border-radius:25px;padding:30px;backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(0,0,0,.8);position:relative;border:2px solid rgba(255,255,255,.1)}
-    header{display:flex;gap:30px;align-items:center;padding:25px;border-radius:20px;margin-bottom:30px;background:linear-gradient(135deg,rgba(0,0,0,.6),rgba(30,30,30,.6));border:2px solid rgba(255,255,255,.1)}
-    .unap-logo{display:flex;flex-direction:column;align-items:center;padding:20px;background:rgba(255,255,255,.05);border-radius:20px;border:2px solid rgba(255,255,255,.1)}
-    .logo-img{height:140px;width:140px;border-radius:50%;border:3px solid rgba(255,255,255,.3);background:linear-gradient(135deg,var(--accent),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:2.6rem}
-    .head-info{flex:1;padding-left:30px;border-left:3px solid rgba(255,255,255,.2)}
-    .main-title{text-align:center;margin:40px 0}
-    .main-title h1{font-size:3.2rem;font-weight:900;background:linear-gradient(to right, white,var(--accent),var(--neon-blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .grid{display:grid;grid-template-columns:1fr 400px;gap:35px}
-    .card{background:var(--card);padding:28px;border-radius:18px;border:2px solid rgba(255,255,255,.08)}
-    .unit{background:rgba(40,40,40,.9);padding:20px;border-radius:14px;border:2px dashed var(--accent)}
-    .u-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .btn{background:linear-gradient(90deg,var(--accent),var(--purple));color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-    .btn:active{transform:translateY(1px)}
-    .btn-danger{background:linear-gradient(90deg,#F44336,#FF5252)}
-    .list{margin-top:15px;display:grid;gap:12px}
-    .file-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:rgba(50,50,50,.9);border:1px solid rgba(255,255,255,.06)}
-    .small{font-size:14px;color:#ccc}
-    .upload-progress{margin-top:8px;height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
-    .upload-progress>div{height:100%;width:0;transition:width .2s linear;background:linear-gradient(90deg,var(--accent),var(--cyan))}
-    footer{margin-top:30px;text-align:center;padding:20px;color:rgba(255,255,255,.9);font-size:14px}
-    @media(max-width:1200px){.grid{grid-template-columns:1fr}.head-info{padding-left:0;border-left:none;border-top:3px solid rgba(255,255,255,.2);padding-top:18px}}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial; background:linear-gradient(180deg,#071014 0%, #0e1220 100%); color:var(--text); -webkit-font-smoothing:antialiased}
+    .wrap{max-width:1200px;margin:28px auto;padding:22px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(2,6,23,0.7)}
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#061018;border:4px solid rgba(255,255,255,0.06)}
+    .head-info h1{margin:0;font-size:1.4rem;letter-spacing:0.6px}
+    .meta{color:var(--muted);font-weight:600;margin-top:6px;font-size:0.95rem}
+    main{display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .drop{border:2px dashed rgba(255,255,255,0.04);padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .drop.dragover{border-color:var(--accent);box-shadow:0 6px 30px rgba(255,107,53,0.06)}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 14px;border-radius:10px;border:none;color:#04121a;font-weight:800;cursor:pointer}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:9px 12px;border-radius:10px;color:var(--text);cursor:pointer}
+    .btn-danger{background:linear-gradient(90deg,var(--danger),#ff6b6b);color:#fff}
+    .flex{display:flex;gap:12px;align-items:center}
+    .list{margin-top:12px;display:grid;gap:10px}
+    .file-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+    .file-left{display:flex;gap:12px;align-items:center}
+    .thumb{width:56px;height:56px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);font-size:12px}
+    .file-meta{display:flex;flex-direction:column}
+    .file-meta strong{font-size:0.98rem}
+    .small{font-size:0.86rem;color:var(--muted)}
+    .search{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    aside .card .small{margin-bottom:8px}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem}
+    @media(max-width:980px){main{grid-template-columns:1fr} aside{order:2}}
+    /* simple paginator */
+    .pager{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:12px}
+    .pager button{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);cursor:pointer}
+    .hint{font-size:0.88rem;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" role="application" aria-label="Portafolio Milena Kely">
     <header>
-      <div class="unap-logo">
-        <div class="logo-img">MK</div>
-        <div class="small" style="text-align:center;font-weight:700">UNIVERSIDAD NACIONAL DEL ALTIPLANO</div>
-      </div>
+      <div class="logo" aria-hidden="true">MK</div>
       <div class="head-info">
-        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
-          <h1 style="margin:0">Portafolio · Programación Numérica</h1>
-          <div style="background:rgba(255,255,255,.06);padding:8px 14px;border-radius:12px;font-weight:800">FINESI · UNA Puno</div>
-        </div>
-        <div style="margin-top:12px;color:var(--muted);font-weight:700">Milena Kely Churata Mamani · Código: <strong style="color:#fff">227897</strong> · 4° semestre · Grupo A</div>
-        <div style="margin-top:6px;color:#E3F2FD">Profesor: <strong>TORRES CRUZ FRED</strong> · <a href="mailto:milenakelyc@gmail.com" style="color:var(--neon-blue)">milenakelyc@gmail.com</a></div>
+        <h1>Portafolio · Programación Numérica</h1>
+        <div class="meta">Milena Kely Churata Mamani · Código: <strong style="color:#fff">227897</strong> · Profesor: TORRES CRUZ FRED</div>
       </div>
     </header>
 
-    <div class="main-title">
-      <h1>PROGRAMACIÓN NUMÉRICA</h1>
-      <div class="small" style="color:#dfefff">Métodos computacionales avanzados para la resolución de problemas matemáticos complejos</div>
-    </div>
+    <main>
+      <section class="card" aria-labelledby="uploaderTitle">
+        <h2 id="uploaderTitle">📤 Subir archivos públicos (carpeta <code>public/</code>)</h2>
 
-    <div class="grid">
-      <main>
-        <section class="card">
-          <h2>📊 Unidad 1 — Subir y listar público</h2>
-          <div class="unit">
-            <div class="u-controls">
-              <label class="btn" for="fileU1">📄 Seleccionar archivos (Unidad 1)</label>
-              <input id="fileU1" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple style="display:none"/>
-              <button id="uploadPublicU1" class="btn">⬆️ Subir seleccionados</button>
-              <button id="refreshPublicU1" class="btn" style="background:linear-gradient(90deg,var(--success),var(--cyan))">🔄 Actualizar lista pública</button>
-              <button id="clearSelectedU1" class="btn btn-danger">🗑️ Limpiar seleccionados</button>
-            </div>
-
-            <div style="margin-top:10px">
-              <div class="small">Progreso global de subida:</div>
-              <div class="upload-progress"><div id="globalProgress"></div></div>
-            </div>
-
-            <h3 style="margin-top:12px">Seleccionados (Unidad 1)</h3>
-            <div id="selectedU1" class="list"></div>
-
-            <h3 style="margin-top:12px">Archivos públicos (Unidad 1)</h3>
-            <div id="listU1" class="list"></div>
+        <div class="drop" id="dropArea" tabindex="0" aria-label="Área de arrastrar y soltar archivos">
+          <div style="text-align:center">
+            <strong>Arrastra y suelta aquí</strong>
+            <div class="small">o</div>
           </div>
-        </section>
-
-        <section class="card" style="margin-top:18px">
-          <h2>🔢 Unidad 2 — Subir y listar público</h2>
-          <div class="unit">
-            <div class="u-controls">
-              <label class="btn" for="fileU2">📄 Seleccionar archivos (Unidad 2)</label>
-              <input id="fileU2" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple style="display:none"/>
-              <button id="uploadPublicU2" class="btn">⬆️ Subir seleccionados</button>
-              <button id="refreshPublicU2" class="btn" style="background:linear-gradient(90deg,var(--success),var(--cyan))">🔄 Actualizar lista pública</button>
-              <button id="clearSelectedU2" class="btn btn-danger">🗑️ Limpiar seleccionados</button>
-            </div>
-
-            <h3 style="margin-top:12px">Seleccionados (Unidad 2)</h3>
-            <div id="selectedU2" class="list"></div>
-
-            <h3 style="margin-top:12px">Archivos públicos (Unidad 2)</h3>
-            <div id="listU2" class="list"></div>
+          <div class="flex">
+            <label class="btn" for="fileInput">Seleccionar archivos</label>
+            <input id="fileInput" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple style="display:none" />
+            <button id="uploadBtn" class="btn-ghost">Subir seleccionados</button>
+            <button id="clearBtn" class="btn-ghost">Limpiar</button>
           </div>
-        </section>
-      </main>
+          <div class="hint">Máx. 10 MB por archivo. Extensiones permitidas: PDF, DOC, DOCX. Los archivos se guardan en <code>public/</code> de Firebase Storage.</div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+          <input id="search" class="search" placeholder="Buscar archivos públicos..." aria-label="Buscar archivos" />
+          <select id="perPage" class="search" style="width:120px">
+            <option value="6">6 / página</option>
+            <option value="12" selected>12 / página</option>
+            <option value="24">24 / página</option>
+          </select>
+        </div>
+
+        <div class="list" id="publicList" aria-live="polite" style="margin-top:12px">
+          <!-- archivos públicos aparecerán aquí -->
+        </div>
+
+        <div class="pager" id="pager" aria-hidden="false" style="display:none">
+          <button id="prevPage">« Anterior</button>
+          <div id="pageInfo" style="min-width:120px;text-align:center"></div>
+          <button id="nextPage">Siguiente »</button>
+        </div>
+      </section>
 
       <aside>
-        <section class="card">
-          <h3>👤 Información</h3>
-          <p><strong>Milena Kely Churata Mamani</strong></p>
-          <p class="small">Código: 227897 · 4° semestre · Grupo A</p>
-          <p class="small">Profesor: TORRES CRUZ FRED</p>
-          <p class="small">Correo: <a href="mailto:milenakelyc@gmail.com" style="color:var(--cyan)">milenakelyc@gmail.com</a></p>
+        <section class="card" aria-labelledby="infoTitle">
+          <h3 id="infoTitle">ℹ️ Instrucciones rápidas</h3>
+          <p class="small">1) Reemplaza <code>firebaseConfig</code> más abajo con tu configuración de Firebase.</p>
+          <p class="small">2) Asegúrate de aplicar las reglas de Storage para permitir lectura pública en <code>public/</code> (ejemplo abajo).</p>
+          <p class="small">3) Para eliminar archivos desde la UI necesitas reglas que permitan write (mejor: elimina desde Firebase Console o con cuenta autenticada).</p>
+          <p class="small">4) Para publicar el sitio como Portafolio recomiendo Firebase Hosting o GitHub Pages.</p>
         </section>
-        <section class="card" style="margin-top:18px">
-          <h3>ℹ️ Notas</h3>
-          <ul style="color:#ddd;list-style:none;padding-left:0">
-            <li class="small">Los archivos subidos se guardan en <code>public/</code> dentro de Firebase Storage.</li>
-            <li class="small">Configura reglas para permitir lectura pública en esa carpeta.</li>
-            <li class="small">No subas información sensible si los archivos son públicos.</li>
-          </ul>
+
+        <section class="card" style="margin-top:12px">
+          <h3>⚠️ Seguridad</h3>
+          <p class="small">Evita permitir escritura pública (write) en la carpeta <code>public/</code>. El snippet recomendado permite lectura pública y escritura solo si el usuario está autenticado.</p>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3>Reglas Storage (ejemplo)</h3>
+          <pre class="small" style="white-space:pre-wrap">
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /public/{allPaths=**} {
+      // lectura pública para archivos en public/
+      allow read: if true;
+      // escritura solo para usuarios autenticados (o reemplaza por tu criterio)
+      allow write: if request.auth != null;
+    }
+    // otras reglas...
+  }
+}
+          </pre>
         </section>
       </aside>
-    </div>
+    </main>
 
-    <footer>© 2025 Milena Kely Churata Mamani · Portafolio de Programación Numérica · FINESI - UNA Puno</footer>
+    <footer>© 2025 Milena Kely · Portafolio · FINESI - UNA Puno</footer>
   </div>
 
-  <!-- Firebase SDK modular (requiere internet) -->
+  <!-- Firebase SDK (modular) -->
   <script type="module">
-    // ------------- CONFIG: reemplaza con tu firebaseConfig -------------
-    // Obtén esto en Firebase Console > Project settings > Your apps
+    // -------------------- CONFIG: reemplaza con tu firebaseConfig --------------------
     const firebaseConfig = {
       apiKey: "TU_APIKEY",
       authDomain: "TU_AUTHDOMAIN",
@@ -147,212 +146,251 @@
       messagingSenderId: "TU_MESSAGING_SENDER_ID",
       appId: "TU_APPID"
     };
-    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
 
-    // Carga SDK modular
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+    import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject, getMetadata } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
-    // Inicializa
     const app = initializeApp(firebaseConfig);
     const storage = getStorage(app);
-    const PUBLIC_FOLDER = 'public'; // carpeta pública en Storage
+    const PUBLIC_FOLDER = 'public';
 
-    // Utilidades DOM
+    // DOM
     const el = id => document.getElementById(id);
+    const drop = el('dropArea');
+    const fileInput = el('fileInput');
+    const uploadBtn = el('uploadBtn');
+    const clearBtn = el('clearBtn');
+    const publicList = el('publicList');
+    const searchInput = el('search');
+    const perPageSelect = el('perPage');
+    const pager = el('pager');
+    const prevPageBtn = el('prevPage');
+    const nextPageBtn = el('nextPage');
+    const pageInfo = el('pageInfo');
+
+    // state
+    let selectedFiles = [];
+    const ALLOWED = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    const MAX_SIZE = 10 * 1024 * 1024;
+    let publicFilesCache = []; // {name,url,metadata}
+    let filtered = [];
+    let currentPage = 1;
+
+    // util
     const bytesToKB = b => (b/1024).toFixed(1) + ' KB';
+    const fmtDate = ts => new Date(ts).toLocaleString('es-PE');
 
-    // Estados locales para archivos "seleccionados" (antes de subir)
-    const selected = { unit1: [], unit2: [] };
+    // --- drag & drop
+    ['dragenter','dragover'].forEach(ev => {
+      drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.add('dragover'); });
+    });
+    ['dragleave','drop'].forEach(ev => {
+      drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.remove('dragover'); });
+    });
+    drop.addEventListener('drop', e => {
+      const dt = e.dataTransfer;
+      if(!dt) return;
+      addFiles(Array.from(dt.files));
+    });
 
-    // Validaciones
-    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-    const ALLOWED_TYPES = {
-      'application/pdf':'pdf',
-      'application/msword':'doc',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document':'docx'
-    };
-
-    // Partículas decorativas (ligero)
-    function createParticles() {
-      // Mantengo simple para rendimiento
-      const root = document.querySelector('.wrap');
-      // ya aplicadas vía CSS background; no agrego más aquí
-    }
-
-    // Render selected lists
-    function renderSelected(unitKey) {
-      const container = el(unitKey === 'unit1' ? 'selectedU1' : 'selectedU2');
-      container.innerHTML = '';
-      const arr = selected[unitKey];
-      if(!arr.length) {
-        const n = document.createElement('div'); n.className='file-item'; n.style.color='#ccc'; n.textContent='No hay archivos seleccionados';
-        container.appendChild(n); return;
+    fileInput.addEventListener('change', e => addFiles(Array.from(e.target.files)));
+    function addFiles(files){
+      for(const f of files){
+        if(!ALLOWED.includes(f.type)){ alert('Solo PDF y Word permitidos. Ignorado: '+f.name); continue; }
+        if(f.size > MAX_SIZE){ alert('Archivo demasiado grande (max 10MB): '+f.name); continue; }
+        selectedFiles.push(f);
       }
-      arr.forEach((f, i) => {
-        const r = document.createElement('div'); r.className='file-item';
-        const info = document.createElement('div'); info.style.display='flex'; info.style.flexDirection='column';
-        const name = document.createElement('strong'); name.textContent = f.name; info.appendChild(name);
-        const meta = document.createElement('span'); meta.className='small'; meta.textContent = `${bytesToKB(f.size)} · ${f.type}`; info.appendChild(meta);
-        const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='8px';
-        const remove = document.createElement('button'); remove.className='btn btn-danger'; remove.textContent='Eliminar'; remove.addEventListener('click', ()=>{ selected[unitKey].splice(i,1); renderSelected(unitKey); });
-        actions.appendChild(remove);
-        r.appendChild(info); r.appendChild(actions); container.appendChild(r);
-      });
+      renderSelected();
     }
 
-    // Agregar seleccionados desde input
-    function addSelectedFiles(unitKey, files) {
-      for(const f of files) {
-        if(!ALLOWED_TYPES[f.type]) { alert('Solo PDF y Word permitidos. Ignorado: '+f.name); continue; }
-        if(f.size > MAX_FILE_SIZE) { alert('Archivo demasiado grande (max 10MB): '+f.name); continue; }
-        selected[unitKey].push(f);
+    function renderSelected(){
+      // muestra hasta 6 seleccionados en UI
+      const sel = selectedFiles.slice(0,6);
+      const container = publicList;
+      if(sel.length === 0 && publicFilesCache.length === 0){
+        container.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)">No hay archivos. Selecciona para subir o usa "Refrescar".</div>';
+        return;
       }
-      renderSelected(unitKey);
-      updateUnitProgressFromSelected();
-    }
-
-    // Subir seleccionados a public/<unidad> y mostrar progreso
-    async function uploadSelectedToPublic(unitKey) {
-      const arr = selected[unitKey].slice();
-      if(!arr.length) { alert('No hay archivos seleccionados para subir.'); return; }
-      let completed = 0;
-      el('globalProgress').style.width = '0%';
-      for(const f of arr) {
-        const safeName = `${unitKey}_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
-        const storageRef = ref(storage, `${PUBLIC_FOLDER}/${safeName}`);
-        const task = uploadBytesResumable(storageRef, f);
-        await new Promise((resolve, reject) => {
-          task.on('state_changed',
-            snapshot => {
-              const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              // cálculo simple del progreso global entre archivos
-              const globalPct = ((completed + pct/100) / arr.length) * 100;
-              el('globalProgress').style.width = `${Math.round(globalPct)}%`;
-            },
-            error => {
-              console.error('Upload error', error);
-              alert('Error subiendo: ' + f.name + '\n' + (error.message||''));
-              reject(error);
-            },
-            async () => {
-              try {
-                await getDownloadURL(task.snapshot.ref);
-                completed++;
-                el('globalProgress').style.width = `${Math.round((completed/arr.length)*100)}%`;
-                resolve();
-              } catch(e){ reject(e); }
-            }
-          );
+      // Si hay archivos seleccionados, los mostramos en la parte superior (no confundir con los públicos)
+      // But we keep publicList for public files; so we add a small section for selected
+      let html = '';
+      if(selectedFiles.length){
+        html += '<div style="margin-bottom:6px;font-weight:800">Seleccionados para subir ('+selectedFiles.length+')</div>';
+        selectedFiles.forEach((f,i) => {
+          html += `<div class="file-item" style="justify-content:space-between">
+            <div class="file-left"><div class="thumb">DOC</div><div class="file-meta"><strong>${escapeHtml(f.name)}</strong><span class="small">${bytesToKB(f.size)} · ${f.type}</span></div></div>
+            <div style="display:flex;gap:8px"><button class="btn-ghost" data-remove="${i}">Eliminar</button></div>
+          </div>`;
         });
+        html += `<div style="margin-top:8px"><button id="startUpload" class="btn">⬆️ Subir ${selectedFiles.length} archivos</button> <button id="clearSelected" class="btn-ghost">Limpiar seleccionados</button></div>`;
       }
-      // limpieza de seleccionados y refresco lista pública
-      selected[unitKey] = [];
-      renderSelected(unitKey);
-      setTimeout(()=>{ listPublicFiles(unitKey); el('globalProgress').style.width = '0%'; }, 700);
-      alert('Subida completada.');
+      container.innerHTML = html + '<div id="publicFilesHolder" style="margin-top:12px"></div>';
+      // bind remove buttons
+      document.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', (ev)=> {
+        const idx = Number(ev.target.dataset.remove);
+        selectedFiles.splice(idx,1);
+        renderSelected();
+      }));
+      const up = document.getElementById('startUpload');
+      if(up) up.addEventListener('click', ()=> uploadSelected());
+      const cl = document.getElementById('clearSelected');
+      if(cl) cl.addEventListener('click', ()=> { if(confirm('Limpiar seleccionados?')){ selectedFiles=[]; renderSelected(); }});
+      // After rendering selected, render cached public list
+      renderPublicList();
     }
 
-    // Listar archivos almacenados en public/ (filtrando por unidad)
-    async function listPublicFiles(unitKey) {
-      const container = el(unitKey === 'unit1' ? 'listU1' : 'listU2');
-      container.innerHTML = 'Cargando...';
+    // escape helper
+    function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    // upload
+    async function uploadSelected(){
+      if(selectedFiles.length === 0){ alert('No hay archivos seleccionados'); return; }
+      uploadBtn.disabled = true;
       try {
+        for(const f of [...selectedFiles]){
+          const safeName = `unit_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
+          const storageRef = ref(storage, `${PUBLIC_FOLDER}/${safeName}`);
+          const task = uploadBytesResumable(storageRef, f);
+          await new Promise((resolve,reject)=>{
+            task.on('state_changed',
+              snapshot => {
+                // could implement small per-file progress UI
+              },
+              err => { console.error(err); alert('Error subiendo: '+f.name); reject(err); },
+              async ()=> {
+                try {
+                  const url = await getDownloadURL(task.snapshot.ref);
+                  // optionally get metadata
+                  const meta = await getMetadata(task.snapshot.ref).catch(()=>({}));
+                  // update cache instantly
+                  publicFilesCache.unshift({ name: safeName, url, metadata: meta });
+                  resolve();
+                } catch(e){ reject(e); }
+              }
+            );
+          });
+        }
+        selectedFiles = [];
+        renderSelected();
+        alert('Subida completada.');
+      } catch(e){
+        console.error(e);
+        alert('Ocurrió un error durante la subida. Revisa consola.');
+      } finally { uploadBtn.disabled = false; }
+    }
+
+    // list public files
+    async function fetchPublicFiles(){
+      publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:var(--muted)">Cargando archivos públicos…</div>';
+      try{
         const listRef = ref(storage, PUBLIC_FOLDER);
         const res = await listAll(listRef);
-        const items = res.items.filter(it => it.name.startsWith(unitKey + '_') || it.name.includes(unitKey + '_'));
-        if(!items.length) {
-          container.innerHTML = '';
-          const n = document.createElement('div'); n.className='file-item'; n.style.color='#ccc'; n.textContent='No hay archivos públicos';
-          container.appendChild(n);
-          updateSidebarProgress(unitKey, 0);
-          return;
-        }
-        // obtener URLs
-        const promises = items.map(async it => ({ name: it.name, url: await getDownloadURL(it), ref: it }));
-        const files = await Promise.all(promises);
-        files.sort((a,b)=> b.name.localeCompare(a.name));
-        container.innerHTML = '';
-        files.forEach(file => {
-          const r = document.createElement('div'); r.className='file-item';
-          const info = document.createElement('div'); info.style.display='flex'; info.style.flexDirection='column';
-          let displayName = file.name.split('_').slice(2).join('_') || file.name;
-          displayName = decodeURIComponent(displayName);
-          const title = document.createElement('strong'); title.textContent = displayName; info.appendChild(title);
-          const meta = document.createElement('span'); meta.className='small'; meta.textContent = file.name; info.appendChild(meta);
-          const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='8px';
-          const a = document.createElement('a'); a.href = file.url; a.target = '_blank'; a.rel = 'noreferrer'; a.className='btn'; a.textContent = 'Ver / Descargar';
-          actions.appendChild(a);
-          // botón eliminar (funcionará solo si tus reglas permiten write)
-          const del = document.createElement('button'); del.className='btn btn-danger'; del.textContent='Eliminar';
-          del.title = 'Eliminar desde Storage (requiere permisos)';
-          del.addEventListener('click', async ()=>{
-            if(!confirm('Eliminar este archivo del Storage público?')) return;
-            try {
-              await deleteObject(file.ref);
-              alert('Archivo eliminado (si las reglas lo permiten).');
-              listPublicFiles(unitKey);
-            } catch(err) {
-              console.error(err);
-              alert('No se pudo eliminar: revisa permisos/reglas.\n' + (err.message||''));
-            }
-          });
-          actions.appendChild(del);
-
-          r.appendChild(info); r.appendChild(actions); container.appendChild(r);
+        const items = res.items || [];
+        const promises = items.map(async it => {
+          const url = await getDownloadURL(it).catch(()=>null);
+          const meta = await getMetadata(it).catch(()=>({}));
+          return { name: it.name, url, metadata: meta, ref: it };
         });
-        updateSidebarProgress(unitKey, Math.min(files.length * 20, 100));
-      } catch(err) {
+        const results = await Promise.all(promises);
+        // sort newest first by metadata.timeCreated if available, otherwise by name
+        results.sort((a,b) => {
+          const ta = a.metadata.timeCreated? new Date(a.metadata.timeCreated).getTime() : 0;
+          const tb = b.metadata.timeCreated? new Date(b.metadata.timeCreated).getTime() : 0;
+          return tb - ta || b.name.localeCompare(a.name);
+        });
+        publicFilesCache = results;
+        renderSelected(); // this will call renderPublicList internally
+      }catch(err){
         console.error(err);
-        container.innerHTML = '';
-        const e = document.createElement('div'); e.className='file-item'; e.style.color='#ffb4b4'; e.textContent = 'Error al listar archivos públicos. Revisa configuración de Firebase.';
-        container.appendChild(e);
+        publicList.innerHTML = '<div class="file-item" style="justify-content:center;color:#ffb4b4">Error al listar archivos públicos. Revisa configuración de Firebase.</div>';
       }
     }
 
-    // Actualiza la barra de progreso lateral
-    function updateSidebarProgress(unitKey, percent) {
-      // si quieres, podrías mostrar en UI; por simplicidad actualizamos texto pequeño
-      // Aquí lo dejamos visual con porcentaje en console y en elementos si los tienes
-      if(unitKey === 'unit1') {
-        // si deseas mostrar en UI, implementa
-        // ejemplo console
-        console.log('Unidad1 progress:', percent + '%');
+    // render public files with filter & pagination
+    function renderPublicList(){
+      const holder = document.getElementById('publicFilesHolder');
+      if(!holder) return;
+      const q = searchInput.value.trim().toLowerCase();
+      filtered = publicFilesCache.filter(f => {
+        if(!f) return false;
+        const display = (f.name || '').toLowerCase();
+        return display.includes(q);
+      });
+      // pagination
+      const perPage = Number(perPageSelect.value);
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / perPage));
+      if(currentPage > totalPages) currentPage = 1;
+      const start = (currentPage - 1) * perPage;
+      const pageItems = filtered.slice(start, start + perPage);
+      // build html
+      let html = '';
+      if(pageItems.length === 0){
+        html += '<div class="file-item" style="justify-content:center;color:var(--muted)">No se encontraron archivos públicos.</div>';
       } else {
-        console.log('Unidad2 progress:', percent + '%');
+        pageItems.forEach(f => {
+          const displayName = decodeURIComponent((f.name || '').split('_').slice(2).join('_') || f.name);
+          const size = f.metadata.size ? bytesToKB(Number(f.metadata.size)) : '';
+          const created = f.metadata.timeCreated ? fmtDate(f.metadata.timeCreated) : '';
+          const url = f.url || '#';
+          html += `<div class="file-item">
+            <div class="file-left">
+              <div class="thumb" aria-hidden="true">PDF</div>
+              <div class="file-meta">
+                <strong title="${escapeHtml(displayName)}">${escapeHtml(truncate(displayName, 60))}</strong>
+                <span class="small">${escapeHtml(f.name)} ${size? ' · '+size : ''} ${created? ' · '+created : ''}</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="${url}" target="_blank" rel="noreferrer">Ver / Descargar</a>
+              <button class="btn-ghost" data-delete="${escapeAttr(f.name)}">Eliminar</button>
+            </div>
+          </div>`;
+        });
       }
+      holder.innerHTML = html;
+      // pager
+      if(total > perPage){
+        pager.style.display = 'flex';
+        pageInfo.textContent = `Página ${currentPage} / ${totalPages} · ${total} archivos`;
+      } else { pager.style.display = 'none'; }
+      // bind delete handlers
+      holder.querySelectorAll('[data-delete]').forEach(btn => btn.addEventListener('click', async (ev) => {
+        const name = ev.target.dataset.delete;
+        if(!confirm('Eliminar archivo del Storage? Esto requiere permisos en Storage rules.')) return;
+        try{
+          const refToDel = ref(storage, `${PUBLIC_FOLDER}/${name}`);
+          await deleteObject(refToDel);
+          alert('Archivo eliminado (si las reglas lo permiten).');
+          await fetchPublicFiles();
+        }catch(e){ console.error(e); alert('No se pudo eliminar: revisa permisos/reglas en Firebase.'); }
+      }));
     }
 
-    // Helper: actualizar progreso estimado a partir de seleccionados (solo UI)
-    function updateUnitProgressFromSelected() {
-      const p1 = Math.min(selected.unit1.length * 20, 100);
-      const p2 = Math.min(selected.unit2.length * 20, 100);
-      updateSidebarProgress('unit1', p1);
-      updateSidebarProgress('unit2', p2);
-    }
+    // helpers
+    function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…' : s; }
+    function escapeAttr(s){ return s.replace(/"/g,'&quot;'); }
 
-    // Listeners y bind
-    document.addEventListener('DOMContentLoaded', ()=>{
-      // inputs
-      el('fileU1').addEventListener('change', e => { addSelectedFiles('unit1', Array.from(e.target.files)); el('fileU1').value = ''; });
-      el('fileU2').addEventListener('change', e => { addSelectedFiles('unit2', Array.from(e.target.files)); el('fileU2').value = ''; });
-
-      // botones subir
-      el('uploadPublicU1').addEventListener('click', ()=> uploadSelectedToPublic('unit1'));
-      el('uploadPublicU2').addEventListener('click', ()=> uploadSelectedToPublic('unit2'));
-
-      // refrescar listas pública
-      el('refreshPublicU1').addEventListener('click', ()=> listPublicFiles('unit1'));
-      el('refreshPublicU2').addEventListener('click', ()=> listPublicFiles('unit2'));
-
-      // limpiar seleccionados
-      el('clearSelectedU1').addEventListener('click', ()=> { if(confirm('Limpiar seleccionados Unidad1?')){ selected.unit1=[]; renderSelected('unit1'); updateUnitProgressFromSelected(); }});
-      el('clearSelectedU2').addEventListener('click', ()=> { if(confirm('Limpiar seleccionados Unidad2?')){ selected.unit2=[]; renderSelected('unit2'); updateUnitProgressFromSelected(); }});
-
-      // render inicial y listar públicos
-      renderSelected('unit1'); renderSelected('unit2');
-      listPublicFiles('unit1'); listPublicFiles('unit2');
+    // events
+    uploadBtn.addEventListener('click', ()=> {
+      if(selectedFiles.length === 0) return alert('No hay archivos seleccionados');
+      uploadSelected();
     });
+    clearBtn.addEventListener('click', ()=> {
+      if(confirm('Limpiar seleccionados?')){ selectedFiles=[]; renderSelected(); }
+    });
+    searchInput.addEventListener('input', ()=> { currentPage = 1; renderPublicList(); });
+    perPageSelect.addEventListener('change', ()=> { currentPage = 1; renderPublicList(); });
+    prevPageBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; renderPublicList(); }});
+    nextPageBtn.addEventListener('click', ()=> { const perPage = Number(perPageSelect.value); const totalPages = Math.max(1, Math.ceil(filtered.length / perPage)); if(currentPage < totalPages){ currentPage++; renderPublicList(); }});
+
+    // initial load
+    fetchPublicFiles();
+
+    // small accessibility helpers: allow keyboard drop focus
+    drop.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') fileInput.click(); });
+
   </script>
 </body>
 </html>
