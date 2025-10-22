@@ -290,15 +290,6 @@
       transform: translateY(-2px);
     }
     
-    .btn-secondary {
-      background: var(--gradient2);
-      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
-    }
-    
-    .btn-secondary:hover {
-      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-    }
-    
     .flex {
       display: flex;
       gap: 14px;
@@ -306,118 +297,60 @@
       flex-wrap: wrap;
     }
     
-    .search-container {
-      display: flex;
-      gap: 14px;
-      align-items: center;
+    .drive-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .drive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    
+    .drive-icon {
+      font-size: 3.5rem;
+      color: #4285F4;
       margin-bottom: 20px;
     }
     
-    .search {
-      flex: 1;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text);
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-    
-    .search:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-    }
-    
-    .list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-    
-    .file-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition: all 0.3s ease;
-    }
-    
-    .file-item:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.06);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .file-left {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex: 1;
-    }
-    
-    .thumb {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .drive-title {
+      font-size: 1.5rem;
       font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    
+    .drive-description {
       color: var(--muted);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    
-    .file-meta {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-width: 0;
-    }
-    
-    .file-meta strong {
+      margin-bottom: 25px;
       font-size: 1.05rem;
-      margin-bottom: 4px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.6;
     }
     
-    .small {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    
-    .file-actions {
-      display: flex;
-      gap: 10px;
+    .drive-link {
+      display: inline-flex;
       align-items: center;
-    }
-    
-    .badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.8rem;
+      gap: 10px;
+      background: #4285F4;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
       font-weight: 600;
-      background: var(--accent);
-      color: #fff;
-      margin-left: 10px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
     }
     
-    .badge.unit1 {
-      background: var(--accent3);
-    }
-    
-    .badge.unit2 {
-      background: var(--accent4);
+    .drive-link:hover {
+      background: #3367D6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
     }
     
     .empty-state {
@@ -430,44 +363,6 @@
       font-size: 3.5rem;
       margin-bottom: 20px;
       opacity: 0.5;
-    }
-    
-    .pager {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .pager button {
-      padding: 10px 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .pager button:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.06);
-      transform: translateY(-2px);
-    }
-    
-    .pager button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .hint {
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 10px;
     }
     
     .stats {
@@ -561,17 +456,6 @@
         flex-direction: column;
         align-items: stretch;
       }
-      
-      .file-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-      
-      .file-actions {
-        width: 100%;
-        justify-content: flex-end;
-      }
     }
     
     .code-block {
@@ -585,127 +469,12 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
     
-    .progress-container {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 10px;
+    .unit-content {
+      display: none;
     }
     
-    .progress-bar {
-      height: 100%;
-      background: var(--gradient);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    
-    .document-preview {
-      margin-top: 20px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(0, 0, 0, 0.2);
-    }
-    
-    .document-preview iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-    
-    .preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      background: rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    
-    .preview-title {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-    
-    .preview-actions {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .drive-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-      border-radius: 12px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    .drive-icon {
-      font-size: 3rem;
-      color: #4285F4;
-      margin-bottom: 16px;
-    }
-    
-    .drive-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    
-    .drive-description {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-    
-    .drive-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #4285F4;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    
-    .drive-link:hover {
-      background: #3367D6;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
-    }
-    
-    .floating-action {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 100;
-    }
-    
-    .floating-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #04121a;
-      font-size: 1.5rem;
-      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
-    }
-    
-    .floating-btn:hover {
-      transform: scale(1.1) rotate(90deg);
-      box-shadow: 0 12px 25px rgba(255, 107, 53, 0.5);
+    .unit-content.active {
+      display: block;
     }
   </style>
 </head>
@@ -727,23 +496,7 @@
       <section class="card" aria-labelledby="documentsTitle">
         <div class="section-title">
           <div class="icon"><i class="fas fa-file-alt"></i></div>
-          <h2 id="documentsTitle">Documentos de la Unidad 1</h2>
-        </div>
-        
-        <!-- Tarjeta especial para Google Drive -->
-        <div class="drive-card">
-          <div class="drive-icon">
-            <i class="fab fa-google-drive"></i>
-          </div>
-          <div class="drive-title">Trabajos de Primera Unidad</div>
-          <div class="drive-description">
-            Accede a todos los documentos, proyectos y trabajos de la Unidad 1 de Programación Numérica
-          </div>
-          <a href="https://drive.google.com/drive/folders/1vMuDqyZ-GxlxheEJCAe8H6u0za2Gjshp?usp=drive_link" 
-             class="drive-link" target="_blank" rel="noopener">
-            <i class="fas fa-external-link-alt"></i>
-            Abrir Carpeta de Google Drive
-          </a>
+          <h2 id="documentsTitle">Documentos del Curso</h2>
         </div>
         
         <div class="unit-selector">
@@ -755,35 +508,33 @@
           </div>
         </div>
 
-        <div class="search-container">
-          <input id="search" class="search" placeholder="Buscar documentos..." aria-label="Buscar documentos" />
-          <select id="perPage" class="search" style="width:160px">
-            <option value="4" selected>4 por página</option>
-            <option value="8">8 por página</option>
-            <option value="12">12 por página</option>
-          </select>
-        </div>
-
-        <div class="list" id="publicList" aria-live="polite">
-          <!-- Los documentos aparecerán aquí -->
-        </div>
-
-        <div class="pager" id="pager" aria-hidden="false" style="display:none">
-          <button id="prevPage"><i class="fas fa-chevron-left"></i> Anterior</button>
-          <div id="pageInfo" style="min-width:140px;text-align:center"></div>
-          <button id="nextPage">Siguiente <i class="fas fa-chevron-right"></i></button>
-        </div>
-
-        <!-- Vista previa del documento -->
-        <div class="document-preview" id="documentPreview" style="display: none;">
-          <div class="preview-header">
-            <div class="preview-title" id="previewTitle">Vista previa del documento</div>
-            <div class="preview-actions">
-              <a href="#" class="btn-ghost" id="closePreview"><i class="fas fa-times"></i> Cerrar</a>
-              <a href="#" class="btn" id="downloadPreview" target="_blank"><i class="fas fa-external-link-alt"></i> Abrir enlace</a>
+        <!-- Contenido Unidad 1 -->
+        <div id="unit1Content" class="unit-content active">
+          <div class="drive-card">
+            <div class="drive-icon">
+              <i class="fab fa-google-drive"></i>
             </div>
+            <div class="drive-title">Trabajos de la Unidad 1</div>
+            <div class="drive-description">
+              En este enlace encontrarás todos los trabajos, proyectos y documentos 
+              correspondientes a la Unidad 1 de Programación Numérica. Incluye ejercicios 
+              resueltos, proyectos de programación y material complementario.
+            </div>
+            <a href="https://drive.google.com/drive/folders/1vMuDqyZ-GxlxheEJCAe8H6u0za2Gjshp?usp=drive_link" 
+               class="drive-link" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>
+              Acceder a Trabajos Unidad 1
+            </a>
           </div>
-          <iframe id="previewFrame" title="Vista previa del documento"></iframe>
+        </div>
+
+        <!-- Contenido Unidad 2 -->
+        <div id="unit2Content" class="unit-content">
+          <div class="empty-state">
+            <div class="icon"><i class="far fa-folder-open"></i></div>
+            <div>No hay documentos disponibles para la Unidad 2</div>
+            <div class="small" style="margin-top: 10px;">Los documentos estarán disponibles próximamente</div>
+          </div>
         </div>
       </section>
 
@@ -791,21 +542,21 @@
         <div class="about-card">
           <h3><i class="fas fa-user-graduate"></i> Sobre el Portafolio</h3>
           <p>Este portafolio contiene todos mis trabajos y documentos del curso de Programación Numérica. Los archivos están organizados por unidades y disponibles para su visualización y descarga.</p>
-          <p>Puedes acceder a la carpeta completa de Google Drive con todos los trabajos de la Unidad 1 usando el enlace especial en la sección principal.</p>
+          <p>Actualmente, los trabajos de la Unidad 1 están disponibles a través de Google Drive, donde podrás acceder a todos los documentos del curso.</p>
         </div>
         
         <div class="stats">
           <div class="stat-card">
-            <div class="stat-value" id="totalFiles">4</div>
-            <div class="stat-label">Total de Archivos</div>
+            <div class="stat-value">1</div>
+            <div class="stat-label">Unidades Activas</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="unit1Files">4</div>
-            <div class="stat-label">Unidad 1</div>
+            <div class="stat-value">1</div>
+            <div class="stat-label">Enlaces Disponibles</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="unit2Files">0</div>
-            <div class="stat-label">Unidad 2</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Acceso Público</div>
           </div>
         </div>
         
@@ -836,72 +587,6 @@
   </div>
 
   <script>
-    // Datos de los documentos con enlaces directos a Google Drive
-    const unit1Documents = [
-      {
-        name: "Analizador de Funciones.pdf",
-        displayName: "Analizador de Funciones",
-        description: "Trabajo que desarrolla un programa para analizar expresiones matemáticas",
-        size: "245 KB",
-        date: "15/03/2025",
-        url: "https://drive.google.com/file/d/1ABC123example1/view?usp=sharing",
-        unit: "unit1"
-      },
-      {
-        name: "Graficador de Funciones Lineales.pdf",
-        displayName: "Graficador de Funciones Lineales",
-        description: "Programa para graficar funciones lineales y encontrar puntos de intersección",
-        size: "312 KB",
-        date: "22/03/2025",
-        url: "https://drive.google.com/file/d/1DEF456example2/view?usp=sharing",
-        unit: "unit1"
-      },
-      {
-        name: "Ejercicios Propuestos.pdf",
-        displayName: "Ejercicios Propuestos",
-        description: "Resolución de problemas de programación lineal y optimización",
-        size: "189 KB",
-        date: "05/04/2025",
-        url: "https://drive.google.com/file/d/1GHI789example3/view?usp=sharing",
-        unit: "unit1"
-      },
-      {
-        name: "Método de la Secante.pdf",
-        displayName: "Método de la Secante - Trabajo Grupal",
-        description: "Implementación del método numérico para encontrar raíces de ecuaciones",
-        size: "421 KB",
-        date: "12/04/2025",
-        url: "https://drive.google.com/file/d/1JKL012example4/view?usp=sharing",
-        unit: "unit1"
-      }
-    ];
-
-    // DOM
-    const el = id => document.getElementById(id);
-    const publicList = el('publicList');
-    const searchInput = el('search');
-    const perPageSelect = el('perPage');
-    const pager = el('pager');
-    const prevPageBtn = el('prevPage');
-    const nextPageBtn = el('nextPage');
-    const pageInfo = el('pageInfo');
-    const documentPreview = el('documentPreview');
-    const previewFrame = el('previewFrame');
-    const previewTitle = el('previewTitle');
-    const closePreview = el('closePreview');
-    const downloadPreview = el('downloadPreview');
-    const unitTabs = document.querySelectorAll('.unit-tab');
-
-    // state
-    let currentUnit = 'unit1';
-    let filtered = [];
-    let currentPage = 1;
-    let currentDocument = null;
-
-    // util
-    const truncate = (s, n) => s.length > n ? s.slice(0, n-1) + '…' : s;
-    const escapeHtml = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
     // Crear partículas de fondo
     function createParticles() {
       const container = document.getElementById('particles');
@@ -918,170 +603,32 @@
       }
     }
 
-    // Actualizar estadísticas
-    function updateStats() {
-      const total = unit1Documents.length;
-      const unit1 = unit1Documents.filter(f => f.unit === 'unit1').length;
-      const unit2 = unit1Documents.filter(f => f.unit === 'unit2').length;
-      
-      el('totalFiles').textContent = total;
-      el('unit1Files').textContent = unit1;
-      el('unit2Files').textContent = unit2;
-    }
-
-    // Mostrar vista previa del documento
-    function showDocumentPreview(document) {
-      currentDocument = document;
-      previewTitle.textContent = document.displayName;
-      
-      // Para Google Drive, usamos el visor de Google
-      if (document.url.includes('drive.google.com')) {
-        const fileId = document.url.match(/\/d\/([^\/]+)/)?.[1];
-        if (fileId) {
-          previewFrame.src = `https://drive.google.com/file/d/${fileId}/preview`;
-        } else {
-          previewFrame.src = document.url;
-        }
-      } else {
-        previewFrame.src = document.url;
-      }
-      
-      downloadPreview.href = document.url;
-      documentPreview.style.display = 'block';
-      
-      // Desplazar hacia la vista previa
-      documentPreview.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Ocultar vista previa del documento
-    function hideDocumentPreview() {
-      documentPreview.style.display = 'none';
-      previewFrame.src = '';
-      currentDocument = null;
-    }
-
-    // Cambiar unidad
+    // Cambiar entre unidades
     function changeUnit(unit) {
-      currentUnit = unit;
-      currentPage = 1;
-      renderDocuments();
-    }
-
-    // Render documents
-    function renderDocuments() {
-      const q = searchInput.value.trim().toLowerCase();
-      filtered = unit1Documents.filter(f => {
-        if (!f) return false;
-        const display = (f.displayName || '').toLowerCase();
-        const desc = (f.description || '').toLowerCase();
-        return display.includes(q) || desc.includes(q);
+      // Ocultar todo el contenido
+      document.querySelectorAll('.unit-content').forEach(content => {
+        content.classList.remove('active');
       });
       
-      const perPage = Number(perPageSelect.value);
-      const total = filtered.length;
-      const totalPages = Math.max(1, Math.ceil(total / perPage));
-      if (currentPage > totalPages) currentPage = 1;
-      const start = (currentPage - 1) * perPage;
-      const pageItems = filtered.slice(start, start + perPage);
+      // Mostrar contenido de la unidad seleccionada
+      document.getElementById(`${unit}Content`).classList.add('active');
       
-      let html = '';
-      if (pageItems.length === 0) {
-        html += `<div class="empty-state">
-          <div class="icon"><i class="far fa-file-alt"></i></div>
-          <div>No se encontraron documentos para la búsqueda.</div>
-        </div>`;
-      } else {
-        html += `<div style="margin-bottom:16px;font-weight:700;font-size:1.1rem;">
-          Documentos de ${currentUnit === 'unit1' ? 'Unidad 1' : 'Unidad 2'} (${filtered.length})
-        </div>`;
-        pageItems.forEach(f => {
-          const fileType = f.name.split('.').pop().toUpperCase();
-          
-          html += `<div class="file-item">
-            <div class="file-left">
-              <div class="thumb">${fileType}</div>
-              <div class="file-meta">
-                <strong title="${escapeHtml(f.displayName)}">${escapeHtml(truncate(f.displayName, 50))}</strong>
-                <span class="small">${escapeHtml(truncate(f.description, 70))}</span>
-                <span class="small">${f.size} · Subido: ${f.date} · <span class="badge ${f.unit}">${f.unit === 'unit1' ? 'Unidad 1' : 'Unidad 2'}</span></span>
-              </div>
-            </div>
-            <div class="file-actions">
-              <button class="btn view-document" data-document='${JSON.stringify(f).replace(/'/g, "&#39;")}'>
-                <i class="fas fa-eye"></i> Ver
-              </button>
-              <a class="btn-ghost" href="${f.url}" target="_blank" rel="noopener">
-                <i class="fas fa-external-link-alt"></i> Abrir
-              </a>
-            </div>
-          </div>`;
-        });
-      }
-      publicList.innerHTML = html;
-      
-      // Agregar event listeners a los botones de vista
-      document.querySelectorAll('.view-document').forEach(button => {
-        button.addEventListener('click', () => {
-          const documentData = JSON.parse(button.dataset.document.replace(/&#39;/g, "'"));
-          showDocumentPreview(documentData);
-        });
+      // Actualizar pestañas activas
+      document.querySelectorAll('.unit-tab').forEach(tab => {
+        tab.classList.remove('active');
       });
-      
-      if (total > perPage) {
-        pager.style.display = 'flex';
-        pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
-        prevPageBtn.disabled = currentPage === 1;
-        nextPageBtn.disabled = currentPage === totalPages;
-      } else { 
-        pager.style.display = 'none'; 
-      }
+      document.querySelector(`.unit-tab[data-unit="${unit}"]`).classList.add('active');
     }
-
-    // Event listeners
-    searchInput.addEventListener('input', () => { 
-      currentPage = 1; 
-      renderDocuments(); 
-    });
-    
-    perPageSelect.addEventListener('change', () => { 
-      currentPage = 1; 
-      renderDocuments(); 
-    });
-    
-    prevPageBtn.addEventListener('click', () => { 
-      if (currentPage > 1) { 
-        currentPage--; 
-        renderDocuments(); 
-      }
-    });
-    
-    nextPageBtn.addEventListener('click', () => { 
-      const perPage = Number(perPageSelect.value); 
-      const totalPages = Math.max(1, Math.ceil(filtered.length / perPage)); 
-      if (currentPage < totalPages) { 
-        currentPage++; 
-        renderDocuments(); 
-      }
-    });
-
-    closePreview.addEventListener('click', (e) => {
-      e.preventDefault();
-      hideDocumentPreview();
-    });
 
     // Event listeners para pestañas de unidad
-    unitTabs.forEach(tab => {
+    document.querySelectorAll('.unit-tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        unitTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
         changeUnit(tab.dataset.unit);
       });
     });
 
     // Initial load
     createParticles();
-    updateStats();
-    renderDocuments();
   </script>
 </body>
 </html>
