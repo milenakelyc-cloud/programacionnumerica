@@ -7,19 +7,24 @@
   <meta name="description" content="Portafolio de Programación Numérica - Milena Kely - Documentos y trabajos académicos" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg: #0a0e17;
-      --card: rgba(18, 25, 40, 0.85);
+      --card: rgba(18, 25, 40, 0.9);
       --accent: #FF6B35;
       --accent2: #00D4FF;
       --accent3: #9C27B0;
       --accent4: #4CAF50;
+      --accent5: #FFD700;
       --muted: #94a3b8;
       --text: #f1f5f9;
-      --gradient: linear-gradient(135deg, #FF6B35 0%, #00D4FF 100%);
+      --gradient1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --gradient5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
       --radius: 16px;
     }
 
@@ -27,101 +32,465 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #071014 0%, #0e1220 100%);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    .background-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-    .particle { position: absolute; border-radius: 50%; background: rgba(255, 107, 53, 0.1); animation: float 15s infinite linear; }
-    @keyframes float { 0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)} }
+    .background-animation { 
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #7e22ce 50%, #c2185b 75%, #ff6b35 100%);
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(45deg); }
+    }
+
+    .particle { 
+      position: absolute; border-radius: 50%; 
+      background: rgba(255, 255, 255, 0.15); 
+      animation: float 20s infinite ease-in-out;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    
+    @keyframes float { 
+      0%, 100%{transform:translateY(0) rotate(0deg); opacity: 0.6;} 
+      50%{transform:translateY(-30px) rotate(180deg); opacity: 1;} 
+    }
 
     .wrap {
-      max-width: 1200px; margin: 40px auto; padding: 30px;
-      background: rgba(15, 23, 42, 0.7);
+      max-width: 1400px; margin: 40px auto; padding: 30px;
+      background: rgba(15, 23, 42, 0.85);
       border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 40px rgba(2,6,23,0.5);
+      border: 2px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 100px rgba(102, 126, 234, 0.3);
     }
 
-    header { display: flex; gap: 24px; align-items: center; margin-bottom: 32px; }
+    header { display: flex; gap: 24px; align-items: center; margin-bottom: 40px; position: relative; }
     .logo {
-      width: 120px; height: 120px; border-radius: 50%;
+      width: 140px; height: 140px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      background: var(--gradient); color: #061018; font-size: 36px; font-weight: 800;
-      border: 4px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-      transition: transform 0.3s;
+      background: var(--gradient1); color: #fff; font-size: 48px; font-weight: 900;
+      border: 5px solid rgba(255,255,255,0.2);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5), 0 0 50px rgba(102, 126, 234, 0.3);
+      transition: all 0.4s ease;
+      animation: pulse 3s infinite;
     }
-    .logo:hover { transform: scale(1.05); }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5); }
+      50% { transform: scale(1.05); box-shadow: 0 20px 50px rgba(102, 126, 234, 0.8); }
+    }
+    
+    .logo:hover { transform: scale(1.1) rotate(5deg); }
+    
     .head-info h1 {
-      font-size: 2.2rem; font-weight: 800;
-      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: 2.8rem; font-weight: 900;
+      background: var(--gradient2); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(240, 147, 251, 0.5);
     }
-    .meta { color: var(--muted); font-weight: 500; margin-top: 8px; font-size: 1.1rem; }
-    .highlight { color: var(--accent2); }
+    
+    .meta { 
+      color: var(--text); 
+      font-weight: 600; 
+      margin-top: 12px; 
+      font-size: 1.2rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .highlight { 
+      color: #FFD700; 
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
 
-    main { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 24px; }
+    main { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 24px; }
+    
     .card {
-      background: var(--card); padding: 28px; border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      position: relative; overflow: hidden;
-    }
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gradient);
-    }
-
-    .section-title { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .section-title h2 { font-size: 1.5rem; font-weight: 700; }
-    .section-title .icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--gradient); color: #061018; font-size: 1.2rem;
-    }
-
-    .unit-selector { display: flex; gap: 12px; margin-bottom: 20px; }
-    .unit-tab {
-      flex: 1; padding: 16px; text-align: center; border-radius: 12px;
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-      cursor: pointer; transition: all 0.3s ease; font-weight: 600; position: relative;
-    }
-    .unit-tab.active { color: #fff; box-shadow: 0 6px 20px rgba(255,107,53,0.3); background: var(--gradient); }
-
-    .drive-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
-      border-radius: 12px; padding: 30px; text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
-    .drive-card:hover { transform: translateY(-5px); }
-    .drive-icon { font-size: 3.5rem; color: #4285F4; margin-bottom: 20px; }
-    .drive-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
-    .drive-description { color: var(--muted); margin-bottom: 25px; font-size: 1.05rem; }
-
-    .drive-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #4285F4; color: white; padding: 14px 28px;
-      border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem;
+      background: rgba(18, 25, 40, 0.95);
+      padding: 32px;
+      border-radius: 20px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 50px rgba(102, 126, 234, 0.2);
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s ease;
     }
-    .drive-link:hover { background: #3367D6; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(66,133,244,0.4); }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 80px rgba(102, 126, 234, 0.4);
+    }
+    
+    .card::before {
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 5px; 
+      background: var(--gradient2);
+    }
 
-    .empty-state { text-align: center; padding: 50px 20px; color: var(--muted); }
-    .empty-state .icon { font-size: 3.5rem; margin-bottom: 20px; opacity: 0.5; }
+    .section-title { 
+      display: flex; 
+      align-items: center; 
+      gap: 16px; 
+      margin-bottom: 24px;
+    }
+    
+    .section-title h2 { 
+      font-size: 1.8rem; 
+      font-weight: 800;
+      background: var(--gradient3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .section-title .icon {
+      width: 52px; 
+      height: 52px; 
+      border-radius: 14px;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      background: var(--gradient3); 
+      color: #fff; 
+      font-size: 1.4rem;
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+    }
+
+    .unit-selector { 
+      display: flex; 
+      gap: 16px; 
+      margin-bottom: 30px;
+    }
+    
+    .unit-tab {
+      flex: 1; 
+      padding: 20px; 
+      text-align: center; 
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05); 
+      border: 2px solid rgba(255,255,255,0.1);
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      font-weight: 700; 
+      font-size: 1.1rem;
+      position: relative;
+    }
+    
+    .unit-tab:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .unit-tab.active { 
+      color: #fff; 
+      box-shadow: 0 8px 25px rgba(240, 147, 251, 0.5); 
+      background: var(--gradient2);
+      border-color: transparent;
+    }
+
+    .upload-section {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+      border: 2px dashed rgba(102, 126, 234, 0.5);
+      border-radius: 14px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .upload-section:hover {
+      border-color: rgba(102, 126, 234, 0.8);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25));
+    }
+    
+    .upload-icon {
+      font-size: 4rem;
+      background: var(--gradient1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+    
+    .upload-label {
+      display: inline-block;
+      background: var(--gradient1);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .upload-label:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+    }
+    
+    #fileInput {
+      display: none;
+    }
+
+    .files-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .file-item {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.2));
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .file-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient4);
+    }
+    
+    .file-item:hover {
+      transform: translateX(5px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,0,0,0.3));
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    .file-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .file-icon.pdf { background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%); color: white; }
+    .file-icon.doc { background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%); color: white; }
+    .file-icon.img { background: linear-gradient(135deg, #43a047 0%, #388e3c 100%); color: white; }
+    .file-icon.code { background: linear-gradient(135deg, #fb8c00 0%, #f57c00 100%); color: white; }
+    .file-icon.excel { background: linear-gradient(135deg, #00897b 0%, #00796b 100%); color: white; }
+    .file-icon.default { background: linear-gradient(135deg, #757575 0%, #616161 100%); color: white; }
+    
+    .file-info {
+      flex: 1;
+    }
+    
+    .file-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    
+    .file-meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    
+    .file-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    
+    .btn-download {
+      background: var(--gradient4);
+      color: white;
+      box-shadow: 0 4px 12px rgba(67, 233, 123, 0.3);
+    }
+    
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(67, 233, 123, 0.5);
+    }
+    
+    .btn-delete {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+    
+    .btn-delete:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5);
+    }
+
+    .drive-card {
+      background: linear-gradient(135deg, rgba(66, 133, 244, 0.15), rgba(52, 168, 83, 0.15));
+      border-radius: 14px;
+      padding: 30px;
+      text-align: center;
+      border: 2px solid rgba(66, 133, 244, 0.3);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .drive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(66, 133, 244, 0.3);
+    }
+    
+    .drive-icon {
+      font-size: 4rem;
+      background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    
+    .drive-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    
+    .drive-description {
+      color: var(--muted);
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .drive-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
+    }
+    
+    .drive-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(66, 133, 244, 0.6);
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(240, 147, 251, 0.15), rgba(245, 87, 108, 0.15));
+      border-radius: 14px;
+      padding: 25px;
+      border: 2px solid rgba(240, 147, 251, 0.3);
+      margin-bottom: 20px;
+    }
+    
+    .info-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      background: var(--gradient2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .info-card p {
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.2));
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: var(--gradient5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    
+    .empty-state .icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: 0.4;
+    }
 
     footer {
-      margin-top: 40px; text-align: center; color: var(--muted);
-      font-size: 0.95rem; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 50px;
+      text-align: center;
+      color: var(--text);
+      font-size: 1rem;
+      padding-top: 30px;
+      border-top: 2px solid rgba(255,255,255,0.1);
+      font-weight: 500;
     }
 
     @media (max-width: 980px) {
       main { grid-template-columns: 1fr; }
       header { flex-direction: column; text-align: center; gap: 20px; }
+      .stats-grid { grid-template-columns: 1fr; }
     }
+    
     .unit-content { display: none; }
     .unit-content.active { display: block; }
   </style>
@@ -152,34 +521,56 @@
 
         <!-- UNIDAD 1 -->
         <div id="unit1Content" class="unit-content active">
+          <div class="upload-section">
+            <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3 style="margin-bottom: 10px; font-size: 1.4rem;">Subir Archivos - Unidad 1</h3>
+            <p style="color: var(--muted); margin-bottom: 15px;">Sube tus trabajos, proyectos y documentos (PDF, DOCX, XLSX, imágenes, código, etc.)</p>
+            <label for="fileInput1" class="upload-label">
+              <i class="fas fa-plus-circle"></i> Seleccionar Archivos
+            </label>
+            <input type="file" id="fileInput1" multiple accept="*/*">
+          </div>
+
+          <div class="files-list" id="filesList1"></div>
+
           <div class="drive-card">
             <div class="drive-icon"><i class="fab fa-google-drive"></i></div>
-            <div class="drive-title">Trabajos de la Unidad 1</div>
+            <div class="drive-title">Carpeta Google Drive - Unidad 1</div>
             <div class="drive-description">
-              En este enlace encontrarás todos los trabajos, proyectos y documentos 
-              correspondientes a la Unidad 1 de Programación Numérica. Incluye ejercicios 
-              resueltos, proyectos de programación y material complementario.
+              Accede a todos los trabajos, proyectos y documentos adicionales de la Unidad 1 
+              almacenados en Google Drive. Material complementario y ejercicios resueltos.
             </div>
             <a href="https://drive.google.com/drive/folders/1vMuDqyZ-GxlxheEJCAe8H6u0za2Gjshp?usp=drive_link" 
                class="drive-link" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i> Acceder a Trabajos Unidad 1
+              <i class="fas fa-external-link-alt"></i> Abrir Google Drive
             </a>
           </div>
         </div>
 
         <!-- UNIDAD 2 -->
         <div id="unit2Content" class="unit-content">
+          <div class="upload-section">
+            <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3 style="margin-bottom: 10px; font-size: 1.4rem;">Subir Archivos - Unidad 2</h3>
+            <p style="color: var(--muted); margin-bottom: 15px;">Sube tus trabajos, proyectos y documentos (PDF, DOCX, XLSX, imágenes, código, etc.)</p>
+            <label for="fileInput2" class="upload-label">
+              <i class="fas fa-plus-circle"></i> Seleccionar Archivos
+            </label>
+            <input type="file" id="fileInput2" multiple accept="*/*">
+          </div>
+
+          <div class="files-list" id="filesList2"></div>
+
           <div class="drive-card">
             <div class="drive-icon"><i class="fab fa-google-drive"></i></div>
-            <div class="drive-title">Trabajos de la Unidad 2</div>
+            <div class="drive-title">Carpeta Google Drive - Unidad 2</div>
             <div class="drive-description">
-              Aquí podrás acceder a todos los proyectos, informes y prácticas de la 
-              Unidad 2 del curso. Este espacio contiene documentos y desarrollos 
-              avanzados de programación numérica.
+              Accede a todos los proyectos, informes y prácticas avanzadas de la Unidad 2. 
+              Este espacio contiene desarrollos completos de programación numérica.
             </div>
             <a href="https://drive.google.com/drive/folders/1iQ-D7JlcQWKpbQJ5Wb9GjzKJLStdVrD9?usp=drive_link" 
                class="drive-link" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i> Acceder a Trabajos Unidad 2
+              <i class="fas fa-external-link-alt"></i> Abrir Google Drive
             </a>
           </div>
         </div>
@@ -188,33 +579,75 @@
       <section>
         <div class="card">
           <div class="section-title">
+            <div class="icon"><i class="fas fa-chart-line"></i></div>
+            <h2>Estadísticas</h2>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="totalFiles">0</div>
+              <div class="stat-label">Archivos Totales</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="unit1Count">0</div>
+              <div class="stat-label">Unidad 1</div>
+            </div>
+          </div>
+          <div class="stats-grid" style="margin-top: 15px;">
+            <div class="stat-card">
+              <div class="stat-number" id="unit2Count">0</div>
+              <div class="stat-label">Unidad 2</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Unidades</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <div class="section-title">
             <div class="icon"><i class="fas fa-user-graduate"></i></div>
             <h2>Sobre el Portafolio</h2>
           </div>
-          <p>Este portafolio reúne todos mis trabajos y proyectos del curso de <b>Programación Numérica</b>. Cada unidad contiene sus respectivos materiales de estudio, ejercicios resueltos y proyectos finales accesibles a todo el público.</p>
+          <div class="info-card">
+            <h3>📚 Programación Numérica</h3>
+            <p>Este portafolio reúne todos mis trabajos y proyectos del curso. Cada unidad contiene materiales de estudio, ejercicios resueltos y proyectos finales.</p>
+          </div>
+          <div class="info-card">
+            <h3>🌐 Acceso Público</h3>
+            <p>Todos los documentos son de acceso público. Puedes visualizar, descargar y compartir el material académico libremente.</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2025 Milena Kely · Portafolio de Programación Numérica · FINESI - UNA Puno</p>
-      <p style="margin-top:8px; font-size:0.85rem;"><i class="fas fa-globe-americas"></i> Todos los documentos son públicos y accesibles</p>
+      <p style="font-size: 1.1rem; font-weight: 600;">© 2025 Milena Kely Churata Mamani</p>
+      <p style="margin-top:10px; font-size:0.95rem;"><i class="fas fa-university"></i> FINESI - Universidad Nacional del Altiplano - Puno</p>
+      <p style="margin-top:8px; font-size:0.9rem;"><i class="fas fa-globe-americas"></i> Portafolio Público · Programación Numérica</p>
     </footer>
   </div>
 
   <script>
-    // Fondo animado
+    // Almacenamiento local de archivos
+    const filesData = {
+      unit1: JSON.parse(localStorage.getItem('unit1Files') || '[]'),
+      unit2: JSON.parse(localStorage.getItem('unit2Files') || '[]')
+    };
+
+    // Crear partículas animadas
     function createParticles() {
       const container = document.getElementById('particles');
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        const size = Math.random() * 100 + 50;
+        const size = Math.random() * 120 + 60;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDelay = `${Math.random() * 15}s`;
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+        particle.style.animationDuration = `${15 + Math.random() * 10}s`;
         container.appendChild(particle);
       }
     }
@@ -227,11 +660,131 @@
       document.querySelector(`.unit-tab[data-unit="${unit}"]`).classList.add('active');
     }
 
+    // Obtener icono según tipo de archivo
+    function getFileIcon(filename) {
+      const ext = filename.split('.').pop().toLowerCase();
+      if (['pdf'].includes(ext)) return { icon: 'fa-file-pdf', class: 'pdf' };
+      if (['doc', 'docx'].includes(ext)) return { icon: 'fa-file-word', class: 'doc' };
+      if (['xls', 'xlsx'].includes(ext)) return { icon: 'fa-file-excel', class: 'excel' };
+      if (['jpg', 'jpeg', 'png', 'gif', 'svg'].includes(ext)) return { icon: 'fa-file-image', class: 'img' };
+      if (['py', 'js', 'html', 'css', 'cpp', 'c', 'java'].includes(ext)) return { icon: 'fa-file-code', class: 'code' };
+      return { icon: 'fa-file', class: 'default' };
+    }
+
+    // Formatear tamaño de archivo
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    // Renderizar lista de archivos
+    function renderFiles(unit) {
+      const listId = `filesList${unit === 'unit1' ? '1' : '2'}`;
+      const list = document.getElementById(listId);
+      const files = filesData[unit];
+
+      if (files.length === 0) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <div class="icon"><i class="fas fa-folder-open"></i></div>
+            <p>No hay archivos subidos aún</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = files.map((file, index) => {
+        const fileIcon = getFileIcon(file.name);
+        return `
+          <div class="file-item">
+            <div class="file-icon ${fileIcon.class}">
+              <i class="fas ${fileIcon.icon}"></i>
+            </div>
+            <div class="file-info">
+              <div class="file-name">${file.name}</div>
+              <div class="file-meta">${formatFileSize(file.size)} · ${file.date}</div>
+            </div>
+            <div class="file-actions">
+              <button class="btn btn-download" onclick="downloadFile('${unit}', ${index})">
+                <i class="fas fa-download"></i> Descargar
+              </button>
+              <button class="btn btn-delete" onclick="deleteFile('${unit}', ${index})">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Manejar subida de archivos
+    function handleFileUpload(unit, event) {
+      const files = Array.from(event.target.files);
+      
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const fileData = {
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            data: e.target.result,
+            date: new Date().toLocaleDateString('es-ES')
+          };
+          
+          filesData[unit].push(fileData);
+          localStorage.setItem(`${unit}Files`, JSON.stringify(filesData[unit]));
+          renderFiles(unit);
+          updateStats();
+        };
+        reader.readAsDataURL(file);
+      });
+      
+      event.target.value = '';
+    }
+
+    // Descargar archivo
+    function downloadFile(unit, index) {
+      const file = filesData[unit][index];
+      const link = document.createElement('a');
+      link.href = file.data;
+      link.download = file.name;
+      link.click();
+    }
+
+    // Eliminar archivo
+    function deleteFile(unit, index) {
+      if (confirm('¿Estás seguro de eliminar este archivo?')) {
+        filesData[unit].splice(index, 1);
+        localStorage.setItem(`${unit}Files`, JSON.stringify(filesData[unit]));
+        renderFiles(unit);
+        updateStats();
+      }
+    }
+
+    // Actualizar estadísticas
+    function updateStats() {
+      document.getElementById('unit1Count').textContent = filesData.unit1.length;
+      document.getElementById('unit2Count').textContent = filesData.unit2.length;
+      document.getElementById('totalFiles').textContent = filesData.unit1.length + filesData.unit2.length;
+    }
+
+    // Event listeners
     document.querySelectorAll('.unit-tab').forEach(tab => {
       tab.addEventListener('click', () => changeUnit(tab.dataset.unit));
     });
 
+    document.getElementById('fileInput1').addEventListener('change', (e) => handleFileUpload('unit1', e));
+    document.getElementById('fileInput2').addEventListener('change', (e) => handleFileUpload('unit2', e));
+
+    // Inicializar
     createParticles();
+    renderFiles('unit1');
+    renderFiles('unit2');
+    updateStats();
   </script>
 </body>
 </html>
