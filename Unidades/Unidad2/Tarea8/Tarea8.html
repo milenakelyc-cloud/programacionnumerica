@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 8 - Eigenvalores, Eigenvectores - Aplicación</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 8 - Eigenvalores y Eigenvectores – Aplicación</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        Los eigenvalores y eigenvectores permiten analizar cómo una matriz transforma un vector. 
+        Mientras que un vector cualquiera cambia de dirección al multiplicarse por una matriz, 
+        un eigenvector conserva su dirección y solo cambia su magnitud, según el eigenvalor asociado.
+      </p>
+      <p>
+        Este concepto es fundamental en programación numérica, álgebra lineal, análisis de sistemas 
+        y optimización matemática, especialmente cuando se trabaja con funciones multivariables.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 1 -->
+    <section class="card">
+      <h2>1. ¿QUÉ SON LOS EIGENVALORES Y EIGENVECTORES?</h2>
+      <p>
+        Si se tiene una matriz A y un vector v, su relación se expresa como:
+      </p>
+
+      <p style="text-align:center;"><b>Av = λv</b></p>
+
+      <p>
+        Donde:
+      </p>
+      <ul>
+        <li><b>λ</b> es el eigenvalor</li>
+        <li><b>v</b> es el eigenvector asociado</li>
+      </ul>
+
+      <p>
+        El vector mantiene su dirección, mientras que λ indica cuánto se estira o reduce.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="card">
+      <h2>2. ¿CÓMO SE CALCULAN?</h2>
+      <p>
+        Para hallar los eigenvalores se sigue el proceso:
+      </p>
+      <ul>
+        <li>Formar (A − λI)</li>
+        <li>Calcular <b>det(A − λI) = 0</b></li>
+        <li>Resolver para λ</li>
+        <li>Para cada λ, resolver (A − λI)v = 0 para hallar v</li>
+      </ul>
+
+      <p>
+        En matrices diagonales, los valores de la diagonal son directamente los eigenvalores.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section class="card">
+      <h2>3. IMPORTANCIA EN OPTIMIZACIÓN</h2>
+      <p>
+        Los eigenvalores permiten clasificar puntos críticos en funciones multivariables 
+        usando la matriz Hessiana. Según el signo de λ:
+      </p>
+
+      <ul>
+        <li><b>Todos λ positivos:</b> mínimo local</li>
+        <li><b>Todos λ negativos:</b> máximo local</li>
+        <li><b>Signos mezclados:</b> punto de silla</li>
+      </ul>
+
+      <p>
+        Por ello, son esenciales para analizar estabilidad y comportamiento de sistemas.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section class="card">
+      <h2>4. OBJETIVO DE LA PRÁCTICA</h2>
+      <p>
+        Aplicar eigenvalores y eigenvectores a un modelo turístico local basado en cadenas de Markov
+        que representa el movimiento de turistas entre destinos del Lago Titicaca: 
+        Puno Ciudad, Uros, Taquile, Amantaní y Anapia.
+      </p>
+      <p>
+        El desarrollo matemático, simulaciones, análisis numérico y resultados completos se 
+        encuentran en los archivos PDF adjuntos.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 5 -->
+    <section class="card">
+      <h2>5. EJERCICIOS PROPUESTOS</h2>
+
+      <p>
+        El trabajo se basa en tres ejercicios principales que aplican eigenvalores, 
+        eigenvectores y distribuciones estacionarias a un sistema turístico real.
+      </p>
+
+      <p><b>Ejercicio 1:</b> Modificación de la matriz de transición</p>
+      <ul>
+        <li>Actualizar probabilidades de movimiento turístico</li>
+        <li>Calcular nuevos eigenvalues y eigenvectors</li>
+        <li>Obtener la nueva distribución estacionaria</li>
+        <li>Comparar resultados antes y después de la inversión en Taquile</li>
+        <li>Simular convergencia del sistema</li>
+      </ul>
+
+      <p><b>Ejercicio 2:</b> Inclusión de Isla Anapia como nuevo destino turístico</p>
+      <ul>
+        <li>Ampliar matriz de transición a 5x5</li>
+        <li>Proponer probabilidades realistas</li>
+        <li>Calcular nueva distribución estacionaria</li>
+        <li>Analizar impacto sobre los demás destinos</li>
+      </ul>
+
+      <p><b>Ejercicio 3:</b> Análisis de temporadas turísticas</p>
+      <ul>
+        <li>Crear matrices para temporada alta, baja y media</li>
+        <li>Obtener distribuciones estacionarias</li>
+        <li>Simular evolución anual del turismo</li>
+        <li>Calcular promedios anuales</li>
+      </ul>
+
+      <p>
+        Todos estos ejercicios utilizan eigenvalores, eigenvectores y teoría de cadenas de Markov 
+        para interpretar el equilibrio turístico y su evolución en el tiempo.
+      </p>
+
+      <p>
+        Las respuestas completas, cálculos matemáticos, programación, gráficas y análisis final 
+        se encuentran en los PDF adjuntos.
+      </p>
+
+    </section>
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Ejercicios.zip" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> Ver PDF Completo
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>
