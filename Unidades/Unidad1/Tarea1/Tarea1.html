@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 1 – Analizador de Funciones</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 1 – Analizador de Funciones</h1>
+    <hr>
+
+    <!-- OBJETIVO -->
+    <section class="card">
+      <h2>OBJETIVO</h2>
+      <p>
+        Desarrollar un programa que, dada una expresión matemática escrita por el usuario 
+        (con un máximo de dos variables), identifique las variables presentes, cuente el 
+        número de variables distintas y compute el número total de operaciones 
+        (incluyendo sumas, restas, multiplicaciones explícitas y multiplicaciones 
+        implícitas).
+      </p>
+    </section>
+
+    <!-- DESCRIPCIÓN -->
+    <section class="card">
+      <h2>DESCRIPCIÓN DEL PROBLEMA</h2>
+      <p>
+        <b>Entrada:</b> Una cadena de texto que representa una función matemática.  
+        <br>Ejemplo: <i>f(x) = 2x + 3</i>
+        <br><br>
+        <b>Salida esperada:</b>
+        <br>✓ Variables encontradas.  
+        <br>✓ Número de variables distintas.  
+        <br>✓ Número total de operaciones.
+      </p>
+    </section>
+
+    <!-- RESTRICCIONES -->
+    <section class="card">
+      <h2>RESTRICCIONES</h2>
+      <p>
+        • La función puede contener hasta 2 variables.  
+        <br>• Se consideran las operaciones explícitas (+, -, *, /, ^) y las multiplicaciones implícitas.
+      </p>
+    </section>
+
+    <!-- ALGORITMO -->
+    <section class="card">
+      <h2>ENFOQUE Y ALGORITMO</h2>
+      <p>
+        1) Normalizar la expresión (eliminar espacios).  
+        <br>2) Identificar variables (letras a-z/A-Z).  
+        <br>3) Contar operaciones explícitas.  
+        <br>4) Detectar multiplicaciones implícitas usando expresiones regulares.
+      </p>
+    </section>
+
+    <section class="card">
+  <h2>CÓDIGO</h2>
+
+  <p>
+    Implementación realizada en Python para procesar la expresión matemática ingresada por el usuario.
+  </p>
+
+  <pre><code>
+import re
+
+def analizar_expresion(expresion: str):
+    expr = expresion.replace(' ', '')
+
+    vars_found = sorted({c.lower() for c in expr if c.isalpha()})
+
+    ops_explicitas = len(re.findall(r'[+\-*]', expr))
+    implicit_digit_letter = len(re.findall(r'(?=\d+[A-Za-z])', expr))
+    implicit_letter_letter = len(re.findall(r'(?=[A-Za-z]{2})', expr))
+    implicit_before_paren = len(re.findall(r'(?=[A-Za-z0-9]\()', expr))
+    implicit_paren_after = len(re.findall(r'(?=\)[A-Za-z(])', expr))
+
+    total = (
+        ops_explicitas
+        + implicit_digit_letter
+        + implicit_letter_letter
+        + implicit_before_paren
+        + implicit_paren_after
+    )
+
+    return {
+        'variables': vars_found,
+        'num_variables': len(vars_found),
+        'total_operaciones': total
+    }
+
+if __name__ == '__main__':
+    entrada = input('Ingrese la función matemática: ')
+    resultado = analizar_expresion(entrada)
+    print(resultado)
+  </code></pre>
+
+</section>
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea1.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="Analizador.py" target="_blank" class="icon-button">
+        <i class="fa-brands fa-python"></i> Código en Python
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

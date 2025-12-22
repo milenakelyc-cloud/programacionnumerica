@@ -1,0 +1,152 @@
+/* ==========================
+   ESTILO GENERAL
+========================== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f1724;
+  margin: 0;
+  padding: 0;
+  color: #e6ebf3;
+  font-size: 19px; /* tamaño base más grande */
+}
+
+.container {
+  max-width: 1100px; /* contenedor más ancho */
+  margin: auto;
+  padding: 40px 30px;
+}
+
+/* ==========================
+   TITULOS
+========================== */
+
+h1 {
+  text-align: center;
+  color: #5af3f8;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+  font-size: 38px; /* más grande */
+}
+
+h2 {
+  margin-top: 0;
+  color: #8bcfff;
+  font-weight: 700;
+  font-size: 30px; /* más grande */
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card {
+  background: #1a2433;
+  border-left: 6px solid #2790ff;
+  padding: 30px; /* más espacio */
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 9px 16px rgba(0,0,0,0.8);
+  transform: translateY(-2px);
+}
+
+.card p {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.75; /* mejor lectura */
+  text-align: justify;
+  color: #d7dee8;
+}
+
+/* ==========================
+   SECCION DE LINKS
+========================== */
+
+.links {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2790ff;
+  color: #ffffff;
+  padding: 18px 26px; /* botón más grande */
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 19px; /* más grande */
+  font-weight: 600;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
+  transition: 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  background: #5af3f8;
+  color: #00121c;
+  box-shadow: 0 7px 16px rgba(0,0,0,0.6);
+  transform: translateY(-2px);
+}
+
+.icon-button i {
+  font-size: 23px;
+}
+
+/* ==========================
+   SEPARADOR
+========================== */
+
+hr {
+  height: 4px;
+  border: none;
+  background: linear-gradient(to right, #2790ff, #5af3f8);
+  margin-bottom: 35px;
+  border-radius: 2px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .icon-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+pre {
+  background: #0b111a;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 20px;
+  border: 1px solid #233044;
+}
+
+code {
+  color: #9ce5ff;
+  font-size: 18px;
+  font-family: Consolas, 'Courier New', monospace;
+  line-height: 1.6;
+  white-space: pre;
+}
