@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 7 – Método de Regula Falsi</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 7 – Método de Regula Falsi</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        La resolución de ecuaciones no lineales constituye uno de los pilares fundamentales del análisis numérico. 
+        Entre los diversos métodos desarrollados para encontrar raíces de funciones, el método de Regula Falsi 
+        representa una evolución significativa del método de bisección, combinando la garantía de convergencia con 
+        una aproximación más eficiente.
+      </p>
+      <p>
+        Este método utiliza interpolación lineal entre dos puntos que encierran la raíz, en lugar de dividir el 
+        intervalo por la mitad. El proceso se basa en trazar una línea recta entre los puntos seleccionados y usar 
+        el punto donde esta intersecta el eje x como una nueva aproximación.
+      </p>
+      <p>
+        A diferencia del método de bisección, que reduce el intervalo de manera uniforme, Regula Falsi acelera el 
+        proceso al dirigir la aproximación hacia el punto donde la función cambia más rápidamente. 
+      </p>
+      <p>
+        En este trabajo se presenta una implementación completa del método en Python, junto a fundamentos teóricos, 
+        análisis de resultados y visualización gráfica.
+      </p>
+    </section>
+
+
+    <!-- MARCO TEÓRICO -->
+    <section class="card">
+      <h2>MARCO TEÓRICO</h2>
+
+      <h3>1. Definición y concepto</h3>
+      <p>
+        El método de Regula Falsi es un algoritmo iterativo para encontrar raíces de funciones continuas. Se basa en 
+        el teorema del valor intermedio: si f es continua en [a, b] y f(a)·f(b) &lt; 0, entonces existe al menos una raíz 
+        en el intervalo.
+      </p>
+
+      <h3>2. Fórmula principal</h3>
+      <p>
+        El valor aproximado de la raíz se obtiene mediante la fórmula:
+      </p>
+
+      <p style="text-align:center; font-weight:bold;">
+        c = b - f(b)(b - a) / (f(b) - f(a))
+      </p>
+
+      <h3>3. Algoritmo resumido</h3>
+      <p>
+        Paso 1: Verificar que f(a)·f(b) &lt; 0  
+        Paso 2: Calcular c con la fórmula  
+        Paso 3: Verificar signo y redefinir intervalo  
+        Paso 4: Comprobar convergencia  
+        Paso 5: Repetir hasta tolerancia requerida  
+      </p>
+
+      <h3>4. Interpretación geométrica</h3>
+      <p>
+        El método construye una cuerda entre los puntos (a, f(a)) y (b, f(b)). El punto donde esta línea intersecta el 
+        eje x es una aproximación más precisa que el punto medio utilizado en bisección.
+      </p>
+
+      <h3>5. Convergencia</h3>
+      <p>
+        El método siempre converge si existe cambio de signo, aunque la velocidad depende del comportamiento de la 
+        función. En muchos casos es más rápido que la bisección tradicional.
+      </p>
+
+      <h3>6. Ventajas</h3>
+      <ul>
+        <li>No requiere derivadas</li>
+        <li>Generalmente más rápido que bisección</li>
+        <li>Convergencia garantizada</li>
+        <li>Fácil implementación</li>
+      </ul>
+
+      <h3>7. Limitaciones</h3>
+      <ul>
+        <li>Puede estancarse si un extremo permanece fijo</li>
+        <li>Requiere cambio de signo</li>
+        <li>No detecta raíces múltiples automáticamente</li>
+      </ul>
+    </section>
+
+
+    <!-- CÓDIGO -->
+    <section class="card">
+      <h2>CÓDIGO IMPLEMENTADO EN PYTHON</h2>
+
+      <p>
+        El siguiente código implementa el método completo, junto con la gráfica de la función y tabla iterativa:
+      </p>
+
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+print("="*60)
+print("METODO DE REGULA FALSI (Falsa Posicion)")
+print("="*60)
+
+print("\nEjemplos de funciones:")
+print(" x**3 - x - 2")
+print(" np.exp(x) - 3*x")
+print(" x*np.sin(x) - 1")
+
+func_str = input("\nIngrese f(x): ")
+def f(x):
+    return eval(func_str , {"np": np , "x": x})
+
+a_plot = float(input("Limite inferior para grafica: "))
+b_plot = float(input("Limite superior para grafica: "))
+
+x = np.linspace(a_plot , b_plot , 500)
+y = [f(xi) for xi in x]
+
+plt.figure(figsize =(10, 6))
+plt.plot(x, y, "b-", linewidth=2)
+plt.axhline(0, color="black")
+plt.axvline(0, color="black")
+plt.grid()
+plt.show()
+
+aplicar = input("Aplicar metodo? (s/n): ")
+
+if aplicar != "s":
+    exit()
+
+a = float(input("Extremo izquierdo [a]: "))
+b = float(input("Extremo derecho [b]: "))
+
+if f(a) * f(b) >= 0:
+    print("ERROR: No hay cambio de signo")
+    exit()
+
+tol = float(input("Tolerancia: "))
+max_iter = int(input("Maximo de iteraciones: "))
+
+for i in range(max_iter):
+    c = b - f(b)*(b - a)/(f(b) - f(a))
+    fc = f(c)
+
+    if abs(fc) < tol:
+        break
+
+    if f(a)*fc < 0:
+        b = c
+    else:
+        a = c
+
+print("Raiz aproximada: ", c)
+print("f(c): ", fc)
+      </code></pre>
+    </section>
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea7.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="RegulaFalsi.py" target="_blank" class="icon-button">
+        <i class="fa-brands fa-python"></i> Código en Python
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

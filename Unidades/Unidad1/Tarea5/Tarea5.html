@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 5 – Método de la Secante</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 5 – Método de la Secante</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        El método de la secante es una técnica numérica usada para encontrar raíces de funciones.
+        Es una alternativa al método de Newton-Raphson, ya que no requiere derivadas y utiliza
+        dos aproximaciones iniciales para generar nuevas estimaciones de raíz. 
+        Es más rápido que bisección y más eficiente cuando calcular derivadas es complicado.
+      </p>
+    </section>
+
+    <!-- MARCO TEÓRICO -->
+    <section class="card">
+      <h2>MARCO TEÓRICO</h2>
+      <p>
+        El método utiliza una recta secante trazada entre dos puntos de la función para estimar 
+        dónde cruza el eje x. Con cada iteración se actualizan valores hasta aproximar la raíz. 
+        Su convergencia es superlineal, más rápida que bisección pero más lenta que Newton.
+      </p>
+    </section>
+
+    <!-- IMPORTANCIA -->
+    <section class="card">
+      <h2>IMPORTANCIA DE LA VISUALIZACIÓN</h2>
+      <p>
+        Graficar la función permite seleccionar puntos iniciales adecuados, observar el 
+        comportamiento de la curva, evitar divergencias y asegurar mejores resultados.
+      </p>
+    </section>
+
+    <!-- IMPLEMENTACIÓN -->
+    <section class="card">
+      <h2>IMPLEMENTACIÓN EN PYTHON</h2>
+      <p>
+        El programa permite:
+        <br>1. Ingresar una función matemática.
+        <br>2. Graficarla en un intervalo definido.
+        <br>3. Aplicar el método de la secante con x0 y x1.
+        <br>4. Mostrar tabla iterativa con error.
+        <br>5. Presentar la raíz aproximada.
+      </p>
+    </section>
+
+    <!-- CÓDIGO -->
+    <section class="card">
+      <h2>CÓDIGO</h2>
+
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+print("Ejemplos: x**3 - x - 1 | np.exp(x) - 3*x | np.cos(x) - x")
+func_str = input("\nIngrese funcion f(x): ")
+
+def f(x):
+    return eval(func_str, {"np": np, "x": x})
+
+xmin = float(input("Valor minimo de x: "))
+xmax = float(input("Valor maximo de x: "))
+
+x = np.linspace(xmin, xmax, 400)
+y = f(x)
+
+plt.plot(x, y)
+plt.axhline(0, color='black')
+plt.axvline(0, color='black')
+plt.grid()
+plt.show()
+
+aplicar = input("\n¿Aplicar método? (s/n): ").lower()
+
+if aplicar == 's':
+    x0 = float(input("x0: "))
+    x1 = float(input("x1: "))
+    tol = 1e-6
+
+    for i in range(100):
+        fx0, fx1 = f(x0), f(x1)
+
+        if fx1 == fx0:
+            break
+
+        x2 = x1 - fx1*(x1 - x0)/(fx1 - fx0)
+
+        if abs(x2 - x1) < tol:
+            break
+
+        x0, x1 = x1, x2
+
+    print(f"\nRaíz aproximada = {x2}")
+      </code></pre>
+
+    </section>
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea5.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="Secante.py" target="_blank" class="icon-button">
+        <i class="fa-brands fa-python"></i> Código en Python
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 1 – Resumen del Artículo</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 1 – Resumen del Artículo</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        El artículo compara dos métodos para resolver problemas de regresión lineal: la pseudoinversa de Moore–Penrose 
+        y el gradiente descendente. Estos enfoques permiten estimar parámetros que mejor ajustan un modelo lineal a un 
+        conjunto de datos, pero cada uno funciona de manera diferente en términos de precisión, velocidad y estabilidad.
+      </p>
+      <p>
+        El objetivo principal del estudio es identificar cuál de estos métodos resulta más eficiente según el tamaño, 
+        la estructura y el condicionamiento de los datos. Para ello, se realizaron pruebas utilizando datos sintéticos 
+        y datasets reales, evaluando tiempo de ejecución, error y capacidad de convergencia.
+      </p>
+    </section>
+
+
+    <!-- INFORMACIÓN DEL ARTÍCULO -->
+    <section class="card">
+      <h2>INFORMACIÓN DEL ARTÍCULO</h2>
+
+      <p><b>Título:</b> Comparing the Moore–Penrose Pseudoinverse and Gradient Descent for Solving Linear Regression Problems</p>
+      <p><b>Autor:</b> Alex Adams</p>
+      <p><b>Institución:</b> University of Pittsburgh</p>
+      <p><b>Fecha:</b> Mayo 29, 2025</p>
+      <p><b>Referencia:</b> arXiv:2505.23552v1 [cs.LG]</p>
+    </section>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="card">
+      <h2>RESUMEN DEL CONTENIDO</h2>
+
+      <h3>Pseudoinversa de Moore–Penrose</h3>
+      <p>
+        Es una solución directa y exacta para resolver modelos de regresión lineal. Utiliza descomposición matricial 
+        y es altamente estable numéricamente. Se caracteriza por ser rápida y precisa en problemas de tamaño 
+        moderado y datos bien o mal condicionados.
+      </p>
+
+      <h3>Gradiente Descendente</h3>
+      <p>
+        Es un método iterativo que ajusta progresivamente los parámetros del modelo. Su rendimiento depende del número 
+        de iteraciones, el tamaño de los datos y la tasa de aprendizaje. Es útil para bases de datos muy grandes, 
+        aunque puede presentar errores elevados si los datos están mal condicionados.
+      </p>
+
+      <h3>Resultados Experimentales</h3>
+      <ul>
+        <li>La pseudoinversa fue entre 100 y 300 veces más rápida.</li>
+        <li>Ambos métodos tuvieron precisión similar en datos bien condicionados.</li>
+        <li>El gradiente descendente falló en datos mal condicionados.</li>
+        <li>La pseudoinversa mantuvo estabilidad en todas las pruebas.</li>
+      </ul>
+
+      <h3>Conclusiones</h3>
+      <ul>
+        <li>No existe un método universalmente mejor.</li>
+        <li>La pseudoinversa es ideal para datos moderados y precisos.</li>
+        <li>El gradiente descendente conviene en datasets muy masivos.</li>
+        <li>La elección depende del tamaño, complejidad y estructura de los datos.</li>
+      </ul>
+    </section>
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea1.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 6 - Interpolación Cuadrática y Validación DeepSeek & JMeter</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 6 - Interpolación Cuadrática y Validación mediante DeepSeek y Apache JMeter</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        La interpolación numérica permite aproximar valores desconocidos a partir de datos reales. 
+        El método de interpolación cuadrática construye un polinomio de segundo grado capaz de 
+        representar fenómenos con curvatura y variación progresiva.
+      </p>
+      <p>
+        En este trabajo se desarrolla un ejemplo completo utilizando interpolación cuadrática y se
+        valida el resultado empleando herramientas modernas como la inteligencia artificial 
+        DeepSeek y el sistema de pruebas de rendimiento Apache JMeter. 
+      </p>
+      <p>
+        Finalmente, se analizan métricas de una aplicación web a partir de un reporte generado 
+        con Lighthouse.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 1 -->
+    <section class="card">
+      <h2>1. MÉTODO DE INTERPOLACIÓN CUADRÁTICA</h2>
+      <p>
+        Dado un conjunto de tres puntos:
+      </p>
+      <p style="text-align:center;">
+        (x₀, y₀), (x₁, y₁), (x₂, y₂)
+      </p>
+      <p>
+        Se busca un polinomio:
+      </p>
+      <p style="text-align:center;">
+        P(x) = ax² + bx + c
+      </p>
+      <p>
+        Para obtener los coeficientes, se resuelve el siguiente sistema:
+      </p>
+      <pre>
+a·x₀² + b·x₀ + c = y₀
+a·x₁² + b·x₁ + c = y₁
+a·x₂² + b·x₂ + c = y₂
+      </pre>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="card">
+      <h2>2. PROBLEMA PROPUESTO</h2>
+      <p>
+        Se tienen los siguientes valores obtenidos del rendimiento de una aplicación web:
+      </p>
+      <p style="text-align:center;">
+        (1, 76), (2, 80), (3, 77)
+      </p>
+      <p>
+        El eje X representa la categoría evaluada: rendimiento, accesibilidad y recomendaciones.
+      </p>
+
+      <h3>Cálculo del polinomio</h3>
+      <p>
+        El sistema queda:
+      </p>
+
+      <pre>
+a(1)² + b(1) + c = 76
+a(2)² + b(2) + c = 80
+a(3)² + b(3) + c = 77
+      </pre>
+
+      <p>
+        Resolviendo se obtiene:
+      </p>
+
+      <p style="text-align:center;">
+        a = -3, b = 14, c = 65
+      </p>
+
+      <h3>Polinomio final</h3>
+
+      <p style="text-align:center;">
+        <b>P(x) = -3x² + 14x + 65</b>
+      </p>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section class="card">
+      <h2>3. INTERPRETACIÓN DEL RESULTADO</h2>
+      <p>
+        El polinomio describe la tendencia de los puntajes evaluados. Su naturaleza cóncava indica 
+        que existe un máximo alrededor de x ≈ 2.3, lo cual coincide con el valor más alto del conjunto 
+        de datos (accesibilidad = 80 puntos).
+      </p>
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section class="card">
+      <h2>4. VALIDACIÓN MEDIANTE DEEPSEEK</h2>
+      <p>
+        El resultado fue verificado ingresando los datos al modelo DeepSeek. Los puntos fueron 
+        procesados correctamente y los coeficientes obtenidos coincidieron con el resultado manual.
+      </p>
+      <p>
+        Además, DeepSeek confirmó la concavidad del polinomio y el punto máximo aproximado.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 5 -->
+    <section class="card">
+      <h2>5. PRUEBA EN APACHE JMETER</h2>
+      <p>
+        Para evaluar eficiencia del algoritmo se diseñó un plan de carga:
+      </p>
+      <ul>
+        <li>50 usuarios virtuales</li>
+        <li>20 ejecuciones por usuario</li>
+        <li>Tiempo promedio: 18 ms</li>
+        <li>Variabilidad mínima</li>
+      </ul>
+      <p>
+        Los resultados muestran que el algoritmo es escalable, estable y veloz bajo carga.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 6 -->
+    <section class="card">
+      <h2>6. RESULTADOS WEB ANALIZADOS</h2>
+      <p>
+        El análisis de rendimiento web muestra los siguientes puntajes:
+      </p>
+      <ul>
+        <li>Rendimiento: 76</li>
+        <li>Accesibilidad: 80</li>
+        <li>SEO: 100</li>
+      </ul>
+      <p>
+        El SEO presenta excelente optimización, mientras que el rendimiento puede mejorar.
+      </p>
+    </section>
+
+    <!-- CONCLUSIONES -->
+    <section class="card">
+      <h2>CONCLUSIONES</h2>
+      <ul>
+        <li>El método cuadrático generó un modelo matemático preciso.</li>
+        <li>DeepSeek confirmó exactitud numérica y tendencia funcional.</li>
+        <li>JMeter probó rendimiento estable bajo carga.</li>
+        <li>El sistema web analizado presenta buena accesibilidad y SEO sobresaliente.</li>
+      </ul>
+    </section>
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea6.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> Ver PDF Completo
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

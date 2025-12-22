@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 3 – Análisis del Artículo</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 3 – Análisis del Artículo</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        El artículo <b>Optimal single-path information propagation in gradient-based algorithms</b> explora el uso de gradientes
+        como herramientas para la propagación eficiente de información en sistemas distribuidos, incluyendo redes
+        inalámbricas, IoT, y entornos ubicuos.
+      </p>
+
+      <p>
+        Se analizan problemas comunes en algoritmos clásicos de gradiente, como lentitud ante cambios, falta de estabilidad,
+        y subestimación de distancias reales. Para enfrentarlos, se propone el algoritmo <b>BIS (Bounded Information Speed)</b>,
+        diseñado para mejorar el tiempo de respuesta, la suavidad del gradiente y la precisión del sistema.
+      </p>
+    </section>
+
+
+    <!-- INFORMACIÓN DEL ARTÍCULO -->
+    <section class="card">
+      <h2>INFORMACIÓN DEL ARTÍCULO</h2>
+
+      <p><b>Título:</b> Optimal single-path information propagation in gradient-based algorithms</p>
+      <p><b>Autor:</b> Jonathan M. Smith</p>
+      <p><b>Institución:</b> University of Pennsylvania</p>
+      <p><b>Lugar:</b> Puno, Perú</p>
+      <p><b>Fecha:</b> 21 de diciembre de 2025</p>
+    </section>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="card">
+      <h2>RESUMEN DEL CONTENIDO</h2>
+
+      <p>
+        El documento examina cómo los gradientes permiten que cada nodo en una red distribuida estime su distancia mínima hacia una
+        fuente utilizando únicamente información local. Este mecanismo se utiliza para coordinar procesos globales sin depender de
+        una estructura centralizada.
+      </p>
+
+      <h3>Limitaciones Iniciales</h3>
+      <p>
+        Los algoritmos clásicos tienen dificultades para mantener precisión ante cambios rápidos en la red, especialmente cuando
+        las distancias aumentan o cuando los nodos se desconectan o se mueven. Esto puede generar errores acumulativos y respuestas
+        lentas.
+      </p>
+
+      <h3>Algoritmo BIS</h3>
+      <p>
+        El método BIS integra el tiempo como factor clave en el cálculo del gradiente, mejorando:
+      </p>
+
+      <ul>
+        <li>Velocidad de propagación de información</li>
+        <li>Estabilidad en cambios dinámicos</li>
+        <li>Precisión del gradiente</li>
+        <li>Respuesta ante topologías complejas</li>
+      </ul>
+
+      <h3>Aplicaciones del Gradiente</h3>
+      <ul>
+        <li><b>Difusión de información:</b> Mensajes eficientes desde una fuente a toda la red.</li>
+        <li><b>Recolección de datos:</b> Flujo inverso hacia nodos centrales de análisis.</li>
+        <li><b>Canales de comunicación:</b> Definición de rutas de información óptimas.</li>
+        <li><b>Escenarios dinámicos:</b> Rendimiento estable aun con cambios constantes.</li>
+      </ul>
+
+      <h3>Conclusiones</h3>
+      <ul>
+        <li>BIS presenta mejoras reales en precisión, estabilidad y velocidad.</li>
+        <li>Los gradientes permiten coordinación masiva sin infraestructura central.</li>
+        <li>Modelo ideal para sistemas IoT, redes móviles y entornos cambiantes.</li>
+      </ul>
+
+    </section>
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea3.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

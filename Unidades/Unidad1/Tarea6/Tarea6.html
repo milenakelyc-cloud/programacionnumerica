@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 6 – Método de Punto Fijo</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 6 – Método de Punto Fijo</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        El método de punto fijo es una técnica numérica utilizada para resolver ecuaciones
+        no lineales mediante la generación iterativa de valores que se aproximan a la raíz.
+        Su fundamento consiste en transformar una ecuación del tipo f(x)=0 en una forma
+        equivalente x=g(x), donde el valor buscado es aquel que cumple g(p)=p. 
+        La simplicidad del método y su base teórica sólida lo convierten en una herramienta
+        esencial en análisis numérico, especialmente en problemas donde otras técnicas
+        requieren derivadas o mayor complejidad computacional.
+      </p>
+    </section>
+
+    <!-- MARCO TEÓRICO -->
+    <section class="card">
+      <h2>MARCO TEÓRICO</h2>
+      <p>
+        Un punto fijo es un valor p tal que g(p)=p. Para aplicar este método se genera la
+        sucesión iterativa:
+        <br><br>
+        x<sub>n+1</sub> = g(x<sub>n</sub>)
+        <br><br>
+        Si se cumple que |g'(p)|&lt;1 en el entorno del punto fijo, entonces la sucesión converge,
+        lo que garantiza resultados numéricos confiables. La elección de la función g(x) es
+        crucial, ya que una mala reformulación puede generar divergencia o un proceso lento.
+        Algunos ejemplos de conversión de f(x)=0 a x=g(x) incluyen:
+        <br><br>
+        Para x²−5=0 → g(x)=√5 o g(x)=5/x
+        <br>
+        Para x³−x−1=0 → g(x)=³√(x+1)
+      </p>
+    </section>
+
+    <!-- IMPORTANCIA -->
+    <section class="card">
+      <h2>IMPORTANCIA DE LA VISUALIZACIÓN</h2>
+      <p>
+        La representación gráfica de g(x) junto con la recta y=x permite identificar visualmente
+        puntos fijos, analizar comportamiento de convergencia y verificar el éxito de la elección
+        de g(x) y del intervalo de análisis. Esto ayuda además a seleccionar valores iniciales
+        adecuados y a entender mejor la naturaleza del método.
+      </p>
+    </section>
+
+    <!-- IMPLEMENTACIÓN -->
+    <section class="card">
+      <h2>IMPLEMENTACIÓN EN PYTHON</h2>
+      <p>
+        El programa desarrollado permite:
+        <br>1. Ingresar una función iterativa g(x)
+        <br>2. Graficarla para observar puntos fijos
+        <br>3. Ejecutar el método paso a paso
+        <br>4. Calcular errores iterativos
+        <br>5. Verificar convergencia o divergencia
+      </p>
+    </section>
+
+    <!-- CÓDIGO -->
+    <section class="card">
+      <h2>CÓDIGO</h2>
+
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+print("Método Punto Fijo — x = g(x)")
+print("Ejemplos:")
+print("  x**2 - 5 = 0 → np.sqrt(5)")
+print("  x**3 - x - 1 = 0 → (x + 1)**(1/3)")
+print("  cos(x) - x = 0 → np.cos(x)")
+
+func_str = input("\nIngrese g(x): ")
+
+def g(x):
+    return eval(func_str, {"np": np, "x": x})
+
+xmin = float(input("x min: "))
+xmax = float(input("x max: "))
+
+x = np.linspace(xmin, xmax, 400)
+y_g = [g(xi) for xi in x]
+y_id = x
+
+plt.plot(x, y_g, label="g(x)")
+plt.plot(x, y_id, "--", label="y=x")
+plt.grid()
+plt.legend()
+plt.show()
+
+aplicar = input("\n¿Aplicar método? (s/n): ").lower()
+
+if aplicar == 's':
+    x0 = float(input("x0: "))
+    tol = 1e-6
+
+    for i in range(100):
+        x1 = g(x0)
+        error = abs(x1 - x0)
+
+        print(f"Iter {i+1}: x = {x1:.10f}, error = {error:.2e}")
+
+        if error < tol:
+            break
+
+        x0 = x1
+
+    print(f"\nPunto fijo encontrado ≈ {x1}")
+      </code></pre>
+
+    </section>
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea6.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="PuntoFijo.py" target="_blank" class="icon-button">
+        <i class="fa-brands fa-python"></i> Código en Python
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

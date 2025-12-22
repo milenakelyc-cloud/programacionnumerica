@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea – Interpolación: Métodos y Fórmulas de Alta Precisión</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Interpolación — Métodos y Fórmulas de Alta Precisión</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        La interpolación es una técnica matemática utilizada para estimar valores desconocidos dentro del rango de datos conocidos. 
+        Es especialmente útil cuando se desea aproximar valores intermedios sin necesidad de conocer una función exacta. 
+        A diferencia de la extrapolación, la interpolación no trabaja fuera del intervalo de los datos, lo que la hace más precisa y confiable.
+      </p>
+    </section>
+
+    <!-- OBJETIVO -->
+    <section class="card">
+      <h2>OBJETIVO</h2>
+      <p>
+        El objetivo de esta tarea es comprender los fundamentos de la interpolación, analizar los tipos y métodos más comunes, 
+        y aplicar el conocimiento en ejercicios prácticos incluidos en el PDF adjunto.
+      </p>
+    </section>
+
+    <!-- CONTENIDO RESUMIDO -->
+    <section class="card">
+      <h2>RESUMEN DEL CONTENIDO TEÓRICO</h2>
+
+      <h3>1. ¿Qué es la Interpolación?</h3>
+      <p>
+        Es el proceso de encontrar valores intermedios entre puntos conocidos. Permite reconstruir o estimar comportamientos de una 
+        función basándose únicamente en datos reales.  
+      </p>
+      <ul>
+        <li><b>Interpolación:</b> valores dentro del rango conocido</li>
+        <li><b>Extrapolación:</b> valores fuera del rango conocido</li>
+      </ul>
+
+      <h3>2. Interpolación Lineal</h3>
+      <p>
+        Es el método más simple: une dos puntos mediante una línea recta. Se utiliza para estimaciones rápidas y estables.
+      </p>
+      <p><i>Fórmula:</i></p>
+      <p style="text-align:center;">
+        y = y<sub>0</sub> + ((y<sub>1</sub> − y<sub>0</sub>) / (x<sub>1</sub> − x<sub>0</sub>)) (x − x<sub>0</sub>)
+      </p>
+
+      <h3>3. Interpolación de Lagrange</h3>
+      <p>
+        Construye un polinomio que pasa exactamente por todos los puntos dados. Tiene alta precisión, pero puede volverse 
+        inestable con demasiados puntos.
+      </p>
+
+      <h3>4. Diferencias Divididas de Newton</h3>
+      <p>
+        Método basado en una tabla de diferencias. Permite construir el polinomio interpolante y agregar nuevos puntos sin 
+        recalcular todo el modelo.
+      </p>
+
+      <h3>5. Interpolación Cuadrática</h3>
+      <p>
+        Utiliza un polinomio de segundo grado. Genera mejores resultados que la lineal cuando los datos presentan curvatura.
+      </p>
+
+      <h3>6. Splines Cúbicos</h3>
+      <p>
+        La forma más precisa y estable. Divide el intervalo en tramos y ajusta polinomios cúbicos con continuidad en derivadas.
+      </p>
+
+      <h3>7. Error de Interpolación</h3>
+      <p>
+        Permite evaluar la precisión del método, dependiendo del grado del polinomio y la regularidad del comportamiento 
+        de la función real.
+      </p>
+
+    </section>
+
+    <!-- NOTA EXPLICATIVA DEL TRABAJO -->
+    <section class="card">
+      <h2>NOTA SOBRE LOS EJERCICIOS</h2>
+      <p>
+        La tarea consiste en explicar estos métodos de interpolación y resolver los ejercicios incluidos en el documento PDF 
+        adjunto. No es necesario repetir los ejercicios en esta página, solamente analizarlos y comprender el proceso.
+      </p>
+    </section>
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+
+      <a href="Tarea5.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> Ver PDF con ejercicios
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

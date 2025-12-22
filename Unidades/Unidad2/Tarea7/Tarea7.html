@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 7 - Eigenvalores, Eigenvectores y Métodos de Optimización</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 7 - Eigenvalores y Eigenvectores – Métodos de Optimización</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>INTRODUCCIÓN</h2>
+      <p>
+        Los eigenvalores y eigenvectores permiten analizar cómo una matriz transforma un vector. 
+        Mientras que un vector cualquiera cambia de dirección al multiplicarse por una matriz, 
+        un eigenvector conserva su dirección y solo cambia su magnitud, según el eigenvalor asociado.
+      </p>
+      <p>
+        Este concepto es fundamental en programación numérica, álgebra lineal, análisis de sistemas 
+        y optimización matemática, especialmente cuando se trabaja con funciones multivariables.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 1 -->
+    <section class="card">
+      <h2>1. ¿QUÉ SON LOS EIGENVALORES Y EIGENVECTORES?</h2>
+      <p>
+        Si se tiene una matriz A y un vector v, su relación se expresa como:
+      </p>
+
+      <p style="text-align:center;"><b>Av = λv</b></p>
+
+      <p>
+        Donde:
+      </p>
+      <ul>
+        <li><b>λ</b> es el eigenvalor</li>
+        <li><b>v</b> es el eigenvector asociado</li>
+      </ul>
+
+      <p>
+        El vector mantiene su dirección, mientras que λ indica cuánto se estira o reduce.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="card">
+      <h2>2. ¿CÓMO SE CALCULAN?</h2>
+      <p>
+        Para hallar los eigenvalores se sigue el proceso:
+      </p>
+      <ul>
+        <li>Formar (A − λI)</li>
+        <li>Calcular <b>det(A − λI) = 0</b></li>
+        <li>Resolver para λ</li>
+        <li>Para cada λ, resolver (A − λI)v = 0 para hallar v</li>
+      </ul>
+
+      <p>
+        En matrices diagonales, los valores de la diagonal son directamente los eigenvalores.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section class="card">
+      <h2>3. IMPORTANCIA EN OPTIMIZACIÓN</h2>
+      <p>
+        Los eigenvalores permiten clasificar puntos críticos en funciones multivariables 
+        usando la matriz Hessiana. Según el signo de λ:
+      </p>
+
+      <ul>
+        <li><b>Todos λ positivos:</b> mínimo local</li>
+        <li><b>Todos λ negativos:</b> máximo local</li>
+        <li><b>Signos mezclados:</b> punto de silla</li>
+      </ul>
+
+      <p>
+        Por ello, son esenciales para analizar estabilidad y comportamiento de sistemas.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section class="card">
+      <h2>4. OBJETIVO DE LA PRÁCTICA</h2>
+      <p>
+        Resolver los ejercicios de eigenvalores, eigenvectores y clasificación de puntos críticos 
+        mediante métodos numéricos. 
+      </p>
+      <p>
+        El desarrollo completo se presentará en el archivo PDF adjunto.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 5 -->
+    <section class="card">
+      <h2>5. EJERCICIOS PROPUESTOS</h2>
+
+      <p><b>Ejercicio 1.</b> Encuentra los eigenvalores y eigenvectores de:</p>
+      <p style="text-align:center;">A = [4   0]<br>[0   7]</p>
+
+      <p><b>Ejercicio 2.</b> Calcula eigenvalores y eigenvectores de:</p>
+      <p style="text-align:center;">B = [1   2]<br>[2   1]</p>
+
+      <p><b>Ejercicio 3.</b> Para la función f(x₁, x₂) = 2x₁² + x₂² – 2x₁x₂:</p>
+      <ul>
+        <li>a) Calcula la matriz Hessiana</li>
+        <li>b) Encuentra sus eigenvalores</li>
+        <li>c) Clasifica el punto crítico (0, 0)</li>
+      </ul>
+
+      <p><b>Ejercicio 4.</b> Determina si el punto crítico (0, 0) de:</p>
+      <p style="text-align:center;">f(x₁, x₂) = –x₁² – 2x₂²</p>
+      <p>es máximo o mínimo usando eigenvalores.</p>
+
+      <p><b>Ejercicio 5.</b> Verifica que v = [2, 1]ᵀ es eigenvector de:</p>
+      <p style="text-align:center;">C = [3   2]<br>[1   4]</p>
+      <p>y encuentra su eigenvalor asociado.</p>
+
+    </section>
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea7.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> Ver PDF Completo
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+    </section>
+
+  </div>
+
+</body>
+</html>

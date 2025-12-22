@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 3 – Diferenciación Aplicada a Data Science</title>
+
+  <link rel="stylesheet" href="../../../Estilos/Tareas.css">  
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tarea 3 – Resolución de Problemas con Diferenciación</h1>
+    <hr>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="card">
+      <h2>¿QUÉ ES LA DIFERENCIACIÓN?</h2>
+      <p>
+        La diferenciación numérica es una técnica utilizada para aproximar derivadas de funciones 
+        a partir de datos discretos. Permite analizar tasas de cambio, aceleración, crecimiento y 
+        optimización incluso cuando no existe una fórmula explícita o cuando los datos provienen 
+        de mediciones reales, como suele ocurrir en Machine Learning, IoT, análisis financiero o 
+        series temporales.
+      </p>
+
+      <p>
+        En Data Science, las derivadas se aplican para estudiar tendencias, detectar anomalías, 
+        mejorar modelos predictivos, optimizar funciones de pérdida y comprender el comportamiento 
+        dinámico de sistemas complejos. Estas herramientas permiten resolver problemas reales de 
+        negocio mediante el análisis cuantitativo.
+      </p>
+    </section>
+
+
+
+    <!-- EJERCICIO 1 -->
+    <section class="card">
+      <h2>Ejercicio 1 – Análisis de Crecimiento de Usuarios</h2>
+
+      <p>
+        Una startup registra el número acumulado de usuarios activos mensuales (en miles):
+      </p>
+
+      <p>
+        Mes: 1 2 3 4 5 6 7 <br>
+        Usuarios: 10 15 23 34 48 65 85
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>Calcula la tasa de crecimiento en el mes 4 usando diferencia centrada.</li>
+        <li>Tasa de crecimiento en el mes 1 (diferencia adelante).</li>
+        <li>Tasa de crecimiento en el mes 7 (diferencia atrás).</li>
+        <li>Determina el mes con mayor aceleración del crecimiento (segunda derivada).</li>
+        <li>Interpreta si la startup está creciendo de forma acelerada o desacelerada.</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 2 -->
+    <section class="card">
+      <h2>Ejercicio 2 – Optimización de Función de Pérdida</h2>
+
+      <p>
+        Pérdida de un modelo durante entrenamiento:
+      </p>
+
+      <p>
+        Época: 0 10 20 30 40 50 <br>
+        Loss: 2.45 1.82 1.35 1.08 0.95 0.89
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>Tasa de cambio del loss en época 20 (centrada, h = 10).</li>
+        <li>Segunda derivada en época 30 e interpretación sobre convergencia.</li>
+        <li>Determinar cuándo el loss cambia menos de 0.01 por época.</li>
+        <li>Estimar el loss en época 25 usando interpolación lineal.</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 3 -->
+    <section class="card">
+      <h2>Ejercicio 3 – Análisis de Series Temporales de Ventas</h2>
+
+      <p>
+        Ventas ($k) durante una campaña:
+      </p>
+
+      <p>
+        Lun 45 – Mar 52 – Mié 61 – Jue 58 – Vie 73 – Sáb 89 – Dom 95
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>Calcular la derivada diaria (velocidad de ventas).</li>
+        <li>Identificar el día con mayor aceleración (segunda derivada positiva).</li>
+        <li>Cuantificar la caída del jueves.</li>
+        <li>Extrapolar ventas esperadas el siguiente lunes.</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 4 -->
+    <section class="card">
+      <h2>Ejercicio 4 – Gradiente de Función de Activación</h2>
+
+      <p>
+        Función sigmoide σ(x) = 1/(1 + e⁻ˣ)
+      </p>
+
+      <p>
+        x: -3 -2 -1 0 1 2 3 <br>
+        σ(x): 0.0474 0.1192 0.2689 0.5000 0.7311 0.8808 0.9526
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>σ′(0) con diferencia centrada, h = 1.</li>
+        <li>σ′(−2) y σ′(2) con diferencias centradas.</li>
+        <li>Comparar con σ′(x) = σ(x)(1 – σ(x)).</li>
+        <li>Recomendar tamaño de h.</li>
+        <li>Explicar la simetría de la derivada alrededor de x = 0.</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 5 -->
+    <section class="card">
+      <h2>Ejercicio 5 – Detección de Anomalías en Métricas del Sistema</h2>
+
+      <p>
+        Latencia (ms) por hora:
+      </p>
+
+      <p>
+        120 – 125 – 128 – 135 – 280 – 290 – 275 – 155
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>Derivada por hora usando diferencias finitas.</li>
+        <li>Detectar cambio de signo en segunda derivada (pico de anomalía).</li>
+        <li>Cuantificar salto brusco 3–4.</li>
+        <li>Tasa de recuperación entre 6–7.</li>
+        <li>Detectar anomalías (&gt; 50ms/h).</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 6 -->
+    <section class="card">
+      <h2>Ejercicio 6 – Análisis de Tasa de Conversión</h2>
+
+      <p>
+        Conversión vs gasto publicitario:
+      </p>
+
+      <p>
+        Gasto ($k): 0 5 10 15 20 25 <br>
+        Conversión (%): 2.1 3.8 5.2 6.1 6.7 7.0
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>ROI marginal en cada punto (centradas).</li>
+        <li>Rango con ROI &gt; 0.2%.</li>
+        <li>Segunda derivada en $15k.</li>
+        <li>Evaluar si conviene gastar más de $25k.</li>
+      </ul>
+    </section>
+
+
+
+    <!-- EJERCICIO 7 -->
+    <section class="card">
+      <h2>Ejercicio 7 – Feature Engineering con Derivadas</h2>
+
+      <p>
+        Temperaturas por segundo:
+      </p>
+
+      <p>
+        20.1 – 20.3 – 20.8 – 21.5 – 22.6 – 24.2 – 26.1 – 28.5
+      </p>
+
+      <h3>Tareas:</h3>
+      <ul>
+        <li>Crear feature: velocidad de cambio (1ra derivada).</li>
+        <li>Crear feature: aceleración (2da derivada).</li>
+        <li>Detectar alerta (&gt; 0.8°C/s).</li>
+        <li>Normalizar features con min–max scaling.</li>
+        <li>Explicar utilidad para clasificación.</li>
+      </ul>
+    </section>
+
+
+
+
+
+    <!-- ICONOS / ENLACES -->
+    <section class="links">
+      <a href="Tarea4.pdf" target="_blank" class="icon-button">
+        <i class="fa-solid fa-file-pdf"></i> PDF de la tarea
+      </a>
+
+      <a href="../../../index.html" class="icon-button">
+        <i class="fa-solid fa-house"></i> Página principal
+      </a>
+      
+    </section>
+
+  </div>
+
+</body>
+</html>
